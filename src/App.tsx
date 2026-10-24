@@ -80,6 +80,7 @@ const AdasCalibrationModal = React.lazy(() => import('./components/AdasCalibrati
 const SalvageComplianceModal = React.lazy(() => import('./components/SalvageComplianceModal').then(m => ({ default: m.SalvageComplianceModal })));
 const InternationalFreightModal = React.lazy(() => import('./components/InternationalFreightModal').then(m => ({ default: m.InternationalFreightModal })));
 const IntercityBusModal = React.lazy(() => import('./components/IntercityBusModal').then(m => ({ default: m.IntercityBusModal })));
+const MopedRegistrationModal = React.lazy(() => import('./components/MopedRegistrationModal').then(m => ({ default: m.MopedRegistrationModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -274,6 +275,8 @@ export function App() {
   const [isFreightModalOpen, setIsFreightModalOpen] = useState(false);
   const [intercityBusTargetCar, setIntercityBusTargetCar] = useState<Vehicle | null>(null);
   const [isIntercityBusModalOpen, setIsIntercityBusModalOpen] = useState(false);
+  const [mopedTargetCar, setMopedTargetCar] = useState<Vehicle | null>(null);
+  const [isMopedRegistrationModalOpen, setIsMopedRegistrationModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -506,6 +509,10 @@ export function App() {
         onOpenIntercityBus={() => {
           setIntercityBusTargetCar(vehicles[0] || null);
           setIsIntercityBusModalOpen(true);
+        }}
+        onOpenMopedRegistration={() => {
+          setMopedTargetCar(vehicles[0] || null);
+          setIsMopedRegistrationModalOpen(true);
         }}
       />
 
@@ -1263,6 +1270,10 @@ export function App() {
             setIntercityBusTargetCar(car);
             setIsIntercityBusModalOpen(true);
           }}
+          onOpenMopedRegistration={(car) => {
+            setMopedTargetCar(car);
+            setIsMopedRegistrationModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -1917,6 +1928,16 @@ export function App() {
           onClose={() => {
             setIsIntercityBusModalOpen(false);
             setIntercityBusTargetCar(null);
+          }}
+        />
+
+        {/* BDYP, DİN & AYNA Moped, Motosiklet və E-Skuter Qeydiyyatı Portalı Modal */}
+        <MopedRegistrationModal
+          isOpen={isMopedRegistrationModalOpen}
+          initialVehicle={mopedTargetCar}
+          onClose={() => {
+            setIsMopedRegistrationModalOpen(false);
+            setMopedTargetCar(null);
           }}
         />
 

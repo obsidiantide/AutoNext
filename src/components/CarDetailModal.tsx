@@ -66,7 +66,8 @@ import {
   Flame,
   Siren,
   Gavel,
-  KeyRound
+  KeyRound,
+  Bike
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -144,6 +145,7 @@ interface CarDetailModalProps {
   onOpenSalvage?: (vehicle: Vehicle) => void;
   onOpenFreight?: (vehicle: Vehicle) => void;
   onOpenIntercityBus?: (vehicle: Vehicle) => void;
+  onOpenMopedRegistration?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -211,6 +213,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenSalvage,
   onOpenFreight,
   onOpenIntercityBus,
+  onOpenMopedRegistration,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1202,6 +1205,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Bus className="w-4 h-4 text-indigo-400" />
                     <span>AYNA & BBIQ Şəhərlərarası Sərnişin Daşımaları, Marşrut Pasportu & E-Bilet</span>
+                  </button>
+                )}
+
+                {/* BDYP, DİN & AYNA Moped, Motosiklet və E-Skuter Qeydiyyatı Shortcut */}
+                {onOpenMopedRegistration && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenMopedRegistration(vehicle)}
+                    data-testid="moped-registration-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Bike className="w-4 h-4 text-emerald-400" />
+                    <span>BDYP & AYNA Moped, Motosiklet və E-Skuter Qeydiyyatı & A1 Sürücülük</span>
                   </button>
                 )}
 

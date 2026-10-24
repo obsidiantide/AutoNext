@@ -38,6 +38,7 @@ import {
   Siren,
   Gavel,
   Compass,
+  Bike,
   ReceiptText,
   ShieldCheck,
   Leaf,
@@ -100,6 +101,7 @@ interface NavbarProps {
   onOpenSalvage?: () => void;
   onOpenFreight?: () => void;
   onOpenIntercityBus?: () => void;
+  onOpenMopedRegistration?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -157,6 +159,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSalvage,
   onOpenFreight,
   onOpenIntercityBus,
+  onOpenMopedRegistration,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -702,6 +705,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Bus className="w-4 h-4 text-indigo-400" />
               <span className="hidden xl:inline">Şəhərlərarası Bilet (BBIQ)</span>
+            </button>
+          )}
+
+          {/* BDYP, DİN & AYNA Moped & Motosiklet Qeydiyyatı Button */}
+          {onOpenMopedRegistration && (
+            <button
+              onClick={onOpenMopedRegistration}
+              data-testid="navbar-moped-registration-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="BDYP & AYNA Moped, Motosiklet və E-Skuter Qeydiyyatı Portalı"
+            >
+              <Bike className="w-4 h-4 text-emerald-400" />
+              <span className="hidden xl:inline">Moped Qeydiyyatı (BDYP)</span>
             </button>
           )}
 

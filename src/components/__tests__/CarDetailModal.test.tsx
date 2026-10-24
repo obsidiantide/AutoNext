@@ -1355,4 +1355,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenIntercityBusMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders BDYP, DİN & AYNA Moped Registration shortcut and triggers onOpenMopedRegistration callback', () => {
+    const onOpenMopedRegistrationMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenMopedRegistration={onOpenMopedRegistrationMock}
+      />
+    );
+
+    const btn = screen.getByTestId('moped-registration-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMopedRegistrationMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

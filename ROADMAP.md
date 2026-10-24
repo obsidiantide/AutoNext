@@ -600,6 +600,16 @@ This backlog is actively maintained and executed by the **GitHub Growth Agent** 
 - [x] Build official AYNA & BBIQ Electronic Intercity Boarding Pass & Ticket generator (`AYNA-SRN-2026-XXXXX`) with security checksum, platform gate number (Perron №), seat number, coach plate, route passport number (`MP-AZ-2026-XXXX`), printable layout, and one-click clipboard copying
 - [x] Comprehensive Vitest unit test suites (`src/utils/__tests__/intercityBus.test.ts` and `src/components/__tests__/IntercityBusModal.test.tsx`, plus integrations in `Navbar.test.tsx` and `CarDetailModal.test.tsx`) covering tariff formulas, child/infant discounts, luggage fees, seat generator, e-ticket issuance, modal navigation, ticket filtering, print and copy actions
 
+---
+
+### 🛵 Milestone 65: Official BDYP, DİN & AYNA Moped, Motorcycle & Light Electric Mobility Registration, Subcategory A1 Licensing, Delivery Courier Safety & Helmet (UNECE 22.06) Compliance Portal (BDYP, DİN & AYNA Rəsmi Moped və Motosiklet Dövlət Qeydiyyatı, A1 Sürücülük Hüququ, Çatdırılma Kuryer Təhlükəsizliyi, UNECE 22.06 Dəbilqə Standartı & Rəsmi BDYP-MPD-2026 Qeydiyyat Şəhadətnaməsi Portalı) (Completed)
+- [x] Add Official BDYP, DİN & AYNA Moped, Motorcycle & Electric Scooter Registration Modal (`MopedRegistrationModal.tsx`) with Statutory Regulatory & Duty Calculator, UNECE 22.06 Helmet & Courier Safety Stand, BDYP MERO Examination & Inspection Centers Radar, Authentic 2-Tier Azerbaijan Moped License Plate Visualizer, Official BDYP-MPD-2026 Electronic Certificate Generator with SİMA verification, and Unified Public Moped Registry Search
+- [x] Implement statutory moped regulatory and duty calculation engine (`src/utils/mopedRegistration.ts`) adhering to the Law on Road Traffic (YHQ Articles 27 & 33), Code of Administrative Offences (İXM Articles 332.1, 338.4, 339.1, 327.1, 342.2-1), Law on State Duties (Article 18: 30 AZN plate, 30 AZN texpasport, 30 AZN inspection), UNECE 22.06 / 22.05 helmet safety formulas, courier box overhang tolerances (≤0.50m), and multi-currency conversions (AZN, USD, EUR)
+- [x] Add comprehensive mock moped & motorcycle registration database (`src/data/mockMopedRegistrationData.ts`) covering 6 accredited BDYP MERO examination centers across Baku, Zabrat, Sumgayit, and Ganja, 6 authentic registered vehicles with authentic plates (`99-A-102`, `10-AA-519`, `77-B-304`), 4 realistic courier & commuter presets, and 6 statutory safety rules
+- [x] Build official BDYP Electronic Moped Registration Certificate generator (`BDYP-MPD-2026-XXXXX`) with authentic 2-row moped license plate visualizer (`AZ` blue strip, flag, hologram circle), QR security telemetry, SİMA digital signature UID, and printable/copyable layout
+- [x] Comprehensive Vitest unit test suites (`src/utils/__tests__/mopedRegistration.test.ts` and `src/components/__tests__/MopedRegistrationModal.test.tsx`, plus integrations in `Navbar.test.tsx` and `CarDetailModal.test.tsx`) covering category evaluation, age requirements, helmet indices, courier overhang violations, statutory duties, certificate generation, plate formatting, and modal workflows
+
+
 
 
 

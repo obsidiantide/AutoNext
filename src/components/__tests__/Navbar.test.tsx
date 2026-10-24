@@ -498,4 +498,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenIntercityBus).toHaveBeenCalledTimes(1);
   });
+
+  it('renders BDYP, DİN & AYNA Moped Registration button and calls onOpenMopedRegistration when clicked', () => {
+    const onOpenMopedRegistration = vi.fn();
+    render(<Navbar {...defaultProps} onOpenMopedRegistration={onOpenMopedRegistration} />);
+
+    const btn = screen.getByTestId('navbar-moped-registration-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMopedRegistration).toHaveBeenCalledTimes(1);
+  });
 });
