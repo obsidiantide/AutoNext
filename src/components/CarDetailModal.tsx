@@ -67,7 +67,8 @@ import {
   Siren,
   Gavel,
   KeyRound,
-  Bike
+  Bike,
+  School
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -146,6 +147,7 @@ interface CarDetailModalProps {
   onOpenFreight?: (vehicle: Vehicle) => void;
   onOpenIntercityBus?: (vehicle: Vehicle) => void;
   onOpenMopedRegistration?: (vehicle: Vehicle) => void;
+  onOpenSchoolBus?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -214,6 +216,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenFreight,
   onOpenIntercityBus,
   onOpenMopedRegistration,
+  onOpenSchoolBus,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1218,6 +1221,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Bike className="w-4 h-4 text-emerald-400" />
                     <span>BDYP & AYNA Moped, Motosiklet və E-Skuter Qeydiyyatı & A1 Sürücülük</span>
+                  </button>
+                )}
+
+                {/* Elm və Təhsil Nazirliyi, AYNA & BDYP Məktəbli Avtobusları və Şagird Daşınması Shortcut */}
+                {onOpenSchoolBus && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenSchoolBus(vehicle)}
+                    data-testid="school-bus-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <School className="w-4 h-4 text-amber-400" />
+                    <span>Elm Nazirliyi & AYNA Məktəbli Avtobusları & Şagird Daşınması Portalı</span>
                   </button>
                 )}
 

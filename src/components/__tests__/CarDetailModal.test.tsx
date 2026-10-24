@@ -1375,4 +1375,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenMopedRegistrationMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders Elm və Təhsil Nazirliyi, AYNA & BDYP School Bus shortcut and triggers onOpenSchoolBus callback', () => {
+    const onOpenSchoolBusMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenSchoolBus={onOpenSchoolBusMock}
+      />
+    );
+
+    const btn = screen.getByTestId('school-bus-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSchoolBusMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

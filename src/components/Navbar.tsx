@@ -43,7 +43,8 @@ import {
   ShieldCheck,
   Leaf,
   Briefcase,
-  KeyRound
+  KeyRound,
+  School
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -102,6 +103,7 @@ interface NavbarProps {
   onOpenFreight?: () => void;
   onOpenIntercityBus?: () => void;
   onOpenMopedRegistration?: () => void;
+  onOpenSchoolBus?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -160,6 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenFreight,
   onOpenIntercityBus,
   onOpenMopedRegistration,
+  onOpenSchoolBus,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -718,6 +721,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Bike className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">Moped Qeydiyyatı (BDYP)</span>
+            </button>
+          )}
+
+          {/* Elm və Təhsil Nazirliyi, AYNA & BDYP Məktəbli Avtobusları Portalı Button */}
+          {onOpenSchoolBus && (
+            <button
+              onClick={onOpenSchoolBus}
+              data-testid="navbar-school-bus-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="Elm və Təhsil Nazirliyi, AYNA & BDYP Rəsmi Məktəbli Avtobusları və Şagird Daşınması Portalı"
+            >
+              <School className="w-4 h-4 text-amber-400" />
+              <span className="hidden xl:inline">Məktəb Avtobusu (AYNA)</span>
             </button>
           )}
 

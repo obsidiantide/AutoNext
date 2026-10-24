@@ -508,4 +508,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenMopedRegistration).toHaveBeenCalledTimes(1);
   });
+
+  it('renders Elm və Təhsil Nazirliyi, AYNA & BDYP School Bus button and calls onOpenSchoolBus when clicked', () => {
+    const onOpenSchoolBus = vi.fn();
+    render(<Navbar {...defaultProps} onOpenSchoolBus={onOpenSchoolBus} />);
+
+    const btn = screen.getByTestId('navbar-school-bus-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSchoolBus).toHaveBeenCalledTimes(1);
+  });
 });

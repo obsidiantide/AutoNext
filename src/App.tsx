@@ -81,6 +81,7 @@ const SalvageComplianceModal = React.lazy(() => import('./components/SalvageComp
 const InternationalFreightModal = React.lazy(() => import('./components/InternationalFreightModal').then(m => ({ default: m.InternationalFreightModal })));
 const IntercityBusModal = React.lazy(() => import('./components/IntercityBusModal').then(m => ({ default: m.IntercityBusModal })));
 const MopedRegistrationModal = React.lazy(() => import('./components/MopedRegistrationModal').then(m => ({ default: m.MopedRegistrationModal })));
+const SchoolBusModal = React.lazy(() => import('./components/SchoolBusModal').then(m => ({ default: m.SchoolBusModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -277,6 +278,8 @@ export function App() {
   const [isIntercityBusModalOpen, setIsIntercityBusModalOpen] = useState(false);
   const [mopedTargetCar, setMopedTargetCar] = useState<Vehicle | null>(null);
   const [isMopedRegistrationModalOpen, setIsMopedRegistrationModalOpen] = useState(false);
+  const [schoolBusTargetCar, setSchoolBusTargetCar] = useState<Vehicle | null>(null);
+  const [isSchoolBusModalOpen, setIsSchoolBusModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -513,6 +516,10 @@ export function App() {
         onOpenMopedRegistration={() => {
           setMopedTargetCar(vehicles[0] || null);
           setIsMopedRegistrationModalOpen(true);
+        }}
+        onOpenSchoolBus={() => {
+          setSchoolBusTargetCar(vehicles[0] || null);
+          setIsSchoolBusModalOpen(true);
         }}
       />
 
@@ -1274,6 +1281,10 @@ export function App() {
             setMopedTargetCar(car);
             setIsMopedRegistrationModalOpen(true);
           }}
+          onOpenSchoolBus={(car) => {
+            setSchoolBusTargetCar(car);
+            setIsSchoolBusModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -1938,6 +1949,17 @@ export function App() {
           onClose={() => {
             setIsMopedRegistrationModalOpen(false);
             setMopedTargetCar(null);
+          }}
+        />
+
+        {/* Elm və Təhsil Nazirliyi, AYNA & BDYP Məktəbli Avtobusları və Şagird Daşınması Portalı Modal */}
+        <SchoolBusModal
+          isOpen={isSchoolBusModalOpen}
+          vehicle={schoolBusTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsSchoolBusModalOpen(false);
+            setSchoolBusTargetCar(null);
           }}
         />
 
