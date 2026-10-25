@@ -83,6 +83,7 @@ const IntercityBusModal = React.lazy(() => import('./components/IntercityBusModa
 const MopedRegistrationModal = React.lazy(() => import('./components/MopedRegistrationModal').then(m => ({ default: m.MopedRegistrationModal })));
 const SchoolBusModal = React.lazy(() => import('./components/SchoolBusModal').then(m => ({ default: m.SchoolBusModal })));
 const TractorComplianceModal = React.lazy(() => import('./components/TractorComplianceModal').then(m => ({ default: m.TractorComplianceModal })));
+const MotorsportComplianceModal = React.lazy(() => import('./components/MotorsportComplianceModal').then(m => ({ default: m.MotorsportComplianceModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -283,6 +284,8 @@ export function App() {
   const [isSchoolBusModalOpen, setIsSchoolBusModalOpen] = useState(false);
   const [tractorTargetCar, setTractorTargetCar] = useState<Vehicle | null>(null);
   const [isTractorComplianceModalOpen, setIsTractorComplianceModalOpen] = useState(false);
+  const [motorsportTargetCar, setMotorsportTargetCar] = useState<Vehicle | null>(null);
+  const [isMotorsportComplianceModalOpen, setIsMotorsportComplianceModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -527,6 +530,10 @@ export function App() {
         onOpenTractorCompliance={() => {
           setTractorTargetCar(vehicles[0] || null);
           setIsTractorComplianceModalOpen(true);
+        }}
+        onOpenMotorsportCompliance={() => {
+          setMotorsportTargetCar(vehicles[0] || null);
+          setIsMotorsportComplianceModalOpen(true);
         }}
       />
 
@@ -1296,6 +1303,10 @@ export function App() {
             setTractorTargetCar(car);
             setIsTractorComplianceModalOpen(true);
           }}
+          onOpenMotorsportCompliance={(car) => {
+            setMotorsportTargetCar(car);
+            setIsMotorsportComplianceModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -1982,6 +1993,17 @@ export function App() {
           onClose={() => {
             setIsTractorComplianceModalOpen(false);
             setTractorTargetCar(null);
+          }}
+        />
+
+        {/* AAF & BDYP Motorsport, Trek Günləri və İdman Pasportu Portalı Modal */}
+        <MotorsportComplianceModal
+          isOpen={isMotorsportComplianceModalOpen}
+          vehicle={motorsportTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsMotorsportComplianceModalOpen(false);
+            setMotorsportTargetCar(null);
           }}
         />
 

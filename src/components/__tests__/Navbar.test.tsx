@@ -528,4 +528,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenTractorCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAF & BDYP Motorsport button and calls onOpenMotorsportCompliance when clicked', () => {
+    const onOpenMotorsportCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenMotorsportCompliance={onOpenMotorsportCompliance} />);
+
+    const btn = screen.getByTestId('navbar-motorsport-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMotorsportCompliance).toHaveBeenCalledTimes(1);
+  });
 });

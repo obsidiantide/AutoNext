@@ -69,7 +69,8 @@ import {
   KeyRound,
   Bike,
   School,
-  Tractor
+  Tractor,
+  Trophy
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -150,6 +151,7 @@ interface CarDetailModalProps {
   onOpenMopedRegistration?: (vehicle: Vehicle) => void;
   onOpenSchoolBus?: (vehicle: Vehicle) => void;
   onOpenTractorCompliance?: (vehicle: Vehicle) => void;
+  onOpenMotorsportCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -220,6 +222,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenMopedRegistration,
   onOpenSchoolBus,
   onOpenTractorCompliance,
+  onOpenMotorsportCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1250,6 +1253,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Tractor className="w-4 h-4 text-emerald-400" />
                     <span>KTN, DAXA & BDYP Aqrotexnika və Traktor Portalı</span>
+                  </button>
+                )}
+
+                {/* AAF & BDYP Motorsport, Trek Günləri və İdman Pasportu Shortcut */}
+                {onOpenMotorsportCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenMotorsportCompliance(vehicle)}
+                    data-testid="motorsport-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Trophy className="w-4 h-4 text-red-400" />
+                    <span>AAF & BDYP Motorsport, Trek Günləri & İdman Pasportu</span>
                   </button>
                 )}
 

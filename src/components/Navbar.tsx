@@ -45,7 +45,8 @@ import {
   Briefcase,
   KeyRound,
   School,
-  Tractor
+  Tractor,
+  Trophy
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -106,6 +107,7 @@ interface NavbarProps {
   onOpenMopedRegistration?: () => void;
   onOpenSchoolBus?: () => void;
   onOpenTractorCompliance?: () => void;
+  onOpenMotorsportCompliance?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -166,6 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenMopedRegistration,
   onOpenSchoolBus,
   onOpenTractorCompliance,
+  onOpenMotorsportCompliance,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -750,6 +753,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Tractor className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">Aqrotexnika (KTN)</span>
+            </button>
+          )}
+
+          {/* AAF & BDYP Motorsport, Trek Günləri və İdman Pasportu Portalı Button */}
+          {onOpenMotorsportCompliance && (
+            <button
+              onClick={onOpenMotorsportCompliance}
+              data-testid="navbar-motorsport-compliance-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAF & BDYP Rəsmi Motorsport, Trek Günləri və İdman Pasportu Portalı"
+            >
+              <Trophy className="w-4 h-4 text-red-400" />
+              <span className="hidden xl:inline">Motorsport (AAF)</span>
             </button>
           )}
 
