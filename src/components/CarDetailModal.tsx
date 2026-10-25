@@ -156,6 +156,7 @@ interface CarDetailModalProps {
   onOpenMotorsportCompliance?: (vehicle: Vehicle) => void;
   onOpenAmbulanceCompliance?: (vehicle: Vehicle) => void;
   onOpenSobrietyCompliance?: (vehicle: Vehicle) => void;
+  onOpenDiplomaticCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -229,6 +230,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenMotorsportCompliance,
   onOpenAmbulanceCompliance,
   onOpenSobrietyCompliance,
+  onOpenDiplomaticCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1298,6 +1300,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <WineOff className="w-4 h-4 text-rose-400" />
                     <span>DİN & RNM Alkotest və Toksikoloji Müayinə</span>
+                  </button>
+                )}
+
+                {/* XİN, DİN & BDYP Diplomatik Korpus və Qırmızı Nömrələr Shortcut */}
+                {onOpenDiplomaticCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenDiplomaticCompliance(vehicle)}
+                    data-testid="diplomatic-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Globe className="w-4 h-4 text-red-400" />
+                    <span>XİN & BDYP Diplomatik Korpus və Qırmızı Nömrələr</span>
                   </button>
                 )}
 

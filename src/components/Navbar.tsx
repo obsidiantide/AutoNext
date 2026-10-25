@@ -112,6 +112,7 @@ interface NavbarProps {
   onOpenMotorsportCompliance?: () => void;
   onOpenAmbulanceCompliance?: () => void;
   onOpenSobrietyCompliance?: () => void;
+  onOpenDiplomaticCompliance?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -175,6 +176,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenMotorsportCompliance,
   onOpenAmbulanceCompliance,
   onOpenSobrietyCompliance,
+  onOpenDiplomaticCompliance,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -798,6 +800,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <WineOff className="w-4 h-4 text-rose-400" />
               <span className="hidden xl:inline">Alkotest & Narkoloji (RNM)</span>
+            </button>
+          )}
+
+          {/* XİN, DİN & BDYP Diplomatik Korpus və Beynəlxalq Nümayəndəliklər Portalı Button */}
+          {onOpenDiplomaticCompliance && (
+            <button
+              onClick={onOpenDiplomaticCompliance}
+              data-testid="navbar-diplomatic-compliance-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="XİN & BDYP Diplomatik Korpus və Qırmızı Nömrələr Portalı"
+            >
+              <Globe className="w-4 h-4 text-red-400" />
+              <span className="hidden xl:inline">Diplomatik Korpus (XİN)</span>
             </button>
           )}
 

@@ -558,4 +558,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenSobrietyCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders XİN & BDYP Diplomatic Corps button and calls onOpenDiplomaticCompliance when clicked', () => {
+    const onOpenDiplomaticCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenDiplomaticCompliance={onOpenDiplomaticCompliance} />);
+
+    const btn = screen.getByTestId('navbar-diplomatic-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenDiplomaticCompliance).toHaveBeenCalledTimes(1);
+  });
 });

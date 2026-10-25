@@ -1475,4 +1475,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenSobrietyComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenDiplomaticCompliance from action buttons list', () => {
+    const onOpenDiplomaticComplianceMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenDiplomaticCompliance={onOpenDiplomaticComplianceMock}
+      />
+    );
+
+    const btn = screen.getByTestId('diplomatic-compliance-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenDiplomaticComplianceMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

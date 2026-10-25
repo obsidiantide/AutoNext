@@ -86,6 +86,7 @@ const TractorComplianceModal = React.lazy(() => import('./components/TractorComp
 const MotorsportComplianceModal = React.lazy(() => import('./components/MotorsportComplianceModal').then(m => ({ default: m.MotorsportComplianceModal })));
 const AmbulanceComplianceModal = React.lazy(() => import('./components/AmbulanceComplianceModal').then(m => ({ default: m.AmbulanceComplianceModal })));
 const SobrietyComplianceModal = React.lazy(() => import('./components/SobrietyComplianceModal').then(m => ({ default: m.SobrietyComplianceModal })));
+const DiplomaticComplianceModal = React.lazy(() => import('./components/DiplomaticComplianceModal').then(m => ({ default: m.DiplomaticComplianceModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -292,6 +293,8 @@ export function App() {
   const [isAmbulanceComplianceModalOpen, setIsAmbulanceComplianceModalOpen] = useState(false);
   const [sobrietyTargetCar, setSobrietyTargetCar] = useState<Vehicle | null>(null);
   const [isSobrietyComplianceModalOpen, setIsSobrietyComplianceModalOpen] = useState(false);
+  const [diplomaticTargetCar, setDiplomaticTargetCar] = useState<Vehicle | null>(null);
+  const [isDiplomaticModalOpen, setIsDiplomaticModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -548,6 +551,10 @@ export function App() {
         onOpenSobrietyCompliance={() => {
           setSobrietyTargetCar(vehicles[0] || null);
           setIsSobrietyComplianceModalOpen(true);
+        }}
+        onOpenDiplomaticCompliance={() => {
+          setDiplomaticTargetCar(vehicles[0] || null);
+          setIsDiplomaticModalOpen(true);
         }}
       />
 
@@ -1329,6 +1336,10 @@ export function App() {
             setSobrietyTargetCar(car);
             setIsSobrietyComplianceModalOpen(true);
           }}
+          onOpenDiplomaticCompliance={(car) => {
+            setDiplomaticTargetCar(car);
+            setIsDiplomaticModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2049,6 +2060,18 @@ export function App() {
           onClose={() => {
             setIsSobrietyComplianceModalOpen(false);
             setSobrietyTargetCar(null);
+          }}
+        />
+
+        {/* XİN, DİN & BDYP Diplomatik Korpus və Beynəlxalq Nümayəndəliklər Portalı Modal */}
+        <DiplomaticComplianceModal
+          isOpen={isDiplomaticModalOpen}
+          vehicle={diplomaticTargetCar}
+          currency={currency}
+          lang={lang}
+          onClose={() => {
+            setIsDiplomaticModalOpen(false);
+            setDiplomaticTargetCar(null);
           }}
         />
 
