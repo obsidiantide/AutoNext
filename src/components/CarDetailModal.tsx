@@ -71,7 +71,8 @@ import {
   School,
   Tractor,
   Trophy,
-  Ambulance
+  Ambulance,
+  WineOff
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -154,6 +155,7 @@ interface CarDetailModalProps {
   onOpenTractorCompliance?: (vehicle: Vehicle) => void;
   onOpenMotorsportCompliance?: (vehicle: Vehicle) => void;
   onOpenAmbulanceCompliance?: (vehicle: Vehicle) => void;
+  onOpenSobrietyCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -226,6 +228,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenTractorCompliance,
   onOpenMotorsportCompliance,
   onOpenAmbulanceCompliance,
+  onOpenSobrietyCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1282,6 +1285,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Ambulance className="w-4 h-4 text-red-400" />
                     <span>TƏBİB & BDYP 103 Təcili Tibbi Yardım və Reanimasiya</span>
+                  </button>
+                )}
+
+                {/* DİN, BDYP & RNM Sürücü Sərxoşluğu və Alkotest Telemetriyası Shortcut */}
+                {onOpenSobrietyCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenSobrietyCompliance(vehicle)}
+                    data-testid="sobriety-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-rose-600/10 hover:bg-rose-600/20 text-rose-400 border border-rose-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <WineOff className="w-4 h-4 text-rose-400" />
+                    <span>DİN & RNM Alkotest və Toksikoloji Müayinə</span>
                   </button>
                 )}
 

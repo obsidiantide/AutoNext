@@ -548,4 +548,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAmbulanceCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DİN & RNM Sobriety Alcotest button and calls onOpenSobrietyCompliance when clicked', () => {
+    const onOpenSobrietyCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenSobrietyCompliance={onOpenSobrietyCompliance} />);
+
+    const btn = screen.getByTestId('navbar-sobriety-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSobrietyCompliance).toHaveBeenCalledTimes(1);
+  });
 });

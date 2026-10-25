@@ -47,7 +47,8 @@ import {
   School,
   Tractor,
   Trophy,
-  Ambulance
+  Ambulance,
+  WineOff
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -110,6 +111,7 @@ interface NavbarProps {
   onOpenTractorCompliance?: () => void;
   onOpenMotorsportCompliance?: () => void;
   onOpenAmbulanceCompliance?: () => void;
+  onOpenSobrietyCompliance?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -172,6 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenTractorCompliance,
   onOpenMotorsportCompliance,
   onOpenAmbulanceCompliance,
+  onOpenSobrietyCompliance,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -782,6 +785,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Ambulance className="w-4 h-4 text-red-400" />
               <span className="hidden xl:inline">Təcili Tibbi Yardım (103)</span>
+            </button>
+          )}
+
+          {/* DİN, BDYP & RNM Sürücü Sərxoşluğu və Alkotest Telemetriyası Portalı Button */}
+          {onOpenSobrietyCompliance && (
+            <button
+              onClick={onOpenSobrietyCompliance}
+              data-testid="navbar-sobriety-compliance-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600/10 hover:bg-rose-600/20 text-rose-400 border border-rose-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="DİN & RNM Alkotest və Toksikoloji Müayinə Portalı"
+            >
+              <WineOff className="w-4 h-4 text-rose-400" />
+              <span className="hidden xl:inline">Alkotest & Narkoloji (RNM)</span>
             </button>
           )}
 

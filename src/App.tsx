@@ -85,6 +85,7 @@ const SchoolBusModal = React.lazy(() => import('./components/SchoolBusModal').th
 const TractorComplianceModal = React.lazy(() => import('./components/TractorComplianceModal').then(m => ({ default: m.TractorComplianceModal })));
 const MotorsportComplianceModal = React.lazy(() => import('./components/MotorsportComplianceModal').then(m => ({ default: m.MotorsportComplianceModal })));
 const AmbulanceComplianceModal = React.lazy(() => import('./components/AmbulanceComplianceModal').then(m => ({ default: m.AmbulanceComplianceModal })));
+const SobrietyComplianceModal = React.lazy(() => import('./components/SobrietyComplianceModal').then(m => ({ default: m.SobrietyComplianceModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -289,6 +290,8 @@ export function App() {
   const [isMotorsportComplianceModalOpen, setIsMotorsportComplianceModalOpen] = useState(false);
   const [ambulanceTargetCar, setAmbulanceTargetCar] = useState<Vehicle | null>(null);
   const [isAmbulanceComplianceModalOpen, setIsAmbulanceComplianceModalOpen] = useState(false);
+  const [sobrietyTargetCar, setSobrietyTargetCar] = useState<Vehicle | null>(null);
+  const [isSobrietyComplianceModalOpen, setIsSobrietyComplianceModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -541,6 +544,10 @@ export function App() {
         onOpenAmbulanceCompliance={() => {
           setAmbulanceTargetCar(vehicles[0] || null);
           setIsAmbulanceComplianceModalOpen(true);
+        }}
+        onOpenSobrietyCompliance={() => {
+          setSobrietyTargetCar(vehicles[0] || null);
+          setIsSobrietyComplianceModalOpen(true);
         }}
       />
 
@@ -1318,6 +1325,10 @@ export function App() {
             setAmbulanceTargetCar(car);
             setIsAmbulanceComplianceModalOpen(true);
           }}
+          onOpenSobrietyCompliance={(car) => {
+            setSobrietyTargetCar(car);
+            setIsSobrietyComplianceModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2026,6 +2037,18 @@ export function App() {
           onClose={() => {
             setIsAmbulanceComplianceModalOpen(false);
             setAmbulanceTargetCar(null);
+          }}
+        />
+
+        {/* DİN, BDYP & RNM Sürücü Sərxoşluğu və Alkotest Telemetriyası Portalı Modal */}
+        <SobrietyComplianceModal
+          isOpen={isSobrietyComplianceModalOpen}
+          vehicle={sobrietyTargetCar}
+          currency={currency}
+          lang={lang}
+          onClose={() => {
+            setIsSobrietyComplianceModalOpen(false);
+            setSobrietyTargetCar(null);
           }}
         />
 
