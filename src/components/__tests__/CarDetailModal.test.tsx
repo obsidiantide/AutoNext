@@ -1495,4 +1495,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenDiplomaticComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenMilitaryDuty from action buttons list', () => {
+    const onOpenMilitaryDutyMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenMilitaryDuty={onOpenMilitaryDutyMock}
+      />
+    );
+
+    const btn = screen.getByTestId('military-duty-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMilitaryDutyMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

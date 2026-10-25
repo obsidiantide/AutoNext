@@ -87,6 +87,7 @@ const MotorsportComplianceModal = React.lazy(() => import('./components/Motorspo
 const AmbulanceComplianceModal = React.lazy(() => import('./components/AmbulanceComplianceModal').then(m => ({ default: m.AmbulanceComplianceModal })));
 const SobrietyComplianceModal = React.lazy(() => import('./components/SobrietyComplianceModal').then(m => ({ default: m.SobrietyComplianceModal })));
 const DiplomaticComplianceModal = React.lazy(() => import('./components/DiplomaticComplianceModal').then(m => ({ default: m.DiplomaticComplianceModal })));
+const MilitaryDutyModal = React.lazy(() => import('./components/MilitaryDutyModal').then(m => ({ default: m.MilitaryDutyModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -295,6 +296,8 @@ export function App() {
   const [isSobrietyComplianceModalOpen, setIsSobrietyComplianceModalOpen] = useState(false);
   const [diplomaticTargetCar, setDiplomaticTargetCar] = useState<Vehicle | null>(null);
   const [isDiplomaticModalOpen, setIsDiplomaticModalOpen] = useState(false);
+  const [militaryDutyTargetCar, setMilitaryDutyTargetCar] = useState<Vehicle | null>(null);
+  const [isMilitaryDutyModalOpen, setIsMilitaryDutyModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -555,6 +558,10 @@ export function App() {
         onOpenDiplomaticCompliance={() => {
           setDiplomaticTargetCar(vehicles[0] || null);
           setIsDiplomaticModalOpen(true);
+        }}
+        onOpenMilitaryDuty={() => {
+          setMilitaryDutyTargetCar(vehicles[0] || null);
+          setIsMilitaryDutyModalOpen(true);
         }}
       />
 
@@ -1340,6 +1347,10 @@ export function App() {
             setDiplomaticTargetCar(car);
             setIsDiplomaticModalOpen(true);
           }}
+          onOpenMilitaryDuty={(car) => {
+            setMilitaryDutyTargetCar(car);
+            setIsMilitaryDutyModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2072,6 +2083,18 @@ export function App() {
           onClose={() => {
             setIsDiplomaticModalOpen(false);
             setDiplomaticTargetCar(null);
+          }}
+        />
+
+        {/* SHXÇDX, MN & BDYP Hərbi-Nəqliyyat Vəzifəsi & Qara Qeydiyyat Nişanları Portalı Modal */}
+        <MilitaryDutyModal
+          isOpen={isMilitaryDutyModalOpen}
+          vehicle={militaryDutyTargetCar}
+          currency={currency}
+          lang={lang}
+          onClose={() => {
+            setIsMilitaryDutyModalOpen(false);
+            setMilitaryDutyTargetCar(null);
           }}
         />
 

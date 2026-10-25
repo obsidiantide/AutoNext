@@ -568,4 +568,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenDiplomaticCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders SHXÇDX & MN Military Duty button and calls onOpenMilitaryDuty when clicked', () => {
+    const onOpenMilitaryDuty = vi.fn();
+    render(<Navbar {...defaultProps} onOpenMilitaryDuty={onOpenMilitaryDuty} />);
+
+    const btn = screen.getByTestId('navbar-military-duty-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMilitaryDuty).toHaveBeenCalledTimes(1);
+  });
 });

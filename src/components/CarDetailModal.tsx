@@ -157,6 +157,7 @@ interface CarDetailModalProps {
   onOpenAmbulanceCompliance?: (vehicle: Vehicle) => void;
   onOpenSobrietyCompliance?: (vehicle: Vehicle) => void;
   onOpenDiplomaticCompliance?: (vehicle: Vehicle) => void;
+  onOpenMilitaryDuty?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -231,6 +232,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenAmbulanceCompliance,
   onOpenSobrietyCompliance,
   onOpenDiplomaticCompliance,
+  onOpenMilitaryDuty,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1313,6 +1315,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Globe className="w-4 h-4 text-red-400" />
                     <span>XİN & BDYP Diplomatik Korpus və Qırmızı Nömrələr</span>
+                  </button>
+                )}
+
+                {/* SHXÇDX, MN & BDYP Hərbi-Nəqliyyat Vəzifəsi & Qara Qeydiyyat Nişanları Shortcut */}
+                {onOpenMilitaryDuty && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenMilitaryDuty(vehicle)}
+                    data-testid="military-duty-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <ShieldAlert className="w-4 h-4 text-emerald-400" />
+                    <span>SHXÇDX, MN & BDYP Hərbi-Nəqliyyat Vəzifəsi & Qara Nişanlar</span>
                   </button>
                 )}
 
