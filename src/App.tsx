@@ -84,6 +84,7 @@ const MopedRegistrationModal = React.lazy(() => import('./components/MopedRegist
 const SchoolBusModal = React.lazy(() => import('./components/SchoolBusModal').then(m => ({ default: m.SchoolBusModal })));
 const TractorComplianceModal = React.lazy(() => import('./components/TractorComplianceModal').then(m => ({ default: m.TractorComplianceModal })));
 const MotorsportComplianceModal = React.lazy(() => import('./components/MotorsportComplianceModal').then(m => ({ default: m.MotorsportComplianceModal })));
+const AmbulanceComplianceModal = React.lazy(() => import('./components/AmbulanceComplianceModal').then(m => ({ default: m.AmbulanceComplianceModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -286,6 +287,8 @@ export function App() {
   const [isTractorComplianceModalOpen, setIsTractorComplianceModalOpen] = useState(false);
   const [motorsportTargetCar, setMotorsportTargetCar] = useState<Vehicle | null>(null);
   const [isMotorsportComplianceModalOpen, setIsMotorsportComplianceModalOpen] = useState(false);
+  const [ambulanceTargetCar, setAmbulanceTargetCar] = useState<Vehicle | null>(null);
+  const [isAmbulanceComplianceModalOpen, setIsAmbulanceComplianceModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -534,6 +537,10 @@ export function App() {
         onOpenMotorsportCompliance={() => {
           setMotorsportTargetCar(vehicles[0] || null);
           setIsMotorsportComplianceModalOpen(true);
+        }}
+        onOpenAmbulanceCompliance={() => {
+          setAmbulanceTargetCar(vehicles[0] || null);
+          setIsAmbulanceComplianceModalOpen(true);
         }}
       />
 
@@ -1307,6 +1314,10 @@ export function App() {
             setMotorsportTargetCar(car);
             setIsMotorsportComplianceModalOpen(true);
           }}
+          onOpenAmbulanceCompliance={(car) => {
+            setAmbulanceTargetCar(car);
+            setIsAmbulanceComplianceModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2004,6 +2015,17 @@ export function App() {
           onClose={() => {
             setIsMotorsportComplianceModalOpen(false);
             setMotorsportTargetCar(null);
+          }}
+        />
+
+        {/* TƏBİB & BDYP 103 Təcili Tibbi Yardım və Reanimasiya Portalı Modal */}
+        <AmbulanceComplianceModal
+          isOpen={isAmbulanceComplianceModalOpen}
+          currency={currency}
+          lang={lang}
+          onClose={() => {
+            setIsAmbulanceComplianceModalOpen(false);
+            setAmbulanceTargetCar(null);
           }}
         />
 

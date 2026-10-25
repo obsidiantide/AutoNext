@@ -70,7 +70,8 @@ import {
   Bike,
   School,
   Tractor,
-  Trophy
+  Trophy,
+  Ambulance
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -152,6 +153,7 @@ interface CarDetailModalProps {
   onOpenSchoolBus?: (vehicle: Vehicle) => void;
   onOpenTractorCompliance?: (vehicle: Vehicle) => void;
   onOpenMotorsportCompliance?: (vehicle: Vehicle) => void;
+  onOpenAmbulanceCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -223,6 +225,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenSchoolBus,
   onOpenTractorCompliance,
   onOpenMotorsportCompliance,
+  onOpenAmbulanceCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1266,6 +1269,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Trophy className="w-4 h-4 text-red-400" />
                     <span>AAF & BDYP Motorsport, Trek Günləri & İdman Pasportu</span>
+                  </button>
+                )}
+
+                {/* TƏBİB & BDYP 103 Təcili Tibbi Yardım və Reanimasiya Shortcut */}
+                {onOpenAmbulanceCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenAmbulanceCompliance(vehicle)}
+                    data-testid="ambulance-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Ambulance className="w-4 h-4 text-red-400" />
+                    <span>TƏBİB & BDYP 103 Təcili Tibbi Yardım və Reanimasiya</span>
                   </button>
                 )}
 

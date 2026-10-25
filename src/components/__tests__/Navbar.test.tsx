@@ -538,4 +538,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenMotorsportCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders TƏBİB & BDYP Ambulance 103 button and calls onOpenAmbulanceCompliance when clicked', () => {
+    const onOpenAmbulanceCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAmbulanceCompliance={onOpenAmbulanceCompliance} />);
+
+    const btn = screen.getByTestId('navbar-ambulance-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAmbulanceCompliance).toHaveBeenCalledTimes(1);
+  });
 });

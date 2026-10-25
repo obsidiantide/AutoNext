@@ -46,7 +46,8 @@ import {
   KeyRound,
   School,
   Tractor,
-  Trophy
+  Trophy,
+  Ambulance
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -108,6 +109,7 @@ interface NavbarProps {
   onOpenSchoolBus?: () => void;
   onOpenTractorCompliance?: () => void;
   onOpenMotorsportCompliance?: () => void;
+  onOpenAmbulanceCompliance?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -169,6 +171,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSchoolBus,
   onOpenTractorCompliance,
   onOpenMotorsportCompliance,
+  onOpenAmbulanceCompliance,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -766,6 +769,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Trophy className="w-4 h-4 text-red-400" />
               <span className="hidden xl:inline">Motorsport (AAF)</span>
+            </button>
+          )}
+
+          {/* TƏBİB & BDYP Təcili Tibbi Yardım və Reanimasiya (103) Portalı Button */}
+          {onOpenAmbulanceCompliance && (
+            <button
+              onClick={onOpenAmbulanceCompliance}
+              data-testid="navbar-ambulance-compliance-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="TƏBİB & BDYP 103 Təcili Tibbi Yardım və Reanimasiya Portalı"
+            >
+              <Ambulance className="w-4 h-4 text-red-400" />
+              <span className="hidden xl:inline">Təcili Tibbi Yardım (103)</span>
             </button>
           )}
 

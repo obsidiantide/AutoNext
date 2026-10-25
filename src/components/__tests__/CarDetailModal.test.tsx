@@ -1435,4 +1435,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenMotorsportComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenAmbulanceCompliance from action buttons list', () => {
+    const onOpenAmbulanceComplianceMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenAmbulanceCompliance={onOpenAmbulanceComplianceMock}
+      />
+    );
+
+    const btn = screen.getByTestId('ambulance-compliance-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAmbulanceComplianceMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });
