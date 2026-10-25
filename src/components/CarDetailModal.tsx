@@ -68,7 +68,8 @@ import {
   Gavel,
   KeyRound,
   Bike,
-  School
+  School,
+  Tractor
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -148,6 +149,7 @@ interface CarDetailModalProps {
   onOpenIntercityBus?: (vehicle: Vehicle) => void;
   onOpenMopedRegistration?: (vehicle: Vehicle) => void;
   onOpenSchoolBus?: (vehicle: Vehicle) => void;
+  onOpenTractorCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -217,6 +219,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenIntercityBus,
   onOpenMopedRegistration,
   onOpenSchoolBus,
+  onOpenTractorCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1234,6 +1237,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <School className="w-4 h-4 text-amber-400" />
                     <span>Elm Nazirliyi & AYNA Məktəbli Avtobusları & Şagird Daşınması Portalı</span>
+                  </button>
+                )}
+
+                {/* KTN & DAXA Aqrotexnika və Traktor Portalı Shortcut */}
+                {onOpenTractorCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenTractorCompliance(vehicle)}
+                    data-testid="tractor-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Tractor className="w-4 h-4 text-emerald-400" />
+                    <span>KTN, DAXA & BDYP Aqrotexnika və Traktor Portalı</span>
                   </button>
                 )}
 

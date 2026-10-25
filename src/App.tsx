@@ -82,6 +82,7 @@ const InternationalFreightModal = React.lazy(() => import('./components/Internat
 const IntercityBusModal = React.lazy(() => import('./components/IntercityBusModal').then(m => ({ default: m.IntercityBusModal })));
 const MopedRegistrationModal = React.lazy(() => import('./components/MopedRegistrationModal').then(m => ({ default: m.MopedRegistrationModal })));
 const SchoolBusModal = React.lazy(() => import('./components/SchoolBusModal').then(m => ({ default: m.SchoolBusModal })));
+const TractorComplianceModal = React.lazy(() => import('./components/TractorComplianceModal').then(m => ({ default: m.TractorComplianceModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -280,6 +281,8 @@ export function App() {
   const [isMopedRegistrationModalOpen, setIsMopedRegistrationModalOpen] = useState(false);
   const [schoolBusTargetCar, setSchoolBusTargetCar] = useState<Vehicle | null>(null);
   const [isSchoolBusModalOpen, setIsSchoolBusModalOpen] = useState(false);
+  const [tractorTargetCar, setTractorTargetCar] = useState<Vehicle | null>(null);
+  const [isTractorComplianceModalOpen, setIsTractorComplianceModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -520,6 +523,10 @@ export function App() {
         onOpenSchoolBus={() => {
           setSchoolBusTargetCar(vehicles[0] || null);
           setIsSchoolBusModalOpen(true);
+        }}
+        onOpenTractorCompliance={() => {
+          setTractorTargetCar(vehicles[0] || null);
+          setIsTractorComplianceModalOpen(true);
         }}
       />
 
@@ -1285,6 +1292,10 @@ export function App() {
             setSchoolBusTargetCar(car);
             setIsSchoolBusModalOpen(true);
           }}
+          onOpenTractorCompliance={(car) => {
+            setTractorTargetCar(car);
+            setIsTractorComplianceModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -1960,6 +1971,17 @@ export function App() {
           onClose={() => {
             setIsSchoolBusModalOpen(false);
             setSchoolBusTargetCar(null);
+          }}
+        />
+
+        {/* KTN, DAXA & BDYP Aqrotexnika və Traktor Portalı Modal */}
+        <TractorComplianceModal
+          isOpen={isTractorComplianceModalOpen}
+          vehicle={tractorTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsTractorComplianceModalOpen(false);
+            setTractorTargetCar(null);
           }}
         />
 

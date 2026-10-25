@@ -1395,4 +1395,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenSchoolBusMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenTractorCompliance from action buttons list', () => {
+    const onOpenTractorComplianceMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenTractorCompliance={onOpenTractorComplianceMock}
+      />
+    );
+
+    const btn = screen.getByTestId('tractor-compliance-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenTractorComplianceMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

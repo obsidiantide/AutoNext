@@ -44,7 +44,8 @@ import {
   Leaf,
   Briefcase,
   KeyRound,
-  School
+  School,
+  Tractor
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -104,6 +105,7 @@ interface NavbarProps {
   onOpenIntercityBus?: () => void;
   onOpenMopedRegistration?: () => void;
   onOpenSchoolBus?: () => void;
+  onOpenTractorCompliance?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -163,6 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenIntercityBus,
   onOpenMopedRegistration,
   onOpenSchoolBus,
+  onOpenTractorCompliance,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -734,6 +737,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <School className="w-4 h-4 text-amber-400" />
               <span className="hidden xl:inline">Məktəb Avtobusu (AYNA)</span>
+            </button>
+          )}
+
+          {/* KTN & DAXA Aqrotexnika və Traktor Portalı Button */}
+          {onOpenTractorCompliance && (
+            <button
+              onClick={onOpenTractorCompliance}
+              data-testid="navbar-tractor-compliance-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="KTN, DAXA & BDYP Rəsmi Kənd Təsərrüfatı və Meliorasiya Texnikası Portalı"
+            >
+              <Tractor className="w-4 h-4 text-emerald-400" />
+              <span className="hidden xl:inline">Aqrotexnika (KTN)</span>
             </button>
           )}
 

@@ -518,4 +518,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenSchoolBus).toHaveBeenCalledTimes(1);
   });
+
+  it('renders KTN & DAXA Agricultural Machinery button and calls onOpenTractorCompliance when clicked', () => {
+    const onOpenTractorCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenTractorCompliance={onOpenTractorCompliance} />);
+
+    const btn = screen.getByTestId('navbar-tractor-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenTractorCompliance).toHaveBeenCalledTimes(1);
+  });
 });
