@@ -93,6 +93,7 @@ const SafeCityModal = React.lazy(() => import('./components/SafeCityModal').then
 const AirportRampModal = React.lazy(() => import('./components/AirportRampModal').then(m => ({ default: m.AirportRampModal })));
 const MaritimePortModal = React.lazy(() => import('./components/MaritimePortModal').then(m => ({ default: m.MaritimePortModal })));
 const RailwayComplianceModal = React.lazy(() => import('./components/RailwayComplianceModal').then(m => ({ default: m.RailwayComplianceModal })));
+const MetroIntermodalModal = React.lazy(() => import('./components/MetroIntermodalModal').then(m => ({ default: m.MetroIntermodalModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -313,6 +314,8 @@ export function App() {
   const [isMaritimePortModalOpen, setIsMaritimePortModalOpen] = useState(false);
   const [railwayTargetCar, setRailwayTargetCar] = useState<Vehicle | null>(null);
   const [isRailwayModalOpen, setIsRailwayModalOpen] = useState(false);
+  const [metroTargetCar, setMetroTargetCar] = useState<Vehicle | null>(null);
+  const [isMetroModalOpen, setIsMetroModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -597,6 +600,10 @@ export function App() {
         onOpenRailwayCompliance={() => {
           setRailwayTargetCar(vehicles[0] || null);
           setIsRailwayModalOpen(true);
+        }}
+        onOpenMetroCompliance={() => {
+          setMetroTargetCar(vehicles[0] || null);
+          setIsMetroModalOpen(true);
         }}
       />
 
@@ -1406,6 +1413,10 @@ export function App() {
             setRailwayTargetCar(car);
             setIsRailwayModalOpen(true);
           }}
+          onOpenMetroCompliance={(car) => {
+            setMetroTargetCar(car);
+            setIsMetroModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2205,6 +2216,17 @@ export function App() {
           onClose={() => {
             setIsRailwayModalOpen(false);
             setRailwayTargetCar(null);
+          }}
+        />
+
+        {/* Bakı Metropoliteni & AYNA Yerüstü P+R NMM Portalı Modal */}
+        <MetroIntermodalModal
+          isOpen={isMetroModalOpen}
+          initialVehicle={metroTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsMetroModalOpen(false);
+            setMetroTargetCar(null);
           }}
         />
 

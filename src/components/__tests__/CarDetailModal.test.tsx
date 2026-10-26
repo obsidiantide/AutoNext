@@ -1615,4 +1615,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenRailwayComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenMetroCompliance from action buttons list', () => {
+    const onOpenMetroComplianceMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenMetroCompliance={onOpenMetroComplianceMock}
+      />
+    );
+
+    const btn = screen.getByTestId('metro-compliance-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMetroComplianceMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

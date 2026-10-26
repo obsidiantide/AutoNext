@@ -628,4 +628,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenRailwayCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders Baku Metro Intermodal Compliance button and calls onOpenMetroCompliance when clicked', () => {
+    const onOpenMetroCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenMetroCompliance={onOpenMetroCompliance} />);
+
+    const btn = screen.getByTestId('navbar-metro-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMetroCompliance).toHaveBeenCalledTimes(1);
+  });
 });

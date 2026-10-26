@@ -167,6 +167,7 @@ interface CarDetailModalProps {
   onOpenAirportRamp?: (vehicle: Vehicle) => void;
   onOpenMaritimePort?: (vehicle: Vehicle) => void;
   onOpenRailwayCompliance?: (vehicle: Vehicle) => void;
+  onOpenMetroCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -247,6 +248,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenAirportRamp,
   onOpenMaritimePort,
   onOpenRailwayCompliance,
+  onOpenMetroCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1407,6 +1409,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Train className="w-4 h-4 text-emerald-400 animate-pulse" />
                     <span>ADY & BDYP Dəmiryol Keçidləri & "Avto-Qatar" (Motorail) Portalı</span>
+                  </button>
+                )}
+
+                {/* Bakı Metropoliteni & AYNA Yerüstü P+R NMM Portalı Shortcut */}
+                {onOpenMetroCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenMetroCompliance(vehicle)}
+                    data-testid="metro-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Train className="w-4 h-4 text-red-400" />
+                    <span>Bakı Metro Park & Ride (P+R)</span>
                   </button>
                 )}
 
