@@ -49,7 +49,8 @@ import {
   Trophy,
   Ambulance,
   WineOff,
-  Video
+  Video,
+  Plane
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -117,6 +118,7 @@ interface NavbarProps {
   onOpenMilitaryDuty?: () => void;
   onOpenFireSafety?: () => void;
   onOpenSafeCity?: () => void;
+  onOpenAirportRamp?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -184,6 +186,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenMilitaryDuty,
   onOpenFireSafety,
   onOpenSafeCity,
+  onOpenAirportRamp,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -859,6 +862,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Video className="w-4 h-4 text-indigo-400 animate-pulse" />
               <span className="hidden xl:inline">Təhlükəsiz Şəhər (NİİM)</span>
+            </button>
+          )}
+
+          {/* DMAA & AZAL Heydər Əliyev Beynəlxalq Aeroportu Apron Giriş Buraxılışı Portalı Button */}
+          {onOpenAirportRamp && (
+            <button
+              onClick={onOpenAirportRamp}
+              data-testid="navbar-airport-ramp-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="DMAA & AZAL Apron Giriş Buraxılışı & Yerüstü Təhlükəsizlik Portalı"
+            >
+              <Plane className="w-4 h-4 text-sky-400 animate-pulse" />
+              <span className="hidden xl:inline">Apron Buraxılışı (DMAA)</span>
             </button>
           )}
 

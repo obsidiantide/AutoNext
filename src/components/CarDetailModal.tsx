@@ -73,7 +73,8 @@ import {
   Trophy,
   Ambulance,
   WineOff,
-  Video
+  Video,
+  Plane
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -161,6 +162,7 @@ interface CarDetailModalProps {
   onOpenMilitaryDuty?: (vehicle: Vehicle) => void;
   onOpenFireSafety?: (vehicle: Vehicle) => void;
   onOpenSafeCity?: (vehicle: Vehicle) => void;
+  onOpenAirportRamp?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -238,6 +240,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenMilitaryDuty,
   onOpenFireSafety,
   onOpenSafeCity,
+  onOpenAirportRamp,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1359,6 +1362,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Video className="w-4 h-4 text-indigo-400 animate-pulse" />
                     <span>DİN "Təhlükəsiz Şəhər" & NİİM Telemetriya Portalı</span>
+                  </button>
+                )}
+
+                {/* DMAA & AZAL Apron Giriş Buraxılışı & Yerüstü Təhlükəsizlik Shortcut */}
+                {onOpenAirportRamp && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenAirportRamp(vehicle)}
+                    data-testid="airport-ramp-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Plane className="w-4 h-4 text-sky-400 animate-pulse" />
+                    <span>DMAA & AZAL Apron Giriş Buraxılışı & Yerüstü Təhlükəsizlik Portalı</span>
                   </button>
                 )}
 

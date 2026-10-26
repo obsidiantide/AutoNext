@@ -90,6 +90,7 @@ const DiplomaticComplianceModal = React.lazy(() => import('./components/Diplomat
 const MilitaryDutyModal = React.lazy(() => import('./components/MilitaryDutyModal').then(m => ({ default: m.MilitaryDutyModal })));
 const FireSafetyModal = React.lazy(() => import('./components/FireSafetyModal').then(m => ({ default: m.FireSafetyModal })));
 const SafeCityModal = React.lazy(() => import('./components/SafeCityModal').then(m => ({ default: m.SafeCityModal })));
+const AirportRampModal = React.lazy(() => import('./components/AirportRampModal').then(m => ({ default: m.AirportRampModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -304,6 +305,8 @@ export function App() {
   const [isFireSafetyModalOpen, setIsFireSafetyModalOpen] = useState(false);
   const [safeCityTargetCar, setSafeCityTargetCar] = useState<Vehicle | null>(null);
   const [isSafeCityModalOpen, setIsSafeCityModalOpen] = useState(false);
+  const [airportRampTargetCar, setAirportRampTargetCar] = useState<Vehicle | null>(null);
+  const [isAirportRampModalOpen, setIsAirportRampModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -576,6 +579,10 @@ export function App() {
         onOpenSafeCity={() => {
           setSafeCityTargetCar(vehicles[0] || null);
           setIsSafeCityModalOpen(true);
+        }}
+        onOpenAirportRamp={() => {
+          setAirportRampTargetCar(vehicles[0] || null);
+          setIsAirportRampModalOpen(true);
         }}
       />
 
@@ -1373,6 +1380,10 @@ export function App() {
             setSafeCityTargetCar(car);
             setIsSafeCityModalOpen(true);
           }}
+          onOpenAirportRamp={(car) => {
+            setAirportRampTargetCar(car);
+            setIsAirportRampModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2139,6 +2150,17 @@ export function App() {
           onClose={() => {
             setIsSafeCityModalOpen(false);
             setSafeCityTargetCar(null);
+          }}
+        />
+
+        {/* DMAA & AZAL Apron Giriş Buraxılışı & Yerüstü Təhlükəsizlik Portalı Modal */}
+        <AirportRampModal
+          isOpen={isAirportRampModalOpen}
+          initialVehicle={airportRampTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsAirportRampModalOpen(false);
+            setAirportRampTargetCar(null);
           }}
         />
 

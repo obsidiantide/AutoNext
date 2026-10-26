@@ -1555,4 +1555,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenSafeCityMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenAirportRamp from action buttons list', () => {
+    const onOpenAirportRampMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenAirportRamp={onOpenAirportRampMock}
+      />
+    );
+
+    const btn = screen.getByTestId('airport-ramp-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAirportRampMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

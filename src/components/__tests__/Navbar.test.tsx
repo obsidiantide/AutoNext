@@ -598,4 +598,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenSafeCity).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DMAA & AZAL Airport Ramp button and calls onOpenAirportRamp when clicked', () => {
+    const onOpenAirportRamp = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAirportRamp={onOpenAirportRamp} />);
+
+    const btn = screen.getByTestId('navbar-airport-ramp-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAirportRamp).toHaveBeenCalledTimes(1);
+  });
 });
