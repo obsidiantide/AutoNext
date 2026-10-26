@@ -75,7 +75,8 @@ import {
   WineOff,
   Video,
   Plane,
-  Anchor
+  Anchor,
+  Train
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -165,6 +166,7 @@ interface CarDetailModalProps {
   onOpenSafeCity?: (vehicle: Vehicle) => void;
   onOpenAirportRamp?: (vehicle: Vehicle) => void;
   onOpenMaritimePort?: (vehicle: Vehicle) => void;
+  onOpenRailwayCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -244,6 +246,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenSafeCity,
   onOpenAirportRamp,
   onOpenMaritimePort,
+  onOpenRailwayCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1391,6 +1394,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Anchor className="w-4 h-4 text-cyan-400 animate-pulse" />
                     <span>DDLA, ASCO & Port of Baku Xəzər Ro-Pax Bərə Portalı</span>
+                  </button>
+                )}
+
+                {/* ADY & BDYP Dəmiryol Keçidləri & "Avto-Qatar" (Motorail) Portalı Shortcut */}
+                {onOpenRailwayCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenRailwayCompliance(vehicle)}
+                    data-testid="railway-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Train className="w-4 h-4 text-emerald-400 animate-pulse" />
+                    <span>ADY & BDYP Dəmiryol Keçidləri & "Avto-Qatar" (Motorail) Portalı</span>
                   </button>
                 )}
 

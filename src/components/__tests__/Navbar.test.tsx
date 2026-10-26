@@ -618,4 +618,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenMaritimePort).toHaveBeenCalledTimes(1);
   });
+
+  it('renders ADY Railway Compliance button and calls onOpenRailwayCompliance when clicked', () => {
+    const onOpenRailwayCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenRailwayCompliance={onOpenRailwayCompliance} />);
+
+    const btn = screen.getByTestId('navbar-railway-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenRailwayCompliance).toHaveBeenCalledTimes(1);
+  });
 });

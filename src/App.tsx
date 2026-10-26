@@ -92,6 +92,7 @@ const FireSafetyModal = React.lazy(() => import('./components/FireSafetyModal').
 const SafeCityModal = React.lazy(() => import('./components/SafeCityModal').then(m => ({ default: m.SafeCityModal })));
 const AirportRampModal = React.lazy(() => import('./components/AirportRampModal').then(m => ({ default: m.AirportRampModal })));
 const MaritimePortModal = React.lazy(() => import('./components/MaritimePortModal').then(m => ({ default: m.MaritimePortModal })));
+const RailwayComplianceModal = React.lazy(() => import('./components/RailwayComplianceModal').then(m => ({ default: m.RailwayComplianceModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -310,6 +311,8 @@ export function App() {
   const [isAirportRampModalOpen, setIsAirportRampModalOpen] = useState(false);
   const [maritimePortTargetCar, setMaritimePortTargetCar] = useState<Vehicle | null>(null);
   const [isMaritimePortModalOpen, setIsMaritimePortModalOpen] = useState(false);
+  const [railwayTargetCar, setRailwayTargetCar] = useState<Vehicle | null>(null);
+  const [isRailwayModalOpen, setIsRailwayModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -590,6 +593,10 @@ export function App() {
         onOpenMaritimePort={() => {
           setMaritimePortTargetCar(vehicles[0] || null);
           setIsMaritimePortModalOpen(true);
+        }}
+        onOpenRailwayCompliance={() => {
+          setRailwayTargetCar(vehicles[0] || null);
+          setIsRailwayModalOpen(true);
         }}
       />
 
@@ -1395,6 +1402,10 @@ export function App() {
             setMaritimePortTargetCar(car);
             setIsMaritimePortModalOpen(true);
           }}
+          onOpenRailwayCompliance={(car) => {
+            setRailwayTargetCar(car);
+            setIsRailwayModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2183,6 +2194,17 @@ export function App() {
           onClose={() => {
             setIsMaritimePortModalOpen(false);
             setMaritimePortTargetCar(null);
+          }}
+        />
+
+        {/* ADY & BDYP Dəmiryol Keçidləri & "Avto-Qatar" (Motorail) Portalı Modal */}
+        <RailwayComplianceModal
+          isOpen={isRailwayModalOpen}
+          initialVehicle={railwayTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsRailwayModalOpen(false);
+            setRailwayTargetCar(null);
           }}
         />
 

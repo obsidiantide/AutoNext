@@ -51,7 +51,8 @@ import {
   WineOff,
   Video,
   Plane,
-  Anchor
+  Anchor,
+  Train
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -121,6 +122,7 @@ interface NavbarProps {
   onOpenSafeCity?: () => void;
   onOpenAirportRamp?: () => void;
   onOpenMaritimePort?: () => void;
+  onOpenRailwayCompliance?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -190,6 +192,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSafeCity,
   onOpenAirportRamp,
   onOpenMaritimePort,
+  onOpenRailwayCompliance,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -891,6 +894,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Anchor className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span className="hidden xl:inline">Bərə Buraxılışı (DDLA)</span>
+            </button>
+          )}
+
+          {/* ADY & BDYP Dəmiryol Keçidləri & "Avto-Qatar" (Motorail) Portalı Button */}
+          {onOpenRailwayCompliance && (
+            <button
+              onClick={onOpenRailwayCompliance}
+              data-testid="navbar-railway-compliance-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="ADY & BDYP Dəmiryol Keçidləri və Avto-Qatar (Motorail) Portalı"
+            >
+              <Train className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <span className="hidden xl:inline">Avto-Qatar (ADY)</span>
             </button>
           )}
 
