@@ -48,7 +48,8 @@ import {
   Tractor,
   Trophy,
   Ambulance,
-  WineOff
+  WineOff,
+  Video
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -115,6 +116,7 @@ interface NavbarProps {
   onOpenDiplomaticCompliance?: () => void;
   onOpenMilitaryDuty?: () => void;
   onOpenFireSafety?: () => void;
+  onOpenSafeCity?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -181,6 +183,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenDiplomaticCompliance,
   onOpenMilitaryDuty,
   onOpenFireSafety,
+  onOpenSafeCity,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -843,6 +846,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Flame className="w-4 h-4 text-red-500 animate-pulse" />
               <span className="hidden xl:inline">Yanğın Təhlükəsizliyi (FHN)</span>
+            </button>
+          )}
+
+          {/* DİN & NİİM Təhlükəsiz Şəhər & İntellektual Nəqliyyat Portalı Button */}
+          {onOpenSafeCity && (
+            <button
+              onClick={onOpenSafeCity}
+              data-testid="navbar-safe-city-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="DİN & NİİM Təhlükəsiz Şəhər & İntellektual Nəqliyyat Portalı"
+            >
+              <Video className="w-4 h-4 text-indigo-400 animate-pulse" />
+              <span className="hidden xl:inline">Təhlükəsiz Şəhər (NİİM)</span>
             </button>
           )}
 

@@ -89,6 +89,7 @@ const SobrietyComplianceModal = React.lazy(() => import('./components/SobrietyCo
 const DiplomaticComplianceModal = React.lazy(() => import('./components/DiplomaticComplianceModal').then(m => ({ default: m.DiplomaticComplianceModal })));
 const MilitaryDutyModal = React.lazy(() => import('./components/MilitaryDutyModal').then(m => ({ default: m.MilitaryDutyModal })));
 const FireSafetyModal = React.lazy(() => import('./components/FireSafetyModal').then(m => ({ default: m.FireSafetyModal })));
+const SafeCityModal = React.lazy(() => import('./components/SafeCityModal').then(m => ({ default: m.SafeCityModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -301,6 +302,8 @@ export function App() {
   const [isMilitaryDutyModalOpen, setIsMilitaryDutyModalOpen] = useState(false);
   const [fireSafetyTargetCar, setFireSafetyTargetCar] = useState<Vehicle | null>(null);
   const [isFireSafetyModalOpen, setIsFireSafetyModalOpen] = useState(false);
+  const [safeCityTargetCar, setSafeCityTargetCar] = useState<Vehicle | null>(null);
+  const [isSafeCityModalOpen, setIsSafeCityModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -569,6 +572,10 @@ export function App() {
         onOpenFireSafety={() => {
           setFireSafetyTargetCar(vehicles[0] || null);
           setIsFireSafetyModalOpen(true);
+        }}
+        onOpenSafeCity={() => {
+          setSafeCityTargetCar(vehicles[0] || null);
+          setIsSafeCityModalOpen(true);
         }}
       />
 
@@ -1362,6 +1369,10 @@ export function App() {
             setFireSafetyTargetCar(car);
             setIsFireSafetyModalOpen(true);
           }}
+          onOpenSafeCity={(car) => {
+            setSafeCityTargetCar(car);
+            setIsSafeCityModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2117,6 +2128,17 @@ export function App() {
           onClose={() => {
             setIsFireSafetyModalOpen(false);
             setFireSafetyTargetCar(null);
+          }}
+        />
+
+        {/* DİN & NİİM Təhlükəsiz Şəhər və İntellektual Nəqliyyat Portalı Modal */}
+        <SafeCityModal
+          isOpen={isSafeCityModalOpen}
+          initialVehicle={safeCityTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsSafeCityModalOpen(false);
+            setSafeCityTargetCar(null);
           }}
         />
 

@@ -1535,4 +1535,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenFireSafetyMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenSafeCity from action buttons list', () => {
+    const onOpenSafeCityMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenSafeCity={onOpenSafeCityMock}
+      />
+    );
+
+    const btn = screen.getByTestId('safe-city-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSafeCityMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

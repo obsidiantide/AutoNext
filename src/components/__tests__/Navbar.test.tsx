@@ -588,4 +588,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenFireSafety).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DİN & NİİM Safe City button and calls onOpenSafeCity when clicked', () => {
+    const onOpenSafeCity = vi.fn();
+    render(<Navbar {...defaultProps} onOpenSafeCity={onOpenSafeCity} />);
+
+    const btn = screen.getByTestId('navbar-safe-city-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSafeCity).toHaveBeenCalledTimes(1);
+  });
 });

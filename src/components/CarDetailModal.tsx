@@ -72,7 +72,8 @@ import {
   Tractor,
   Trophy,
   Ambulance,
-  WineOff
+  WineOff,
+  Video
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -159,6 +160,7 @@ interface CarDetailModalProps {
   onOpenDiplomaticCompliance?: (vehicle: Vehicle) => void;
   onOpenMilitaryDuty?: (vehicle: Vehicle) => void;
   onOpenFireSafety?: (vehicle: Vehicle) => void;
+  onOpenSafeCity?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -235,6 +237,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenDiplomaticCompliance,
   onOpenMilitaryDuty,
   onOpenFireSafety,
+  onOpenSafeCity,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1343,6 +1346,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Flame className="w-4 h-4 text-red-500 animate-pulse" />
                     <span>FHN & DYNX Yanğın Təhlükəsizliyi & Balon Yoxlanması (112)</span>
+                  </button>
+                )}
+
+                {/* DİN & NİİM Təhlükəsiz Şəhər və ANPR Telemetriya Shortcut */}
+                {onOpenSafeCity && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenSafeCity(vehicle)}
+                    data-testid="safe-city-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Video className="w-4 h-4 text-indigo-400 animate-pulse" />
+                    <span>DİN "Təhlükəsiz Şəhər" & NİİM Telemetriya Portalı</span>
                   </button>
                 )}
 
