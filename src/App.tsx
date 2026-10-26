@@ -88,6 +88,7 @@ const AmbulanceComplianceModal = React.lazy(() => import('./components/Ambulance
 const SobrietyComplianceModal = React.lazy(() => import('./components/SobrietyComplianceModal').then(m => ({ default: m.SobrietyComplianceModal })));
 const DiplomaticComplianceModal = React.lazy(() => import('./components/DiplomaticComplianceModal').then(m => ({ default: m.DiplomaticComplianceModal })));
 const MilitaryDutyModal = React.lazy(() => import('./components/MilitaryDutyModal').then(m => ({ default: m.MilitaryDutyModal })));
+const FireSafetyModal = React.lazy(() => import('./components/FireSafetyModal').then(m => ({ default: m.FireSafetyModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -298,6 +299,8 @@ export function App() {
   const [isDiplomaticModalOpen, setIsDiplomaticModalOpen] = useState(false);
   const [militaryDutyTargetCar, setMilitaryDutyTargetCar] = useState<Vehicle | null>(null);
   const [isMilitaryDutyModalOpen, setIsMilitaryDutyModalOpen] = useState(false);
+  const [fireSafetyTargetCar, setFireSafetyTargetCar] = useState<Vehicle | null>(null);
+  const [isFireSafetyModalOpen, setIsFireSafetyModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -562,6 +565,10 @@ export function App() {
         onOpenMilitaryDuty={() => {
           setMilitaryDutyTargetCar(vehicles[0] || null);
           setIsMilitaryDutyModalOpen(true);
+        }}
+        onOpenFireSafety={() => {
+          setFireSafetyTargetCar(vehicles[0] || null);
+          setIsFireSafetyModalOpen(true);
         }}
       />
 
@@ -1351,6 +1358,10 @@ export function App() {
             setMilitaryDutyTargetCar(car);
             setIsMilitaryDutyModalOpen(true);
           }}
+          onOpenFireSafety={(car) => {
+            setFireSafetyTargetCar(car);
+            setIsFireSafetyModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2095,6 +2106,17 @@ export function App() {
           onClose={() => {
             setIsMilitaryDutyModalOpen(false);
             setMilitaryDutyTargetCar(null);
+          }}
+        />
+
+        {/* FHN & DYNX Yanğın Təhlükəsizlik və Yanğınsöndürmə Portalı Modal */}
+        <FireSafetyModal
+          isOpen={isFireSafetyModalOpen}
+          initialVehicle={fireSafetyTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsFireSafetyModalOpen(false);
+            setFireSafetyTargetCar(null);
           }}
         />
 

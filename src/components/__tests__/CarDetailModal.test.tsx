@@ -1515,4 +1515,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenMilitaryDutyMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenFireSafety from action buttons list', () => {
+    const onOpenFireSafetyMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenFireSafety={onOpenFireSafetyMock}
+      />
+    );
+
+    const btn = screen.getByTestId('fire-safety-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenFireSafetyMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

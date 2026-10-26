@@ -114,6 +114,7 @@ interface NavbarProps {
   onOpenSobrietyCompliance?: () => void;
   onOpenDiplomaticCompliance?: () => void;
   onOpenMilitaryDuty?: () => void;
+  onOpenFireSafety?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -179,6 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSobrietyCompliance,
   onOpenDiplomaticCompliance,
   onOpenMilitaryDuty,
+  onOpenFireSafety,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -828,6 +830,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <ShieldAlert className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">Hərbi-Nəqliyyat (SHXÇDX)</span>
+            </button>
+          )}
+
+          {/* FHN & DYNX Yanğın Təhlükəsizlik və Yanğınsöndürmə Portalı Button */}
+          {onOpenFireSafety && (
+            <button
+              onClick={onOpenFireSafety}
+              data-testid="navbar-fire-safety-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="FHN & DYNX Yanğın Təhlükəsizliyi & Yanğınsöndürmə Portalı"
+            >
+              <Flame className="w-4 h-4 text-red-500 animate-pulse" />
+              <span className="hidden xl:inline">Yanğın Təhlükəsizliyi (FHN)</span>
             </button>
           )}
 

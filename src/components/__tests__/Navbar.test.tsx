@@ -578,4 +578,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenMilitaryDuty).toHaveBeenCalledTimes(1);
   });
+
+  it('renders FHN & DYNX Fire Safety button and calls onOpenFireSafety when clicked', () => {
+    const onOpenFireSafety = vi.fn();
+    render(<Navbar {...defaultProps} onOpenFireSafety={onOpenFireSafety} />);
+
+    const btn = screen.getByTestId('navbar-fire-safety-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenFireSafety).toHaveBeenCalledTimes(1);
+  });
 });

@@ -158,6 +158,7 @@ interface CarDetailModalProps {
   onOpenSobrietyCompliance?: (vehicle: Vehicle) => void;
   onOpenDiplomaticCompliance?: (vehicle: Vehicle) => void;
   onOpenMilitaryDuty?: (vehicle: Vehicle) => void;
+  onOpenFireSafety?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -233,6 +234,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenSobrietyCompliance,
   onOpenDiplomaticCompliance,
   onOpenMilitaryDuty,
+  onOpenFireSafety,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1328,6 +1330,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <ShieldAlert className="w-4 h-4 text-emerald-400" />
                     <span>SHXÇDX, MN & BDYP Hərbi-Nəqliyyat Vəzifəsi & Qara Nişanlar</span>
+                  </button>
+                )}
+
+                {/* FHN & DYNX Yanğın Təhlükəsizlik və Yanğınsöndürmə Shortcut */}
+                {onOpenFireSafety && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenFireSafety(vehicle)}
+                    data-testid="fire-safety-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Flame className="w-4 h-4 text-red-500 animate-pulse" />
+                    <span>FHN & DYNX Yanğın Təhlükəsizliyi & Balon Yoxlanması (112)</span>
                   </button>
                 )}
 
