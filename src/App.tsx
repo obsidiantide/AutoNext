@@ -91,6 +91,7 @@ const MilitaryDutyModal = React.lazy(() => import('./components/MilitaryDutyModa
 const FireSafetyModal = React.lazy(() => import('./components/FireSafetyModal').then(m => ({ default: m.FireSafetyModal })));
 const SafeCityModal = React.lazy(() => import('./components/SafeCityModal').then(m => ({ default: m.SafeCityModal })));
 const AirportRampModal = React.lazy(() => import('./components/AirportRampModal').then(m => ({ default: m.AirportRampModal })));
+const MaritimePortModal = React.lazy(() => import('./components/MaritimePortModal').then(m => ({ default: m.MaritimePortModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -307,6 +308,8 @@ export function App() {
   const [isSafeCityModalOpen, setIsSafeCityModalOpen] = useState(false);
   const [airportRampTargetCar, setAirportRampTargetCar] = useState<Vehicle | null>(null);
   const [isAirportRampModalOpen, setIsAirportRampModalOpen] = useState(false);
+  const [maritimePortTargetCar, setMaritimePortTargetCar] = useState<Vehicle | null>(null);
+  const [isMaritimePortModalOpen, setIsMaritimePortModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -583,6 +586,10 @@ export function App() {
         onOpenAirportRamp={() => {
           setAirportRampTargetCar(vehicles[0] || null);
           setIsAirportRampModalOpen(true);
+        }}
+        onOpenMaritimePort={() => {
+          setMaritimePortTargetCar(vehicles[0] || null);
+          setIsMaritimePortModalOpen(true);
         }}
       />
 
@@ -1384,6 +1391,10 @@ export function App() {
             setAirportRampTargetCar(car);
             setIsAirportRampModalOpen(true);
           }}
+          onOpenMaritimePort={(car) => {
+            setMaritimePortTargetCar(car);
+            setIsMaritimePortModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2161,6 +2172,17 @@ export function App() {
           onClose={() => {
             setIsAirportRampModalOpen(false);
             setAirportRampTargetCar(null);
+          }}
+        />
+
+        {/* DDLA, ASCO & Port of Baku Xəzər Ro-Pax Bərə & Liman Buraxılışı Portalı Modal */}
+        <MaritimePortModal
+          isOpen={isMaritimePortModalOpen}
+          initialVehicle={maritimePortTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsMaritimePortModalOpen(false);
+            setMaritimePortTargetCar(null);
           }}
         />
 

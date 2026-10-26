@@ -74,7 +74,8 @@ import {
   Ambulance,
   WineOff,
   Video,
-  Plane
+  Plane,
+  Anchor
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -163,6 +164,7 @@ interface CarDetailModalProps {
   onOpenFireSafety?: (vehicle: Vehicle) => void;
   onOpenSafeCity?: (vehicle: Vehicle) => void;
   onOpenAirportRamp?: (vehicle: Vehicle) => void;
+  onOpenMaritimePort?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -241,6 +243,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenFireSafety,
   onOpenSafeCity,
   onOpenAirportRamp,
+  onOpenMaritimePort,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1375,6 +1378,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Plane className="w-4 h-4 text-sky-400 animate-pulse" />
                     <span>DMAA & AZAL Apron Giriş Buraxılışı & Yerüstü Təhlükəsizlik Portalı</span>
+                  </button>
+                )}
+
+                {/* DDLA, ASCO & Port of Baku Xəzər Ro-Pax Bərə & Liman Buraxılışı Shortcut */}
+                {onOpenMaritimePort && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenMaritimePort(vehicle)}
+                    data-testid="maritime-port-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Anchor className="w-4 h-4 text-cyan-400 animate-pulse" />
+                    <span>DDLA, ASCO & Port of Baku Xəzər Ro-Pax Bərə Portalı</span>
                   </button>
                 )}
 

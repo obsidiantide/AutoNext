@@ -608,4 +608,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAirportRamp).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DDLA & ASCO Maritime Port button and calls onOpenMaritimePort when clicked', () => {
+    const onOpenMaritimePort = vi.fn();
+    render(<Navbar {...defaultProps} onOpenMaritimePort={onOpenMaritimePort} />);
+
+    const btn = screen.getByTestId('navbar-maritime-port-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMaritimePort).toHaveBeenCalledTimes(1);
+  });
 });

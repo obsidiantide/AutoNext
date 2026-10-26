@@ -1575,4 +1575,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenAirportRampMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('triggers onOpenMaritimePort from action buttons list', () => {
+    const onOpenMaritimePortMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenMaritimePort={onOpenMaritimePortMock}
+      />
+    );
+
+    const btn = screen.getByTestId('maritime-port-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMaritimePortMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });
