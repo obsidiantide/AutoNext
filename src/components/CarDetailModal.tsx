@@ -172,6 +172,7 @@ interface CarDetailModalProps {
   onOpenMetroCompliance?: (vehicle: Vehicle) => void;
   onOpenCableCarCompliance?: (vehicle: Vehicle) => void;
   onOpenWinterPassCompliance?: (vehicle: Vehicle) => void;
+  onOpenTirCarnetCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -255,6 +256,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenMetroCompliance,
   onOpenCableCarCompliance,
   onOpenWinterPassCompliance,
+  onOpenTirCarnetCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1454,6 +1456,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Snowflake className="w-4 h-4 text-cyan-300 animate-spin-slow" />
                     <span>AAYDA, BDYP & FHN Qış Dağ Aşırımları və Təhlükəsizlik Portalı</span>
+                  </button>
+                )}
+
+                {/* DGK, BDYP & FHN Beynəlxalq TIR & Tranzit Gömrük Portalı Shortcut */}
+                {onOpenTirCarnetCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenTirCarnetCompliance(vehicle)}
+                    data-testid="tircarnet-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Truck className="w-4 h-4 text-emerald-400" />
+                    <span>DGK Beynəlxalq TIR & Yaşıl Dəhliz Portalı</span>
                   </button>
                 )}
 

@@ -1675,4 +1675,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenWinterPassComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders DGK TIR Carnet & Green Corridor shortcut button and calls callback when clicked', () => {
+    const onOpenTirCarnetComplianceMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenTirCarnetCompliance={onOpenTirCarnetComplianceMock}
+      />
+    );
+
+    const btn = screen.getByTestId('tircarnet-compliance-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenTirCarnetComplianceMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

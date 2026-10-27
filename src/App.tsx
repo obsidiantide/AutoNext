@@ -96,6 +96,7 @@ const RailwayComplianceModal = React.lazy(() => import('./components/RailwayComp
 const MetroIntermodalModal = React.lazy(() => import('./components/MetroIntermodalModal').then(m => ({ default: m.MetroIntermodalModal })));
 const CableCarModal = React.lazy(() => import('./components/CableCarModal').then(m => ({ default: m.CableCarModal })));
 const WinterPassModal = React.lazy(() => import('./components/WinterPassModal').then(m => ({ default: m.WinterPassModal })));
+const TirCarnetTransitModal = React.lazy(() => import('./components/TirCarnetTransitModal').then(m => ({ default: m.TirCarnetTransitModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -320,6 +321,7 @@ export function App() {
   const [isMetroModalOpen, setIsMetroModalOpen] = useState(false);
   const [isCableCarModalOpen, setIsCableCarModalOpen] = useState(false);
   const [isWinterPassModalOpen, setIsWinterPassModalOpen] = useState(false);
+  const [isTirCarnetModalOpen, setIsTirCarnetModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -614,6 +616,9 @@ export function App() {
         }}
         onOpenWinterPassCompliance={() => {
           setIsWinterPassModalOpen(true);
+        }}
+        onOpenTirCarnetCompliance={() => {
+          setIsTirCarnetModalOpen(true);
         }}
       />
 
@@ -1432,6 +1437,9 @@ export function App() {
           }}
           onOpenWinterPassCompliance={() => {
             setIsWinterPassModalOpen(true);
+          }}
+          onOpenTirCarnetCompliance={() => {
+            setIsTirCarnetModalOpen(true);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2260,6 +2268,15 @@ export function App() {
           onClose={() => {
             setIsWinterPassModalOpen(false);
           }}
+        />
+
+        {/* DGK, BDYP & FHN Beynəlxalq TIR & Tranzit Gömrük Portalı Modal */}
+        <TirCarnetTransitModal
+          isOpen={isTirCarnetModalOpen}
+          onClose={() => {
+            setIsTirCarnetModalOpen(false);
+          }}
+          currency={currency}
         />
 
 

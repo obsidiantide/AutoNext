@@ -658,4 +658,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenWinterPassCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DGK & FHN TIR & Green Corridor button and calls onOpenTirCarnetCompliance when clicked', () => {
+    const onOpenTirCarnetCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenTirCarnetCompliance={onOpenTirCarnetCompliance} />);
+
+    const btn = screen.getByTestId('navbar-tircarnet-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenTirCarnetCompliance).toHaveBeenCalledTimes(1);
+  });
 });
