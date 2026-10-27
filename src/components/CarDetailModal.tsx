@@ -79,7 +79,8 @@ import {
   Train,
   CableCar,
   Snowflake,
-  ThermometerSnowflake
+  ThermometerSnowflake,
+  Warehouse
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -176,6 +177,7 @@ interface CarDetailModalProps {
   onOpenTirCarnetCompliance?: (vehicle: Vehicle) => void;
   onOpenBiosecurityCompliance?: (vehicle: Vehicle) => void;
   onOpenV2gSmartGrid?: (vehicle: Vehicle) => void;
+  onOpenAfezLogistics?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -262,6 +264,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenTirCarnetCompliance,
   onOpenBiosecurityCompliance,
   onOpenV2gSmartGrid,
+  onOpenAfezLogistics,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1500,6 +1503,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Zap className="w-4 h-4 text-emerald-400" />
                     <span>Azərişıq Ağıllı Şəbəkə V2G Enerji İxrac Portalı</span>
+                  </button>
+                )}
+
+                {/* AFEZ, DDLA & DGK Ələt Azad İqtisadi Zonası Multimodal Logistika Shortcut */}
+                {onOpenAfezLogistics && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenAfezLogistics(vehicle)}
+                    data-testid="afez-logistics-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Warehouse className="w-4 h-4 text-emerald-400" />
+                    <span>AFEZ Ələt Azad İqtisadi Zonası Multimodal Logistika Portalı</span>
                   </button>
                 )}
 

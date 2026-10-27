@@ -762,7 +762,17 @@ This backlog is actively maintained and executed by the **GitHub Growth Agent** 
 
 ---
 
-### 🚢 Milestone 84: Official State Maritime and Port Agency (DDLA), State Customs Committee (DGK) & Port of Baku Free Trade Zone (FTZ / Ələt Azad İqtisadi Zonası - AFEZ) Multimodal Bonded Logistics, Intermodal Container Yard Telemetry & Official AFEZ-TIR-2026 Customs Clearance Portal (Planned)
+### 🚢 Milestone 84: Official State Maritime and Port Agency (DDLA), State Customs Committee (DGK) & Port of Baku Free Trade Zone (FTZ / Ələt Azad İqtisadi Zonası - AFEZ) Multimodal Bonded Logistics, Intermodal Container Yard Telemetry & Official AFEZ-TIR-2026 Customs Clearance Portal (Completed)
+- [x] Add Official State Maritime and Port Agency (DDLA), State Customs Committee (DGK) & Port of Baku Free Trade Zone Modal (`AfezLogisticsModal.tsx`) with Multimodal & FTZ Tariff Calculator, 7 Strategic Terminals & Container Yard Radar (AFEZ Central Hub, Port of Baku Alat Yard, Silk Way AFEZ Cargo, Absheron Logistics Hub, Alat Rail Yard, Hovsan Port, Bilajary Intermodal), ISO 6346 & SOLAS Chapter VI Reg 2 VGM Telemetry Stand, 10-Point Bonded Customs & Security Checklist, 10-Question Theoretical Examination Simulator, and Official AFEZ-TIR-2026 Electronic Clearance Certificate Generator with Unified Public Registry
+- [x] Implement statutory AFEZ logistics & customs tariff calculation engine (`src/utils/afezLogisticsCompliance.ts`) adhering to AFEZ Law № 1143-VQ, Customs Code (Articles 184–210), SOLAS Chapter VI Reg 2 (VGM Method 1 certified weighbridge vs Method 2 calculated sum with ±5% / 500 kg tolerance), 0% corporate and 0% VAT bonded concessions, 14 free dwell days, reach stacker / STS crane tariffs, reefer shore power, and multi-currency conversions (AZN, USD, EUR)
+- [x] Add comprehensive mock multimodal database (`src/data/mockAfezLogisticsData.ts`) covering 7 strategic terminals with live TEU capacity, crane telemetry, active container dwell times, 6 authentic vehicle & container presets (`MSKU-749215-3` on `99-AF-101`, `MSCU-382910-6` on `10-FZ-555`, `CMAU-591823-0` on `77-EZ-303`, `COSU-928471-8` on `90-AF-777`, `BERU-104928-4` on `99-TK-909`, `SWCU-440192-2` on `10-SW-202`), 10 statutory checklist items, 10 statutory theoretical exam questions with legal citations, and verifiable active `AFEZ-TIR-2026-XXXXX` certificates
+- [x] Build official AFEZ, DDLA & DGK Electronic Clearance Certificate generator (`AFEZ-TIR-2026-XXXXX`) with cryptographic SHA-256 security checksum, SİMA digital signature UID, assigned Yard Bay and reach stacker ID, verified gross mass stamp, printable layout, and one-click clipboard copying
+- [x] Comprehensive Vitest unit test suites (`src/utils/__tests__/afezLogisticsCompliance.test.ts` and `src/components/__tests__/AfezLogisticsModal.test.tsx`, plus integrations in `Navbar.test.tsx` and `CarDetailModal.test.tsx`) covering VGM calculations, tolerance thresholds, dwell demurrage, 0% tax savings, checklist grading, exam evaluation, certificate generation, print and copy actions
+
+---
+
+### 🚛 Milestone 85: Official Ministry of Digital Development and Transport (RİNN), AYNA & BDYP Heavy Haulage Axle Load & Automated Weigh-in-Motion (WIM / Yolda Avtomatik Dinamik Tərəzi Nəzarəti), Bridge Structural Dynamic Telemetry & Official WIM-AZ-2026 Axle Load Certificate Portal (Planned)
+
 
 
 

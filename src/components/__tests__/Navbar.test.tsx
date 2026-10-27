@@ -688,4 +688,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenV2gSmartGrid).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AFEZ Multimodal Logistics button and calls onOpenAfezLogistics when clicked', () => {
+    const onOpenAfezLogistics = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAfezLogistics={onOpenAfezLogistics} />);
+
+    const btn = screen.getByTestId('navbar-afez-logistics-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAfezLogistics).toHaveBeenCalledTimes(1);
+  });
 });

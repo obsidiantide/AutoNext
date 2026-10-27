@@ -55,7 +55,8 @@ import {
   Train,
   CableCar,
   Snowflake,
-  ThermometerSnowflake
+  ThermometerSnowflake,
+  Warehouse
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -132,6 +133,7 @@ interface NavbarProps {
   onOpenTirCarnetCompliance?: () => void;
   onOpenBiosecurityCompliance?: () => void;
   onOpenV2gSmartGrid?: () => void;
+  onOpenAfezLogistics?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -208,6 +210,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenTirCarnetCompliance,
   onOpenBiosecurityCompliance,
   onOpenV2gSmartGrid,
+  onOpenAfezLogistics,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1000,6 +1003,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Zap className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">Azərişıq V2G Şəbəkə</span>
+            </button>
+          )}
+
+          {/* AFEZ, DDLA & DGK Multimodal Logistika və Gömrük Portalı Button */}
+          {onOpenAfezLogistics && (
+            <button
+              onClick={onOpenAfezLogistics}
+              data-testid="navbar-afez-logistics-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AFEZ, DDLA & DGK Ələt Azad İqtisadi Zonası Multimodal Logistika, SOLAS VGM və Gömrük Buraxılışı Portalı"
+            >
+              <Warehouse className="w-4 h-4 text-emerald-400" />
+              <span className="hidden xl:inline">AFEZ Logistika (Ələt)</span>
             </button>
           )}
 

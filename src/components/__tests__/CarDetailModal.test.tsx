@@ -1735,4 +1735,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenV2gSmartGridMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders AFEZ Multimodal Logistics shortcut button and calls callback when clicked', () => {
+    const onOpenAfezLogisticsMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenAfezLogistics={onOpenAfezLogisticsMock}
+      />
+    );
+
+    const btn = screen.getByTestId('afez-logistics-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAfezLogisticsMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

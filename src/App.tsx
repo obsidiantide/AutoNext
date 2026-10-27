@@ -99,6 +99,7 @@ const WinterPassModal = React.lazy(() => import('./components/WinterPassModal').
 const TirCarnetTransitModal = React.lazy(() => import('./components/TirCarnetTransitModal').then(m => ({ default: m.TirCarnetTransitModal })));
 const BiosecurityComplianceModal = React.lazy(() => import('./components/BiosecurityComplianceModal').then(m => ({ default: m.BiosecurityComplianceModal })));
 const V2gSmartGridModal = React.lazy(() => import('./components/V2gSmartGridModal').then(m => ({ default: m.V2gSmartGridModal })));
+const AfezLogisticsModal = React.lazy(() => import('./components/AfezLogisticsModal').then(m => ({ default: m.AfezLogisticsModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -327,6 +328,8 @@ export function App() {
   const [isBiosecurityModalOpen, setIsBiosecurityModalOpen] = useState(false);
   const [v2gTargetCar, setV2gTargetCar] = useState<Vehicle | null>(null);
   const [isV2gModalOpen, setIsV2gModalOpen] = useState(false);
+  const [afezTargetCar, setAfezTargetCar] = useState<Vehicle | null>(null);
+  const [isAfezModalOpen, setIsAfezModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -630,6 +633,9 @@ export function App() {
         }}
         onOpenV2gSmartGrid={() => {
           setIsV2gModalOpen(true);
+        }}
+        onOpenAfezLogistics={() => {
+          setIsAfezModalOpen(true);
         }}
       />
 
@@ -1457,6 +1463,9 @@ export function App() {
           }}
           onOpenV2gSmartGrid={(v) => {
             setV2gTargetCar(v);
+          }}
+          onOpenAfezLogistics={(v) => {
+            setAfezTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2312,6 +2321,17 @@ export function App() {
           onClose={() => {
             setIsV2gModalOpen(false);
             setV2gTargetCar(null);
+          }}
+          currency={currency}
+        />
+
+        {/* AFEZ, DDLA & DGK Multimodal Logistika və Gömrük Portalı Modal */}
+        <AfezLogisticsModal
+          isOpen={isAfezModalOpen || !!afezTargetCar}
+          initialVehicle={afezTargetCar || undefined}
+          onClose={() => {
+            setIsAfezModalOpen(false);
+            setAfezTargetCar(null);
           }}
           currency={currency}
         />
