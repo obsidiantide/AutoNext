@@ -1635,4 +1635,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenMetroComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders Cable Car Compliance shortcut button and calls callback when clicked', () => {
+    const onOpenCableCarComplianceMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenCableCarCompliance={onOpenCableCarComplianceMock}
+      />
+    );
+
+    const btn = screen.getByTestId('cablecar-compliance-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenCableCarComplianceMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

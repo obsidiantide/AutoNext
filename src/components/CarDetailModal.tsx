@@ -76,7 +76,8 @@ import {
   Video,
   Plane,
   Anchor,
-  Train
+  Train,
+  CableCar
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -168,6 +169,7 @@ interface CarDetailModalProps {
   onOpenMaritimePort?: (vehicle: Vehicle) => void;
   onOpenRailwayCompliance?: (vehicle: Vehicle) => void;
   onOpenMetroCompliance?: (vehicle: Vehicle) => void;
+  onOpenCableCarCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -249,6 +251,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenMaritimePort,
   onOpenRailwayCompliance,
   onOpenMetroCompliance,
+  onOpenCableCarCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1422,6 +1425,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Train className="w-4 h-4 text-red-400" />
                     <span>Bakı Metro Park & Ride (P+R)</span>
+                  </button>
+                )}
+
+                {/* DTA, AYNA & FHN Kanat Yolları & Funikulyor Portalı Shortcut */}
+                {onOpenCableCarCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenCableCarCompliance(vehicle)}
+                    data-testid="cablecar-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <CableCar className="w-4 h-4 text-cyan-400 animate-pulse" />
+                    <span>DTA & FHN Kanat Yolları və Funikulyor Təhlükəsizlik Portalı</span>
                   </button>
                 )}
 

@@ -94,6 +94,7 @@ const AirportRampModal = React.lazy(() => import('./components/AirportRampModal'
 const MaritimePortModal = React.lazy(() => import('./components/MaritimePortModal').then(m => ({ default: m.MaritimePortModal })));
 const RailwayComplianceModal = React.lazy(() => import('./components/RailwayComplianceModal').then(m => ({ default: m.RailwayComplianceModal })));
 const MetroIntermodalModal = React.lazy(() => import('./components/MetroIntermodalModal').then(m => ({ default: m.MetroIntermodalModal })));
+const CableCarModal = React.lazy(() => import('./components/CableCarModal').then(m => ({ default: m.CableCarModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -316,6 +317,7 @@ export function App() {
   const [isRailwayModalOpen, setIsRailwayModalOpen] = useState(false);
   const [metroTargetCar, setMetroTargetCar] = useState<Vehicle | null>(null);
   const [isMetroModalOpen, setIsMetroModalOpen] = useState(false);
+  const [isCableCarModalOpen, setIsCableCarModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -604,6 +606,9 @@ export function App() {
         onOpenMetroCompliance={() => {
           setMetroTargetCar(vehicles[0] || null);
           setIsMetroModalOpen(true);
+        }}
+        onOpenCableCarCompliance={() => {
+          setIsCableCarModalOpen(true);
         }}
       />
 
@@ -1417,6 +1422,9 @@ export function App() {
             setMetroTargetCar(car);
             setIsMetroModalOpen(true);
           }}
+          onOpenCableCarCompliance={() => {
+            setIsCableCarModalOpen(true);
+          }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
           }}
@@ -2227,6 +2235,14 @@ export function App() {
           onClose={() => {
             setIsMetroModalOpen(false);
             setMetroTargetCar(null);
+          }}
+        />
+
+        {/* DTA, AYNA & FHN Kanat Yolları & Funikulyor Təhlükəsizlik Portalı Modal */}
+        <CableCarModal
+          isOpen={isCableCarModalOpen}
+          onClose={() => {
+            setIsCableCarModalOpen(false);
           }}
         />
 

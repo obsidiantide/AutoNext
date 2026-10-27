@@ -638,4 +638,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenMetroCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DTA & FHN Cable Car Compliance button and calls onOpenCableCarCompliance when clicked', () => {
+    const onOpenCableCarCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenCableCarCompliance={onOpenCableCarCompliance} />);
+
+    const btn = screen.getByTestId('navbar-cablecar-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenCableCarCompliance).toHaveBeenCalledTimes(1);
+  });
 });
