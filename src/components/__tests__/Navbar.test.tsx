@@ -678,4 +678,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenBiosecurityCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders Azərişıq V2G Smart Grid button and calls onOpenV2gSmartGrid when clicked', () => {
+    const onOpenV2gSmartGrid = vi.fn();
+    render(<Navbar {...defaultProps} onOpenV2gSmartGrid={onOpenV2gSmartGrid} />);
+
+    const btn = screen.getByTestId('navbar-v2g-smart-grid-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenV2gSmartGrid).toHaveBeenCalledTimes(1);
+  });
 });

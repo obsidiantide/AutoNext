@@ -98,6 +98,7 @@ const CableCarModal = React.lazy(() => import('./components/CableCarModal').then
 const WinterPassModal = React.lazy(() => import('./components/WinterPassModal').then(m => ({ default: m.WinterPassModal })));
 const TirCarnetTransitModal = React.lazy(() => import('./components/TirCarnetTransitModal').then(m => ({ default: m.TirCarnetTransitModal })));
 const BiosecurityComplianceModal = React.lazy(() => import('./components/BiosecurityComplianceModal').then(m => ({ default: m.BiosecurityComplianceModal })));
+const V2gSmartGridModal = React.lazy(() => import('./components/V2gSmartGridModal').then(m => ({ default: m.V2gSmartGridModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -324,6 +325,8 @@ export function App() {
   const [isWinterPassModalOpen, setIsWinterPassModalOpen] = useState(false);
   const [isTirCarnetModalOpen, setIsTirCarnetModalOpen] = useState(false);
   const [isBiosecurityModalOpen, setIsBiosecurityModalOpen] = useState(false);
+  const [v2gTargetCar, setV2gTargetCar] = useState<Vehicle | null>(null);
+  const [isV2gModalOpen, setIsV2gModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -624,6 +627,9 @@ export function App() {
         }}
         onOpenBiosecurityCompliance={() => {
           setIsBiosecurityModalOpen(true);
+        }}
+        onOpenV2gSmartGrid={() => {
+          setIsV2gModalOpen(true);
         }}
       />
 
@@ -1448,6 +1454,9 @@ export function App() {
           }}
           onOpenBiosecurityCompliance={() => {
             setIsBiosecurityModalOpen(true);
+          }}
+          onOpenV2gSmartGrid={(v) => {
+            setV2gTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2292,6 +2301,17 @@ export function App() {
           isOpen={isBiosecurityModalOpen}
           onClose={() => {
             setIsBiosecurityModalOpen(false);
+          }}
+          currency={currency}
+        />
+
+        {/* Azərişıq & Energetika Nazirliyi Ağıllı Şəbəkə V2G Portalı Modal */}
+        <V2gSmartGridModal
+          isOpen={isV2gModalOpen || !!v2gTargetCar}
+          initialVehicle={v2gTargetCar || undefined}
+          onClose={() => {
+            setIsV2gModalOpen(false);
+            setV2gTargetCar(null);
           }}
           currency={currency}
         />

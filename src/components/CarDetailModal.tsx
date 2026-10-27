@@ -175,6 +175,7 @@ interface CarDetailModalProps {
   onOpenWinterPassCompliance?: (vehicle: Vehicle) => void;
   onOpenTirCarnetCompliance?: (vehicle: Vehicle) => void;
   onOpenBiosecurityCompliance?: (vehicle: Vehicle) => void;
+  onOpenV2gSmartGrid?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -260,6 +261,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenWinterPassCompliance,
   onOpenTirCarnetCompliance,
   onOpenBiosecurityCompliance,
+  onOpenV2gSmartGrid,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1485,6 +1487,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <ThermometerSnowflake className="w-4 h-4 text-teal-400" />
                     <span>AQTA Sərhəd Bioloji Təhlükəsizlik & Soyuq Zəncir Portalı</span>
+                  </button>
+                )}
+
+                {/* Azərişıq & Energetika Nazirliyi Ağıllı Şəbəkə V2G Portalı Shortcut */}
+                {onOpenV2gSmartGrid && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenV2gSmartGrid(vehicle)}
+                    data-testid="v2g-smart-grid-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Zap className="w-4 h-4 text-emerald-400" />
+                    <span>Azərişıq Ağıllı Şəbəkə V2G Enerji İxrac Portalı</span>
                   </button>
                 )}
 

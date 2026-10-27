@@ -131,6 +131,7 @@ interface NavbarProps {
   onOpenWinterPassCompliance?: () => void;
   onOpenTirCarnetCompliance?: () => void;
   onOpenBiosecurityCompliance?: () => void;
+  onOpenV2gSmartGrid?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -206,6 +207,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenWinterPassCompliance,
   onOpenTirCarnetCompliance,
   onOpenBiosecurityCompliance,
+  onOpenV2gSmartGrid,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -985,6 +987,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <ThermometerSnowflake className="w-4 h-4 text-teal-400" />
               <span className="hidden xl:inline">AQTA Bioloji Təhlükəsizlik</span>
+            </button>
+          )}
+
+          {/* Azərişıq & Energetika Nazirliyi Ağıllı Şəbəkə V2G Portalı Button */}
+          {onOpenV2gSmartGrid && (
+            <button
+              onClick={onOpenV2gSmartGrid}
+              data-testid="navbar-v2g-smart-grid-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="Azərişıq & Energetika Nazirliyi Ağıllı Şəbəkə V2G İxrac Portalı"
+            >
+              <Zap className="w-4 h-4 text-emerald-400" />
+              <span className="hidden xl:inline">Azərişıq V2G Şəbəkə</span>
             </button>
           )}
 

@@ -753,7 +753,16 @@ This backlog is actively maintained and executed by the **GitHub Growth Agent** 
 
 ---
 
-### ⚡ Milestone 83: Official Ministry of Energy (Energetika Nazirliyi), "Azərişıq" & BDYP Smart Grid Electric Vehicle (EV) V2G (Vehicle-to-Grid) Bidirectional Inverter, Peak-Shaving Dynamic Tariff & Official V2G-AZ-2026 Energy Export Portal (Planned)
+### ⚡ Milestone 83: Official Ministry of Energy (Energetika Nazirliyi), "Azərişıq" & BDYP Smart Grid Electric Vehicle (EV) V2G (Vehicle-to-Grid) Bidirectional Inverter, Peak-Shaving Dynamic Tariff & Official V2G-AZ-2026 Energy Export Portal (Completed)
+- [x] Add Official Ministry of Energy (Energetika Nazirliyi), "Azərişıq" & BDYP Smart Grid EV V2G Modal (`V2gSmartGridModal.tsx`) with Bidirectional Inverter & Telemetry Stand, Azərişıq Smart Substations Radar, 10-Point Technical & Electrical Safety Checklist, 10-Question Theoretical Examination Simulator, and Official V2G-AZ-2026 Electronic Certificate Generator with Unified Public Registry
+- [x] Implement statutory V2G energy export calculation engine (`src/utils/v2gCompliance.ts`) adhering to the Law on Renewable Energy Sources, Law on Electric Power, Cabinet of Ministers Active Consumer Regulations, dynamic Time-of-Use tariffs (Off-Peak 0.06 ₼, Peak 0.18 ₼, Critical 0.26 ₼), regional feed-in incentive multipliers (1.05–1.30x), battery degradation wear costs, peak-shaving relief kW, avoided CO2 emissions, IEEE 1547 anti-islanding trip diagnostic, and multi-currency conversions (AZN, USD, EUR)
+- [x] Add comprehensive mock smart grid database (`src/data/mockV2gData.ts`) covering 7 strategic Azərişıq 110/35/10 kV digital substations (Ağ Şəhər-1, Bayıl Sahil, Yasamal-1, Dərnəgül, Xırdalan, Sumqayıt SKSP, Qala Sea Breeze) with live frequency (50 Hz ±0.05) and load telemetry, 6 authentic bidirectional EV presets (`10-VG-505`, `99-EL-101`, `77-EE-707`, `90-ZN-303`, `99-TT-909`, `10-AZ-888`), 10 statutory safety checklist items, 10 statutory theoretical exam questions with legal citations, and verifiable active `V2G-AZ-2026-XXXXX` certificates
+- [x] Build official Azərişıq & Energetika Nazirliyi Electronic V2G Export Certificate generator (`V2G-AZ-2026-XXXXX`) with cryptographic SHA-256 security checksum, SİMA digital signature UID, assigned Smart Meter serial code (`AZS-SM-XXXX`), export power limit, printable layout, and one-click clipboard copying
+- [x] Comprehensive Vitest unit test suites (`src/utils/__tests__/v2gCompliance.test.ts` and `src/components/__tests__/V2gSmartGridModal.test.tsx`, plus integrations in `Navbar.test.tsx` and `CarDetailModal.test.tsx`) covering export formulas, battery degradation models, dynamic tariffs, frequency droop and anti-islanding trip thresholds, checklist grading, exam evaluation, certificate generation, print and copy actions
+
+---
+
+### 🚢 Milestone 84: Official State Maritime and Port Agency (DDLA), State Customs Committee (DGK) & Port of Baku Free Trade Zone (FTZ / Ələt Azad İqtisadi Zonası - AFEZ) Multimodal Bonded Logistics, Intermodal Container Yard Telemetry & Official AFEZ-TIR-2026 Customs Clearance Portal (Planned)
 
 
 

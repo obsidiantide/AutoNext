@@ -1715,4 +1715,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenBiosecurityComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders Azərişıq V2G Smart Grid shortcut button and calls callback when clicked', () => {
+    const onOpenV2gSmartGridMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenV2gSmartGrid={onOpenV2gSmartGridMock}
+      />
+    );
+
+    const btn = screen.getByTestId('v2g-smart-grid-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenV2gSmartGridMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });
