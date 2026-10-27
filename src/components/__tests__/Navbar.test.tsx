@@ -668,4 +668,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenTirCarnetCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AQTA & DGK Biosecurity button and calls onOpenBiosecurityCompliance when clicked', () => {
+    const onOpenBiosecurityCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenBiosecurityCompliance={onOpenBiosecurityCompliance} />);
+
+    const btn = screen.getByTestId('navbar-biosecurity-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenBiosecurityCompliance).toHaveBeenCalledTimes(1);
+  });
 });

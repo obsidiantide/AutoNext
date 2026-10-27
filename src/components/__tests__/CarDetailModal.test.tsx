@@ -1695,4 +1695,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenTirCarnetComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders AQTA Biosecurity & Cold Chain shortcut button and calls callback when clicked', () => {
+    const onOpenBiosecurityComplianceMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenBiosecurityCompliance={onOpenBiosecurityComplianceMock}
+      />
+    );
+
+    const btn = screen.getByTestId('biosecurity-compliance-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenBiosecurityComplianceMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

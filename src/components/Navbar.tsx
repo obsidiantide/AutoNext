@@ -54,7 +54,8 @@ import {
   Anchor,
   Train,
   CableCar,
-  Snowflake
+  Snowflake,
+  ThermometerSnowflake
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -129,6 +130,7 @@ interface NavbarProps {
   onOpenCableCarCompliance?: () => void;
   onOpenWinterPassCompliance?: () => void;
   onOpenTirCarnetCompliance?: () => void;
+  onOpenBiosecurityCompliance?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -203,6 +205,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCableCarCompliance,
   onOpenWinterPassCompliance,
   onOpenTirCarnetCompliance,
+  onOpenBiosecurityCompliance,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -969,6 +972,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Truck className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">TIR & Yaşıl Dəhliz</span>
+            </button>
+          )}
+
+          {/* AQTA, DGK & KTN Sərhəd Bioloji Təhlükəsizlik və Soyuq Zəncir Portalı Button */}
+          {onOpenBiosecurityCompliance && (
+            <button
+              onClick={onOpenBiosecurityCompliance}
+              data-testid="navbar-biosecurity-compliance-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AQTA, DGK & KTN Sərhəd Bioloji Təhlükəsizlik və Soyuq Zəncir Portalı"
+            >
+              <ThermometerSnowflake className="w-4 h-4 text-teal-400" />
+              <span className="hidden xl:inline">AQTA Bioloji Təhlükəsizlik</span>
             </button>
           )}
 

@@ -78,7 +78,8 @@ import {
   Anchor,
   Train,
   CableCar,
-  Snowflake
+  Snowflake,
+  ThermometerSnowflake
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -173,6 +174,7 @@ interface CarDetailModalProps {
   onOpenCableCarCompliance?: (vehicle: Vehicle) => void;
   onOpenWinterPassCompliance?: (vehicle: Vehicle) => void;
   onOpenTirCarnetCompliance?: (vehicle: Vehicle) => void;
+  onOpenBiosecurityCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -257,6 +259,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenCableCarCompliance,
   onOpenWinterPassCompliance,
   onOpenTirCarnetCompliance,
+  onOpenBiosecurityCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1469,6 +1472,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Truck className="w-4 h-4 text-emerald-400" />
                     <span>DGK Beynəlxalq TIR & Yaşıl Dəhliz Portalı</span>
+                  </button>
+                )}
+
+                {/* AQTA, DGK & KTN Sərhəd Bioloji Təhlükəsizlik və Soyuq Zəncir Portalı Shortcut */}
+                {onOpenBiosecurityCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenBiosecurityCompliance(vehicle)}
+                    data-testid="biosecurity-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <ThermometerSnowflake className="w-4 h-4 text-teal-400" />
+                    <span>AQTA Sərhəd Bioloji Təhlükəsizlik & Soyuq Zəncir Portalı</span>
                   </button>
                 )}
 

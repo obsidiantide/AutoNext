@@ -97,6 +97,7 @@ const MetroIntermodalModal = React.lazy(() => import('./components/MetroIntermod
 const CableCarModal = React.lazy(() => import('./components/CableCarModal').then(m => ({ default: m.CableCarModal })));
 const WinterPassModal = React.lazy(() => import('./components/WinterPassModal').then(m => ({ default: m.WinterPassModal })));
 const TirCarnetTransitModal = React.lazy(() => import('./components/TirCarnetTransitModal').then(m => ({ default: m.TirCarnetTransitModal })));
+const BiosecurityComplianceModal = React.lazy(() => import('./components/BiosecurityComplianceModal').then(m => ({ default: m.BiosecurityComplianceModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -322,6 +323,7 @@ export function App() {
   const [isCableCarModalOpen, setIsCableCarModalOpen] = useState(false);
   const [isWinterPassModalOpen, setIsWinterPassModalOpen] = useState(false);
   const [isTirCarnetModalOpen, setIsTirCarnetModalOpen] = useState(false);
+  const [isBiosecurityModalOpen, setIsBiosecurityModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -619,6 +621,9 @@ export function App() {
         }}
         onOpenTirCarnetCompliance={() => {
           setIsTirCarnetModalOpen(true);
+        }}
+        onOpenBiosecurityCompliance={() => {
+          setIsBiosecurityModalOpen(true);
         }}
       />
 
@@ -1440,6 +1445,9 @@ export function App() {
           }}
           onOpenTirCarnetCompliance={() => {
             setIsTirCarnetModalOpen(true);
+          }}
+          onOpenBiosecurityCompliance={() => {
+            setIsBiosecurityModalOpen(true);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2275,6 +2283,15 @@ export function App() {
           isOpen={isTirCarnetModalOpen}
           onClose={() => {
             setIsTirCarnetModalOpen(false);
+          }}
+          currency={currency}
+        />
+
+        {/* AQTA, DGK & KTN Sərhəd Bioloji Təhlükəsizlik və Soyuq Zəncir Portalı Modal */}
+        <BiosecurityComplianceModal
+          isOpen={isBiosecurityModalOpen}
+          onClose={() => {
+            setIsBiosecurityModalOpen(false);
           }}
           currency={currency}
         />
