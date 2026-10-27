@@ -77,7 +77,8 @@ import {
   Plane,
   Anchor,
   Train,
-  CableCar
+  CableCar,
+  Snowflake
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -170,6 +171,7 @@ interface CarDetailModalProps {
   onOpenRailwayCompliance?: (vehicle: Vehicle) => void;
   onOpenMetroCompliance?: (vehicle: Vehicle) => void;
   onOpenCableCarCompliance?: (vehicle: Vehicle) => void;
+  onOpenWinterPassCompliance?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -252,6 +254,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenRailwayCompliance,
   onOpenMetroCompliance,
   onOpenCableCarCompliance,
+  onOpenWinterPassCompliance,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1438,6 +1441,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <CableCar className="w-4 h-4 text-cyan-400 animate-pulse" />
                     <span>DTA & FHN Kanat Yolları və Funikulyor Təhlükəsizlik Portalı</span>
+                  </button>
+                )}
+
+                {/* AAYDA, BDYP & FHN Qış Dağ Aşırımları Portalı Shortcut */}
+                {onOpenWinterPassCompliance && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenWinterPassCompliance(vehicle)}
+                    data-testid="winterpass-compliance-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Snowflake className="w-4 h-4 text-cyan-300 animate-spin-slow" />
+                    <span>AAYDA, BDYP & FHN Qış Dağ Aşırımları və Təhlükəsizlik Portalı</span>
                   </button>
                 )}
 

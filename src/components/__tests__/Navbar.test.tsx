@@ -648,4 +648,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenCableCarCompliance).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA & FHN Winter Mountain Pass Compliance button and calls onOpenWinterPassCompliance when clicked', () => {
+    const onOpenWinterPassCompliance = vi.fn();
+    render(<Navbar {...defaultProps} onOpenWinterPassCompliance={onOpenWinterPassCompliance} />);
+
+    const btn = screen.getByTestId('navbar-winterpass-compliance-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenWinterPassCompliance).toHaveBeenCalledTimes(1);
+  });
 });

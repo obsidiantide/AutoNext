@@ -1655,4 +1655,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenCableCarComplianceMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders Winter Mountain Pass Compliance shortcut button and calls callback when clicked', () => {
+    const onOpenWinterPassComplianceMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenWinterPassCompliance={onOpenWinterPassComplianceMock}
+      />
+    );
+
+    const btn = screen.getByTestId('winterpass-compliance-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenWinterPassComplianceMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

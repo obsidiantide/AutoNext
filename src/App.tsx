@@ -95,6 +95,7 @@ const MaritimePortModal = React.lazy(() => import('./components/MaritimePortModa
 const RailwayComplianceModal = React.lazy(() => import('./components/RailwayComplianceModal').then(m => ({ default: m.RailwayComplianceModal })));
 const MetroIntermodalModal = React.lazy(() => import('./components/MetroIntermodalModal').then(m => ({ default: m.MetroIntermodalModal })));
 const CableCarModal = React.lazy(() => import('./components/CableCarModal').then(m => ({ default: m.CableCarModal })));
+const WinterPassModal = React.lazy(() => import('./components/WinterPassModal').then(m => ({ default: m.WinterPassModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -318,6 +319,7 @@ export function App() {
   const [metroTargetCar, setMetroTargetCar] = useState<Vehicle | null>(null);
   const [isMetroModalOpen, setIsMetroModalOpen] = useState(false);
   const [isCableCarModalOpen, setIsCableCarModalOpen] = useState(false);
+  const [isWinterPassModalOpen, setIsWinterPassModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -609,6 +611,9 @@ export function App() {
         }}
         onOpenCableCarCompliance={() => {
           setIsCableCarModalOpen(true);
+        }}
+        onOpenWinterPassCompliance={() => {
+          setIsWinterPassModalOpen(true);
         }}
       />
 
@@ -1424,6 +1429,9 @@ export function App() {
           }}
           onOpenCableCarCompliance={() => {
             setIsCableCarModalOpen(true);
+          }}
+          onOpenWinterPassCompliance={() => {
+            setIsWinterPassModalOpen(true);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2243,6 +2251,14 @@ export function App() {
           isOpen={isCableCarModalOpen}
           onClose={() => {
             setIsCableCarModalOpen(false);
+          }}
+        />
+
+        {/* AAYDA, BDYP & FHN Qış Dağ Aşırımları və Təhlükəsizlik Portalı Modal */}
+        <WinterPassModal
+          isOpen={isWinterPassModalOpen}
+          onClose={() => {
+            setIsWinterPassModalOpen(false);
           }}
         />
 
