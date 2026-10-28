@@ -182,6 +182,7 @@ interface CarDetailModalProps {
   onOpenAxleLoad?: (vehicle: Vehicle) => void;
   onOpenElectronicSeal?: (vehicle: Vehicle) => void;
   onOpenIntercityMobility?: (vehicle: Vehicle) => void;
+  onOpenTankerSafety?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -272,6 +273,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenAxleLoad,
   onOpenElectronicSeal,
   onOpenIntercityMobility,
+  onOpenTankerSafety,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1562,6 +1564,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Bus className="w-4 h-4 text-teal-400" />
                     <span>RİNN & AYNA Şəhərlərarası Müntəzəm Sərnişin Daşıma və Tender Portalı</span>
+                  </button>
+                )}
+
+                {/* FHN DYNX & BDYP ADR Yanacaq və Kimyəvi Sisternlər Təhlükəsizlik Portalı Shortcut */}
+                {onOpenTankerSafety && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenTankerSafety(vehicle)}
+                    data-testid="tanker-safety-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-orange-600/10 hover:bg-orange-600/20 text-orange-300 border border-orange-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Flame className="w-4 h-4 text-orange-400" />
+                    <span>FHN DYNX & BDYP ADR Sistern & Alovsöndürən Portalı</span>
                   </button>
                 )}
 

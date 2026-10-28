@@ -798,7 +798,16 @@ This backlog is actively maintained and executed by the **GitHub Growth Agent** 
 
 ---
 
-### 🛡️ Milestone 88: Official Ministry of Emergency Situations (FHN), State Fire Control Service & BDYP Dangerous Goods Hazardous Materials (ADR / Təhlükəli Yüklər) Tanker Hydrostatic Inspection, Ex-Proof Flame Arrester Telemetry & Official ADR-AZ-2026 Vehicle Approval Portal (Planned)
+### 🛡️ Milestone 88: Official Ministry of Emergency Situations (FHN), State Fire Control Service & BDYP Dangerous Goods Hazardous Materials (ADR / Təhlükəli Yüklər) Tanker Hydrostatic Inspection, Ex-Proof Flame Arrester Telemetry & Official ADR-AZ-2026 Vehicle Approval Portal (Completed)
+- [x] Add Official Ministry of Emergency Situations (FHN), State Fire Control Service (DYNX) & BDYP Dangerous Goods Hazardous Materials Tanker Modal (`TankerSafetyModal.tsx`) with Tanker Hydrostatic & Shell Thickness Telemetry Stand, Ex-Proof Flame Arrester & Electrostatic Grounding Stand, Statutory Inspection Fee & Escort Calculator, 7 Strategic ADR Petroleum & Chemical Terminals Radar (SOCAR HNEZ, Sangachal BP, Sumgayit SCIP, Dubandi, Ganja Depot, Alat Liquid Terminal, Shirvan LPG), 10-Point Technical & Fire Safety Checklist, 10-Question Theoretical ADR Examination Simulator, Official ADR-AZ-2026 Certificate Generator (ADR B.3 form), and Unified Public Registry
+- [x] Implement statutory tanker compliance engine (`src/utils/tankerSafetyCompliance.ts`) adhering to Law on Fire Safety, Law on Technical Safety, Cabinet of Ministers Resolution No. 10 ("Təhlükəli yüklərin avtomobil nəqliyyatı ilə daşınması Qaydaları"), UNECE ADR Part 6 (Tank hydrostatic pressure test, 0 bar drop tolerance, shell minimum thickness ultrasonic NDT limit), Part 9 (Vehicle categories FL, AT, EX/II, EX/III, MEMU), emergency foot valve closure (≤ 5.0s trip), shear groove intactness, flame arrester mesh cleanliness (≥ 80%) & backpressure drop (≤ 15 mbar), electrostatic grounding (≤ 10.0 Ω), and Code of Administrative Offences (İXM Maddə 323: 1,000–5,000 AZN violation fine)
+- [x] Add comprehensive mock hazardous materials database (`src/data/mockTankerSafetyData.ts`) covering 7 strategic Azerbaijani hazardous chemical/fuel loading terminals with live safety tiers, fire station distance, and throughput, 6 authentic tanker presets (`99-FL-101`, `10-AD-404`, `77-TK-707`, `90-EX-303`, `99-AR-909`, `10-TX-888`), 10 statutory safety checklist items, 10 statutory theoretical exam questions with legal citations, and verifiable active `ADR-AZ-2026-XXXXX` certificates
+- [x] Build official FHN DYNX & BDYP Electronic Certificate of Approval generator (`ADR-AZ-2026-XXXXX` / ADR B.3 form) with cryptographic SHA-256 security checksum, SİMA digital signature UID, assigned vehicle category, permitted UN numbers, hydrostatic validity dates, printable voucher layout, and one-click clipboard copying
+- [x] Comprehensive Vitest unit test suites (`src/utils/__tests__/tankerSafetyCompliance.test.ts` and `src/components/__tests__/TankerSafetyModal.test.tsx`, plus integrations in `Navbar.test.tsx` and `CarDetailModal.test.tsx`) covering hydrostatic pressure drop tolerances, wall thickness wear limits, foot valve trip thresholds, flame arrester and grounding limits, checklist scoring, exam evaluation, certificate generation, print and copy actions, and public registry searches
+
+---
+
+### 🌿 Milestone 89: Official Ministry of Ecology and Natural Resources (ETSN), AYNA & BDYP Urban Low Emission Zone (LEZ), Green Fleet Eco-Score Telemetry & Official ECO-ZONE-AZ-2026 Clean Delivery Permit Portal (Planned)
 
 
 

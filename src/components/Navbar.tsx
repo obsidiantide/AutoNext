@@ -139,6 +139,7 @@ interface NavbarProps {
   onOpenAxleLoad?: () => void;
   onOpenElectronicSeal?: () => void;
   onOpenIntercityMobility?: () => void;
+  onOpenTankerSafety?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -219,6 +220,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAxleLoad,
   onOpenElectronicSeal,
   onOpenIntercityMobility,
+  onOpenTankerSafety,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1063,6 +1065,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Bus className="w-4 h-4 text-teal-400" />
               <span className="hidden xl:inline">AYNA Mobillik</span>
+            </button>
+          )}
+
+          {/* FHN DYNX & BDYP ADR Təhlükəli Yüklər və Sistern Təhlükəsizlik Portalı Button */}
+          {onOpenTankerSafety && (
+            <button
+              onClick={onOpenTankerSafety}
+              data-testid="navbar-tanker-safety-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-orange-600/10 hover:bg-orange-600/20 text-orange-300 border border-orange-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="FHN DYNX & BDYP ADR Yanacaq və Kimyəvi Sisternlər Təhlükəsizlik Portalı"
+            >
+              <Flame className="w-4 h-4 text-orange-400" />
+              <span className="hidden xl:inline">ADR Sistern</span>
             </button>
           )}
 

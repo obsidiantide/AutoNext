@@ -103,6 +103,7 @@ const AfezLogisticsModal = React.lazy(() => import('./components/AfezLogisticsMo
 const AxleLoadModal = React.lazy(() => import('./components/AxleLoadModal').then(m => ({ default: m.AxleLoadModal })));
 const ElectronicSealModal = React.lazy(() => import('./components/ElectronicSealModal').then(m => ({ default: m.ElectronicSealModal })));
 const IntercityMobilityModal = React.lazy(() => import('./components/IntercityMobilityModal').then(m => ({ default: m.IntercityMobilityModal })));
+const TankerSafetyModal = React.lazy(() => import('./components/TankerSafetyModal').then(m => ({ default: m.TankerSafetyModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -339,6 +340,8 @@ export function App() {
   const [isElectronicSealModalOpen, setIsElectronicSealModalOpen] = useState(false);
   const [intercityMobilityTargetCar, setIntercityMobilityTargetCar] = useState<Vehicle | null>(null);
   const [isIntercityMobilityModalOpen, setIsIntercityMobilityModalOpen] = useState(false);
+  const [tankerSafetyTargetCar, setTankerSafetyTargetCar] = useState<Vehicle | null>(null);
+  const [isTankerSafetyModalOpen, setIsTankerSafetyModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -654,6 +657,9 @@ export function App() {
         }}
         onOpenIntercityMobility={() => {
           setIsIntercityMobilityModalOpen(true);
+        }}
+        onOpenTankerSafety={() => {
+          setIsTankerSafetyModalOpen(true);
         }}
       />
 
@@ -1493,6 +1499,9 @@ export function App() {
           }}
           onOpenIntercityMobility={(v) => {
             setIntercityMobilityTargetCar(v);
+          }}
+          onOpenTankerSafety={(v) => {
+            setTankerSafetyTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2392,6 +2401,17 @@ export function App() {
           onClose={() => {
             setIsIntercityMobilityModalOpen(false);
             setIntercityMobilityTargetCar(null);
+          }}
+          currency={currency}
+        />
+
+        {/* FHN DYNX & BDYP ADR Yanacaq və Kimyəvi Sisternlər Təhlükəsizlik Portalı Modal */}
+        <TankerSafetyModal
+          isOpen={isTankerSafetyModalOpen || !!tankerSafetyTargetCar}
+          vehicle={tankerSafetyTargetCar || undefined}
+          onClose={() => {
+            setIsTankerSafetyModalOpen(false);
+            setTankerSafetyTargetCar(null);
           }}
           currency={currency}
         />

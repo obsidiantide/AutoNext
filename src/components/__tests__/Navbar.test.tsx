@@ -728,4 +728,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenIntercityMobility).toHaveBeenCalledTimes(1);
   });
+
+  it('renders FHN DYNX & BDYP ADR Tanker Safety button and calls onOpenTankerSafety when clicked', () => {
+    const onOpenTankerSafety = vi.fn();
+    render(<Navbar {...defaultProps} onOpenTankerSafety={onOpenTankerSafety} />);
+
+    const btn = screen.getByTestId('navbar-tanker-safety-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenTankerSafety).toHaveBeenCalledTimes(1);
+  });
 });

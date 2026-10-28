@@ -1815,4 +1815,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenIntercityMobilityMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders FHN DYNX & BDYP ADR Tanker Safety shortcut button and calls callback when clicked', () => {
+    const onOpenTankerSafetyMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenTankerSafety={onOpenTankerSafetyMock}
+      />
+    );
+
+    const btn = screen.getByTestId('tanker-safety-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenTankerSafetyMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });
