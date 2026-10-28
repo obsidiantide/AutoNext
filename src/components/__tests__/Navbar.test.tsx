@@ -708,4 +708,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAxleLoad).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DGK Electronic Seal button and calls onOpenElectronicSeal when clicked', () => {
+    const onOpenElectronicSeal = vi.fn();
+    render(<Navbar {...defaultProps} onOpenElectronicSeal={onOpenElectronicSeal} />);
+
+    const btn = screen.getByTestId('navbar-electronic-seal-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenElectronicSeal).toHaveBeenCalledTimes(1);
+  });
 });

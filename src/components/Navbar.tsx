@@ -57,7 +57,8 @@ import {
   Snowflake,
   ThermometerSnowflake,
   Warehouse,
-  Scale
+  Scale,
+  Lock
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -136,6 +137,7 @@ interface NavbarProps {
   onOpenV2gSmartGrid?: () => void;
   onOpenAfezLogistics?: () => void;
   onOpenAxleLoad?: () => void;
+  onOpenElectronicSeal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -214,6 +216,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenV2gSmartGrid,
   onOpenAfezLogistics,
   onOpenAxleLoad,
+  onOpenElectronicSeal,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1032,6 +1035,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Scale className="w-4 h-4 text-amber-400" />
               <span className="hidden xl:inline">AYNA WIM Tərəzi</span>
+            </button>
+          )}
+
+          {/* DGK, AYNA & BDYP Elektron İntellektual GPS Plomb Portalı Button */}
+          {onOpenElectronicSeal && (
+            <button
+              onClick={onOpenElectronicSeal}
+              data-testid="navbar-electronic-seal-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="DGK & AYNA Elektron İntellektual GPS Plomb və Tranzit Geofencing Portalı"
+            >
+              <Lock className="w-4 h-4 text-emerald-400" />
+              <span className="hidden xl:inline">DGK GPS Plomb</span>
             </button>
           )}
 

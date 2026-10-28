@@ -80,7 +80,8 @@ import {
   CableCar,
   Snowflake,
   ThermometerSnowflake,
-  Warehouse
+  Warehouse,
+  Lock
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -179,6 +180,7 @@ interface CarDetailModalProps {
   onOpenV2gSmartGrid?: (vehicle: Vehicle) => void;
   onOpenAfezLogistics?: (vehicle: Vehicle) => void;
   onOpenAxleLoad?: (vehicle: Vehicle) => void;
+  onOpenElectronicSeal?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -267,6 +269,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenV2gSmartGrid,
   onOpenAfezLogistics,
   onOpenAxleLoad,
+  onOpenElectronicSeal,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1531,6 +1534,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Scale className="w-4 h-4 text-amber-400" />
                     <span>AYNA & BDYP Avtomatik Dinamik Tərəzi (WIM) & Ox Yükü Portalı</span>
+                  </button>
+                )}
+
+                {/* DGK, AYNA & BDYP Gömrük Elektron İntellektual GPS Plomb & Tranzit Geofencing Shortcut */}
+                {onOpenElectronicSeal && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenElectronicSeal(vehicle)}
+                    data-testid="electronic-seal-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Lock className="w-4 h-4 text-emerald-400" />
+                    <span>DGK & AYNA Elektron İntellektual GPS Plomb & Tranzit Geofencing Portalı</span>
                   </button>
                 )}
 

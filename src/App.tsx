@@ -101,6 +101,7 @@ const BiosecurityComplianceModal = React.lazy(() => import('./components/Biosecu
 const V2gSmartGridModal = React.lazy(() => import('./components/V2gSmartGridModal').then(m => ({ default: m.V2gSmartGridModal })));
 const AfezLogisticsModal = React.lazy(() => import('./components/AfezLogisticsModal').then(m => ({ default: m.AfezLogisticsModal })));
 const AxleLoadModal = React.lazy(() => import('./components/AxleLoadModal').then(m => ({ default: m.AxleLoadModal })));
+const ElectronicSealModal = React.lazy(() => import('./components/ElectronicSealModal').then(m => ({ default: m.ElectronicSealModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -333,6 +334,8 @@ export function App() {
   const [isAfezModalOpen, setIsAfezModalOpen] = useState(false);
   const [axleTargetCar, setAxleTargetCar] = useState<Vehicle | null>(null);
   const [isAxleModalOpen, setIsAxleModalOpen] = useState(false);
+  const [electronicSealTargetCar, setElectronicSealTargetCar] = useState<Vehicle | null>(null);
+  const [isElectronicSealModalOpen, setIsElectronicSealModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -642,6 +645,9 @@ export function App() {
         }}
         onOpenAxleLoad={() => {
           setIsAxleModalOpen(true);
+        }}
+        onOpenElectronicSeal={() => {
+          setIsElectronicSealModalOpen(true);
         }}
       />
 
@@ -1475,6 +1481,9 @@ export function App() {
           }}
           onOpenAxleLoad={(v) => {
             setAxleTargetCar(v);
+          }}
+          onOpenElectronicSeal={(v) => {
+            setElectronicSealTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2352,6 +2361,17 @@ export function App() {
           onClose={() => {
             setIsAxleModalOpen(false);
             setAxleTargetCar(null);
+          }}
+          currency={currency}
+        />
+
+        {/* DGK, AYNA & BDYP Gömrük Elektron İntellektual GPS Plomb Portalı Modal */}
+        <ElectronicSealModal
+          isOpen={isElectronicSealModalOpen || !!electronicSealTargetCar}
+          vehicle={electronicSealTargetCar || undefined}
+          onClose={() => {
+            setIsElectronicSealModalOpen(false);
+            setElectronicSealTargetCar(null);
           }}
           currency={currency}
         />

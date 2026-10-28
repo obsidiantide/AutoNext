@@ -1775,4 +1775,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenAxleLoadMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders DGK Electronic Seal shortcut button and calls callback when clicked', () => {
+    const onOpenElectronicSealMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenElectronicSeal={onOpenElectronicSealMock}
+      />
+    );
+
+    const btn = screen.getByTestId('electronic-seal-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenElectronicSealMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });
