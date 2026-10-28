@@ -748,4 +748,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenLezEco).toHaveBeenCalledTimes(1);
   });
+
+  it('renders ADY, AYNA & BDYP Piggyback Rail button and calls onOpenPiggybackRail when clicked', () => {
+    const onOpenPiggybackRail = vi.fn();
+    render(<Navbar {...defaultProps} onOpenPiggybackRail={onOpenPiggybackRail} />);
+
+    const btn = screen.getByTestId('navbar-piggyback-rail-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenPiggybackRail).toHaveBeenCalledTimes(1);
+  });
 });

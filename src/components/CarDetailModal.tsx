@@ -184,6 +184,7 @@ interface CarDetailModalProps {
   onOpenIntercityMobility?: (vehicle: Vehicle) => void;
   onOpenTankerSafety?: (vehicle: Vehicle) => void;
   onOpenLezEco?: (vehicle: Vehicle) => void;
+  onOpenPiggybackRail?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -276,6 +277,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenIntercityMobility,
   onOpenTankerSafety,
   onOpenLezEco,
+  onOpenPiggybackRail,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1592,6 +1594,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Leaf className="w-4 h-4 text-emerald-400" />
                     <span>ETSN & AYNA LEZ Aşağı Emissiya Zonaları & Eko-Skor Portalı</span>
+                  </button>
+                )}
+
+                {/* ADY, AYNA & BDYP İntermodal Kontreyler və Ro-La Dəmir Yolu Portalı Shortcut */}
+                {onOpenPiggybackRail && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenPiggybackRail(vehicle)}
+                    data-testid="piggyback-rail-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-cyan-600/10 hover:bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Train className="w-4 h-4 text-cyan-400" />
+                    <span>ADY & AYNA İntermodal Kontreyler (Piggyback) Portalı</span>
                   </button>
                 )}
 

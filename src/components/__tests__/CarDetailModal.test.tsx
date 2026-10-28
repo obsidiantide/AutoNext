@@ -1855,4 +1855,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenLezEcoMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders ADY, AYNA & BDYP Piggyback Rail shortcut button and calls callback when clicked', () => {
+    const onOpenPiggybackRailMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenPiggybackRail={onOpenPiggybackRailMock}
+      />
+    );
+
+    const btn = screen.getByTestId('piggyback-rail-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenPiggybackRailMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

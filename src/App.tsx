@@ -105,6 +105,7 @@ const ElectronicSealModal = React.lazy(() => import('./components/ElectronicSeal
 const IntercityMobilityModal = React.lazy(() => import('./components/IntercityMobilityModal').then(m => ({ default: m.IntercityMobilityModal })));
 const TankerSafetyModal = React.lazy(() => import('./components/TankerSafetyModal').then(m => ({ default: m.TankerSafetyModal })));
 const LezEcoModal = React.lazy(() => import('./components/LezEcoModal').then(m => ({ default: m.LezEcoModal })));
+const PiggybackRailModal = React.lazy(() => import('./components/PiggybackRailModal').then(m => ({ default: m.PiggybackRailModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -345,6 +346,8 @@ export function App() {
   const [isTankerSafetyModalOpen, setIsTankerSafetyModalOpen] = useState(false);
   const [lezEcoTargetCar, setLezEcoTargetCar] = useState<Vehicle | null>(null);
   const [isLezEcoModalOpen, setIsLezEcoModalOpen] = useState(false);
+  const [piggybackRailTargetCar, setPiggybackRailTargetCar] = useState<Vehicle | null>(null);
+  const [isPiggybackRailModalOpen, setIsPiggybackRailModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -666,6 +669,9 @@ export function App() {
         }}
         onOpenLezEco={() => {
           setIsLezEcoModalOpen(true);
+        }}
+        onOpenPiggybackRail={() => {
+          setIsPiggybackRailModalOpen(true);
         }}
       />
 
@@ -1511,6 +1517,9 @@ export function App() {
           }}
           onOpenLezEco={(v) => {
             setLezEcoTargetCar(v);
+          }}
+          onOpenPiggybackRail={(v) => {
+            setPiggybackRailTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2432,6 +2441,16 @@ export function App() {
           onClose={() => {
             setIsLezEcoModalOpen(false);
             setLezEcoTargetCar(null);
+          }}
+        />
+
+        {/* ADY, AYNA & BDYP İntermodal Kontreyler və Ro-La Dəmir Yolu Portalı Modal */}
+        <PiggybackRailModal
+          isOpen={isPiggybackRailModalOpen || !!piggybackRailTargetCar}
+          targetCar={piggybackRailTargetCar}
+          onClose={() => {
+            setIsPiggybackRailModalOpen(false);
+            setPiggybackRailTargetCar(null);
           }}
         />
 

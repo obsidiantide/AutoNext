@@ -141,6 +141,7 @@ interface NavbarProps {
   onOpenIntercityMobility?: () => void;
   onOpenTankerSafety?: () => void;
   onOpenLezEco?: () => void;
+  onOpenPiggybackRail?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -223,6 +224,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenIntercityMobility,
   onOpenTankerSafety,
   onOpenLezEco,
+  onOpenPiggybackRail,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1093,6 +1095,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Leaf className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">LEZ Eko-Zona</span>
+            </button>
+          )}
+
+          {/* ADY, AYNA & BDYP İntermodal Kontreyler və Ro-La Dəmir Yolu Portalı Button */}
+          {onOpenPiggybackRail && (
+            <button
+              onClick={onOpenPiggybackRail}
+              data-testid="navbar-piggyback-rail-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600/10 hover:bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="ADY, AYNA & BDYP İntermodal Kontreyler (Piggyback) və Ro-La Portalı"
+            >
+              <Train className="w-4 h-4 text-cyan-400" />
+              <span className="hidden xl:inline">İntermodal Dəmir Yolu</span>
             </button>
           )}
 
