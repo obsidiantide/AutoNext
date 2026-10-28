@@ -104,6 +104,7 @@ const AxleLoadModal = React.lazy(() => import('./components/AxleLoadModal').then
 const ElectronicSealModal = React.lazy(() => import('./components/ElectronicSealModal').then(m => ({ default: m.ElectronicSealModal })));
 const IntercityMobilityModal = React.lazy(() => import('./components/IntercityMobilityModal').then(m => ({ default: m.IntercityMobilityModal })));
 const TankerSafetyModal = React.lazy(() => import('./components/TankerSafetyModal').then(m => ({ default: m.TankerSafetyModal })));
+const LezEcoModal = React.lazy(() => import('./components/LezEcoModal').then(m => ({ default: m.LezEcoModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -342,6 +343,8 @@ export function App() {
   const [isIntercityMobilityModalOpen, setIsIntercityMobilityModalOpen] = useState(false);
   const [tankerSafetyTargetCar, setTankerSafetyTargetCar] = useState<Vehicle | null>(null);
   const [isTankerSafetyModalOpen, setIsTankerSafetyModalOpen] = useState(false);
+  const [lezEcoTargetCar, setLezEcoTargetCar] = useState<Vehicle | null>(null);
+  const [isLezEcoModalOpen, setIsLezEcoModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -660,6 +663,9 @@ export function App() {
         }}
         onOpenTankerSafety={() => {
           setIsTankerSafetyModalOpen(true);
+        }}
+        onOpenLezEco={() => {
+          setIsLezEcoModalOpen(true);
         }}
       />
 
@@ -1502,6 +1508,9 @@ export function App() {
           }}
           onOpenTankerSafety={(v) => {
             setTankerSafetyTargetCar(v);
+          }}
+          onOpenLezEco={(v) => {
+            setLezEcoTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2414,6 +2423,16 @@ export function App() {
             setTankerSafetyTargetCar(null);
           }}
           currency={currency}
+        />
+
+        {/* ETSN, AYNA & BDYP Şəhər Aşağı Emissiya Zonaları (LEZ) & Eko-Skor Portalı Modal */}
+        <LezEcoModal
+          isOpen={isLezEcoModalOpen || !!lezEcoTargetCar}
+          targetCar={lezEcoTargetCar}
+          onClose={() => {
+            setIsLezEcoModalOpen(false);
+            setLezEcoTargetCar(null);
+          }}
         />
 
 

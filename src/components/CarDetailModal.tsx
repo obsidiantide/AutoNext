@@ -183,6 +183,7 @@ interface CarDetailModalProps {
   onOpenElectronicSeal?: (vehicle: Vehicle) => void;
   onOpenIntercityMobility?: (vehicle: Vehicle) => void;
   onOpenTankerSafety?: (vehicle: Vehicle) => void;
+  onOpenLezEco?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -274,6 +275,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenElectronicSeal,
   onOpenIntercityMobility,
   onOpenTankerSafety,
+  onOpenLezEco,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1577,6 +1579,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Flame className="w-4 h-4 text-orange-400" />
                     <span>FHN DYNX & BDYP ADR Sistern & Alovsöndürən Portalı</span>
+                  </button>
+                )}
+
+                {/* ETSN, AYNA & BDYP Aşağı Emissiya Zonaları (LEZ) & Eko-Skor Portalı Shortcut */}
+                {onOpenLezEco && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenLezEco(vehicle)}
+                    data-testid="lez-eco-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Leaf className="w-4 h-4 text-emerald-400" />
+                    <span>ETSN & AYNA LEZ Aşağı Emissiya Zonaları & Eko-Skor Portalı</span>
                   </button>
                 )}
 

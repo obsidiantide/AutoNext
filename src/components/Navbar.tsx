@@ -140,6 +140,7 @@ interface NavbarProps {
   onOpenElectronicSeal?: () => void;
   onOpenIntercityMobility?: () => void;
   onOpenTankerSafety?: () => void;
+  onOpenLezEco?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -221,6 +222,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenElectronicSeal,
   onOpenIntercityMobility,
   onOpenTankerSafety,
+  onOpenLezEco,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1078,6 +1080,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Flame className="w-4 h-4 text-orange-400" />
               <span className="hidden xl:inline">ADR Sistern</span>
+            </button>
+          )}
+
+          {/* ETSN, AYNA & BDYP Aşağı Emissiya Zonaları (LEZ) & Eko-Skor Portalı Button */}
+          {onOpenLezEco && (
+            <button
+              onClick={onOpenLezEco}
+              data-testid="navbar-lez-eco-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="ETSN, AYNA & BDYP Şəhər Aşağı Emissiya Zonaları (LEZ) və Yaşıl Donanma Portalı"
+            >
+              <Leaf className="w-4 h-4 text-emerald-400" />
+              <span className="hidden xl:inline">LEZ Eko-Zona</span>
             </button>
           )}
 

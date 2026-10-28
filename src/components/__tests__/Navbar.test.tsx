@@ -738,4 +738,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenTankerSafety).toHaveBeenCalledTimes(1);
   });
+
+  it('renders ETSN, AYNA & BDYP LEZ Eco-Zone button and calls onOpenLezEco when clicked', () => {
+    const onOpenLezEco = vi.fn();
+    render(<Navbar {...defaultProps} onOpenLezEco={onOpenLezEco} />);
+
+    const btn = screen.getByTestId('navbar-lez-eco-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenLezEco).toHaveBeenCalledTimes(1);
+  });
 });
