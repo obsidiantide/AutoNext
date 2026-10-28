@@ -698,4 +698,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAfezLogistics).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AYNA WIM Axle Load button and calls onOpenAxleLoad when clicked', () => {
+    const onOpenAxleLoad = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAxleLoad={onOpenAxleLoad} />);
+
+    const btn = screen.getByTestId('navbar-axle-load-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAxleLoad).toHaveBeenCalledTimes(1);
+  });
 });

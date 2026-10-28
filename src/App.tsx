@@ -100,6 +100,7 @@ const TirCarnetTransitModal = React.lazy(() => import('./components/TirCarnetTra
 const BiosecurityComplianceModal = React.lazy(() => import('./components/BiosecurityComplianceModal').then(m => ({ default: m.BiosecurityComplianceModal })));
 const V2gSmartGridModal = React.lazy(() => import('./components/V2gSmartGridModal').then(m => ({ default: m.V2gSmartGridModal })));
 const AfezLogisticsModal = React.lazy(() => import('./components/AfezLogisticsModal').then(m => ({ default: m.AfezLogisticsModal })));
+const AxleLoadModal = React.lazy(() => import('./components/AxleLoadModal').then(m => ({ default: m.AxleLoadModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -330,6 +331,8 @@ export function App() {
   const [isV2gModalOpen, setIsV2gModalOpen] = useState(false);
   const [afezTargetCar, setAfezTargetCar] = useState<Vehicle | null>(null);
   const [isAfezModalOpen, setIsAfezModalOpen] = useState(false);
+  const [axleTargetCar, setAxleTargetCar] = useState<Vehicle | null>(null);
+  const [isAxleModalOpen, setIsAxleModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -636,6 +639,9 @@ export function App() {
         }}
         onOpenAfezLogistics={() => {
           setIsAfezModalOpen(true);
+        }}
+        onOpenAxleLoad={() => {
+          setIsAxleModalOpen(true);
         }}
       />
 
@@ -1466,6 +1472,9 @@ export function App() {
           }}
           onOpenAfezLogistics={(v) => {
             setAfezTargetCar(v);
+          }}
+          onOpenAxleLoad={(v) => {
+            setAxleTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2332,6 +2341,17 @@ export function App() {
           onClose={() => {
             setIsAfezModalOpen(false);
             setAfezTargetCar(null);
+          }}
+          currency={currency}
+        />
+
+        {/* AYNA, BDYP & AAYDA WIM Tərəzi & Ox Yükü Portalı Modal */}
+        <AxleLoadModal
+          isOpen={isAxleModalOpen || !!axleTargetCar}
+          vehicle={axleTargetCar || undefined}
+          onClose={() => {
+            setIsAxleModalOpen(false);
+            setAxleTargetCar(null);
           }}
           currency={currency}
         />

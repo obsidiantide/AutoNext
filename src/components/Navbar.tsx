@@ -56,7 +56,8 @@ import {
   CableCar,
   Snowflake,
   ThermometerSnowflake,
-  Warehouse
+  Warehouse,
+  Scale
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -134,6 +135,7 @@ interface NavbarProps {
   onOpenBiosecurityCompliance?: () => void;
   onOpenV2gSmartGrid?: () => void;
   onOpenAfezLogistics?: () => void;
+  onOpenAxleLoad?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -211,6 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenBiosecurityCompliance,
   onOpenV2gSmartGrid,
   onOpenAfezLogistics,
+  onOpenAxleLoad,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1016,6 +1019,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Warehouse className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">AFEZ Logistika (Ələt)</span>
+            </button>
+          )}
+
+          {/* AYNA, BDYP & AAYDA WIM Tərəzi & Ox Yükü Portalı Button */}
+          {onOpenAxleLoad && (
+            <button
+              onClick={onOpenAxleLoad}
+              data-testid="navbar-axle-load-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600/10 hover:bg-amber-600/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AYNA & BDYP Avtomatik Dinamik Tərəzi (WIM), Ox Yükü Nəzarəti və Körpü Telemetriyası Portalı"
+            >
+              <Scale className="w-4 h-4 text-amber-400" />
+              <span className="hidden xl:inline">AYNA WIM Tərəzi</span>
             </button>
           )}
 

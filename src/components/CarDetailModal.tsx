@@ -178,6 +178,7 @@ interface CarDetailModalProps {
   onOpenBiosecurityCompliance?: (vehicle: Vehicle) => void;
   onOpenV2gSmartGrid?: (vehicle: Vehicle) => void;
   onOpenAfezLogistics?: (vehicle: Vehicle) => void;
+  onOpenAxleLoad?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -265,6 +266,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenBiosecurityCompliance,
   onOpenV2gSmartGrid,
   onOpenAfezLogistics,
+  onOpenAxleLoad,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1516,6 +1518,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Warehouse className="w-4 h-4 text-emerald-400" />
                     <span>AFEZ Ələt Azad İqtisadi Zonası Multimodal Logistika Portalı</span>
+                  </button>
+                )}
+
+                {/* AYNA, BDYP & AAYDA WIM Avtomatlaşdırılmış Çəki & Ox Yükü Shortcut */}
+                {onOpenAxleLoad && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenAxleLoad(vehicle)}
+                    data-testid="axle-load-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-amber-600/10 hover:bg-amber-600/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Scale className="w-4 h-4 text-amber-400" />
+                    <span>AYNA & BDYP Avtomatik Dinamik Tərəzi (WIM) & Ox Yükü Portalı</span>
                   </button>
                 )}
 

@@ -771,7 +771,17 @@ This backlog is actively maintained and executed by the **GitHub Growth Agent** 
 
 ---
 
-### 🚛 Milestone 85: Official Ministry of Digital Development and Transport (RİNN), AYNA & BDYP Heavy Haulage Axle Load & Automated Weigh-in-Motion (WIM / Yolda Avtomatik Dinamik Tərəzi Nəzarəti), Bridge Structural Dynamic Telemetry & Official WIM-AZ-2026 Axle Load Certificate Portal (Planned)
+### 🚛 Milestone 85: Official Ministry of Digital Development and Transport (RİNN), AYNA & BDYP Heavy Haulage Axle Load & Automated Weigh-in-Motion (WIM / Yolda Avtomatik Dinamik Tərəzi Nəzarəti), Bridge Structural Dynamic Telemetry & Official WIM-AZ-2026 Axle Load Certificate Portal (Completed)
+- [x] Add Official Ministry of Digital Development and Transport (RİNN), AYNA & BDYP Heavy Haulage Axle Load & Automated Weigh-in-Motion Modal (`AxleLoadModal.tsx`) with Axle Load & Weight Discipline Calculator, Axle-by-Axle Telemetry Visualizer (with air suspension toggle and load percentage progress), 7 Strategic WIM Highway Radar Stations across Azerbaijan (M1 Giləzi, M2 Hacıqabul, M2 Yevlax Kür körpüsü, M3 Salyan, M4 Muğanlı aşırımı, M2 Gəncə dairəvi, Zəfər Yolu Xocavənd), Bridge Structural Dynamic Telemetry Stand (deflection mm vs L/800 limit, natural vibration frequency, DAF dynamic amplification factor), 10-Point Heavy Haulage & Axle Discipline Safety Checklist, 10-Question AYNA/BDYP Theoretical Examination Simulator, and Official WIM-AZ-2026 Electronic Axle Load Certificate Generator with Unified Public Registry
+- [x] Implement statutory axle load & gross vehicle weight compliance engine (`src/utils/axleLoadCompliance.ts`) adhering to Cabinet of Ministers Resolution No. 104, Code of Administrative Offences (İXM Maddə 322: 5-15% Tier 1 fine 600 AZN, 15-25% Tier 2 fine 1000 AZN, >25% Tier 3 fine 2000 AZN and vehicle impoundment), Fourth Power Law (AASHTO ESAL exponential pavement damage index), road infrastructure damage compensation fees, bridge dynamic deflection formulas, OIML R134 class 5/10/A dynamic sensor tolerances, checklist scoring, exam grading, and multi-currency conversions (AZN, USD, EUR)
+- [x] Add comprehensive mock axle load database (`src/data/mockAxleLoadData.ts`) covering 7 strategic WIM stations with live daily truck flows, sensor telemetry (LineA Quartz, Bending plate), 4K ANPR status, 6 authentic vehicle presets with genuine Azerbaijani plates (`99-ZZ-990`, `10-TX-404`, `77-WM-101`, `90-TK-555`, `99-DA-707`, `10-AX-888`), 10 statutory safety checklist items, 10 statutory theoretical exam questions with legal citations, and verifiable active `WIM-AZ-2026-XXXXX` certificates
+- [x] Build official RİNN, AYNA & BDYP Electronic Axle Load Certificate generator (`WIM-AZ-2026-XXXXX`) with cryptographic SHA-256 security checksum, SİMA digital signature UID, WIM station metadata, axle-by-axle weights and limits, bridge clearance rating, QR code visualizer, printable layout, and one-click clipboard copying
+- [x] Comprehensive Vitest unit test suites (`src/utils/__tests__/axleLoadCompliance.test.ts` and `src/components/__tests__/AxleLoadModal.test.tsx`, plus integrations in `Navbar.test.tsx` and `CarDetailModal.test.tsx`) covering ESAL Fourth Power Law formulas, bridge dynamic deflection, statutory fines, air suspension bonuses, currency conversions, checklist grading, exam evaluation, certificate generation, print and copy actions, and public registry searches
+
+---
+
+### 🛰️ Milestone 86: Official State Customs Committee (DGK), AYNA & BDYP Electronic Intelligent GPS Transit Seal (Gömrük Elektron İntellektual Plomb / GPS E-Lock İzləmə Sistemi), Transit Corridor Geofencing, Cargo Tamper Telemetry & Official E-SEAL-AZ-2026 Transit Integrity Portal (Planned)
+
 
 
 

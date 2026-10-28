@@ -1755,4 +1755,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenAfezLogisticsMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders AYNA WIM Axle Load shortcut button and calls callback when clicked', () => {
+    const onOpenAxleLoadMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenAxleLoad={onOpenAxleLoadMock}
+      />
+    );
+
+    const btn = screen.getByTestId('axle-load-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAxleLoadMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });
