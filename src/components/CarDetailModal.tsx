@@ -181,6 +181,7 @@ interface CarDetailModalProps {
   onOpenAfezLogistics?: (vehicle: Vehicle) => void;
   onOpenAxleLoad?: (vehicle: Vehicle) => void;
   onOpenElectronicSeal?: (vehicle: Vehicle) => void;
+  onOpenIntercityMobility?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -270,6 +271,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenAfezLogistics,
   onOpenAxleLoad,
   onOpenElectronicSeal,
+  onOpenIntercityMobility,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1547,6 +1549,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Lock className="w-4 h-4 text-emerald-400" />
                     <span>DGK & AYNA Elektron İntellektual GPS Plomb & Tranzit Geofencing Portalı</span>
+                  </button>
+                )}
+
+                {/* RİNN, AYNA & BDYP Şəhərlərarası Müntəzəm Sərnişin Daşıma & Tender Portalı Shortcut */}
+                {onOpenIntercityMobility && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenIntercityMobility(vehicle)}
+                    data-testid="intercity-mobility-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-teal-600/10 hover:bg-teal-600/20 text-teal-300 border border-teal-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Bus className="w-4 h-4 text-teal-400" />
+                    <span>RİNN & AYNA Şəhərlərarası Müntəzəm Sərnişin Daşıma və Tender Portalı</span>
                   </button>
                 )}
 

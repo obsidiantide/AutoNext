@@ -102,6 +102,7 @@ const V2gSmartGridModal = React.lazy(() => import('./components/V2gSmartGridModa
 const AfezLogisticsModal = React.lazy(() => import('./components/AfezLogisticsModal').then(m => ({ default: m.AfezLogisticsModal })));
 const AxleLoadModal = React.lazy(() => import('./components/AxleLoadModal').then(m => ({ default: m.AxleLoadModal })));
 const ElectronicSealModal = React.lazy(() => import('./components/ElectronicSealModal').then(m => ({ default: m.ElectronicSealModal })));
+const IntercityMobilityModal = React.lazy(() => import('./components/IntercityMobilityModal').then(m => ({ default: m.IntercityMobilityModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -336,6 +337,8 @@ export function App() {
   const [isAxleModalOpen, setIsAxleModalOpen] = useState(false);
   const [electronicSealTargetCar, setElectronicSealTargetCar] = useState<Vehicle | null>(null);
   const [isElectronicSealModalOpen, setIsElectronicSealModalOpen] = useState(false);
+  const [intercityMobilityTargetCar, setIntercityMobilityTargetCar] = useState<Vehicle | null>(null);
+  const [isIntercityMobilityModalOpen, setIsIntercityMobilityModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -648,6 +651,9 @@ export function App() {
         }}
         onOpenElectronicSeal={() => {
           setIsElectronicSealModalOpen(true);
+        }}
+        onOpenIntercityMobility={() => {
+          setIsIntercityMobilityModalOpen(true);
         }}
       />
 
@@ -1484,6 +1490,9 @@ export function App() {
           }}
           onOpenElectronicSeal={(v) => {
             setElectronicSealTargetCar(v);
+          }}
+          onOpenIntercityMobility={(v) => {
+            setIntercityMobilityTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2372,6 +2381,17 @@ export function App() {
           onClose={() => {
             setIsElectronicSealModalOpen(false);
             setElectronicSealTargetCar(null);
+          }}
+          currency={currency}
+        />
+
+        {/* RİNN, AYNA & BDYP Şəhərlərarası Müntəzəm Sərnişin Daşıma və Tender Portalı Modal */}
+        <IntercityMobilityModal
+          isOpen={isIntercityMobilityModalOpen || !!intercityMobilityTargetCar}
+          vehicle={intercityMobilityTargetCar || undefined}
+          onClose={() => {
+            setIsIntercityMobilityModalOpen(false);
+            setIntercityMobilityTargetCar(null);
           }}
           currency={currency}
         />

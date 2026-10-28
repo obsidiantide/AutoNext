@@ -789,7 +789,16 @@ This backlog is actively maintained and executed by the **GitHub Growth Agent** 
 
 ---
 
-### 🚌 Milestone 87: Official Ministry of Digital Development and Transport (RİNN), AYNA & BDYP Intercity Smart Mobility Passenger Quota, Carrier Fleet Tender Scoring & Official MOBIL-AZ-2026 Intercity Passenger Transport License Portal (Planned)
+### 🚌 Milestone 87: Official Ministry of Digital Development and Transport (RİNN), AYNA & BDYP Intercity Smart Mobility Passenger Quota, Carrier Fleet Tender Scoring & Official MOBIL-AZ-2026 Intercity Passenger Transport License Portal (Completed)
+- [x] Add Official Ministry of Digital Development and Transport (RİNN), AYNA & BDYP Intercity Smart Mobility Modal (`IntercityMobilityModal.tsx`) with Carrier Fleet Tender Scoring Stand (100-point comprehensive index), 7 Strategic Intercity Routes Radar & Quota Economics, Real-time Onboard Telemetry Stand (90 km/h speed governor, AETR driver shift duration, cabin temperature, Biletim QR scanner, and alcohol interlock), 10-Point Technical & Safety Checklist, 10-Question Theoretical Examination Simulator, Official MOBIL-AZ-2026 Electronic License Certificate Generator, and Unified Public Registry
+- [x] Implement statutory intercity mobility compliance engine (`src/utils/intercityMobilityCompliance.ts`) adhering to the Law of the Republic of Azerbaijan "On Road Transport" (Maddə 11, 13, 27), Cabinet of Ministers Resolution No. 141 (Rules for passenger carriage by road), Code of Administrative Offences (İXM Maddə 324: 500-2000 AZN illegal transport fine, Maddə 326: 300 AZN pre-trip inspection fine, Maddə 322-1), UNECE / ECE R107 bus safety standards, AETR tachograph driver hours (max 9.0h daily, 4.5h break rule), regulated state base rate (0.050 AZN/km), fleet economics and multi-currency conversions (AZN, USD, EUR)
+- [x] Add comprehensive mock intercity database (`src/data/mockIntercityMobilityData.ts`) covering 7 strategic corridors across Azerbaijan (Bakı-Gəncə, Bakı-Şuşa/Xankəndi, Bakı-Lənkəran, Bakı-Quba/Qusar, Bakı-Şəki, Bakı-Naxçıvan, Bakı-Ağdam) with distance, transit time, and passenger demand, 6 authentic bus fleet presets (`99-JH-101`, `10-TX-505`, `77-MB-707`, `90-AZ-303`, `99-EB-909`, `10-EX-888`), 10 statutory safety checklist items, 10 statutory theoretical exam questions with legal citations, and verifiable active `MOBIL-AZ-2026-XXXXX` certificates
+- [x] Build official RİNN, AYNA & BDYP Electronic Intercity Passenger Transport License Certificate generator (`MOBIL-AZ-2026-XXXXX`) with cryptographic SHA-256 security checksum, SİMA digital signature UID, assigned route code, carrier legal enterprise name, vehicle plate, Biletim terminal ID, QR code visualizer, printable layout, and one-click clipboard copying
+- [x] Comprehensive Vitest unit test suites (`src/utils/__tests__/intercityMobilityCompliance.test.ts` and `src/components/__tests__/IntercityMobilityModal.test.tsx`, plus integrations in `Navbar.test.tsx` and `CarDetailModal.test.tsx`) covering tender scoring algorithms, route economics, telemetry violation checks, checklist grading, exam evaluation, certificate generation, print and copy actions, and public registry searches
+
+---
+
+### 🛡️ Milestone 88: Official Ministry of Emergency Situations (FHN), State Fire Control Service & BDYP Dangerous Goods Hazardous Materials (ADR / Təhlükəli Yüklər) Tanker Hydrostatic Inspection, Ex-Proof Flame Arrester Telemetry & Official ADR-AZ-2026 Vehicle Approval Portal (Planned)
 
 
 

@@ -718,4 +718,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenElectronicSeal).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AYNA Intercity Mobility button and calls onOpenIntercityMobility when clicked', () => {
+    const onOpenIntercityMobility = vi.fn();
+    render(<Navbar {...defaultProps} onOpenIntercityMobility={onOpenIntercityMobility} />);
+
+    const btn = screen.getByTestId('navbar-intercity-mobility-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenIntercityMobility).toHaveBeenCalledTimes(1);
+  });
 });

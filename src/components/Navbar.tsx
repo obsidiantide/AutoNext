@@ -138,6 +138,7 @@ interface NavbarProps {
   onOpenAfezLogistics?: () => void;
   onOpenAxleLoad?: () => void;
   onOpenElectronicSeal?: () => void;
+  onOpenIntercityMobility?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -217,6 +218,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAfezLogistics,
   onOpenAxleLoad,
   onOpenElectronicSeal,
+  onOpenIntercityMobility,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1048,6 +1050,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Lock className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">DGK GPS Plomb</span>
+            </button>
+          )}
+
+          {/* RİNN, AYNA & BDYP Şəhərlərarası Müntəzəm Sərnişin Daşıma və Tender Portalı Button */}
+          {onOpenIntercityMobility && (
+            <button
+              onClick={onOpenIntercityMobility}
+              data-testid="navbar-intercity-mobility-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-600/10 hover:bg-teal-600/20 text-teal-300 border border-teal-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="RİNN, AYNA & BDYP Şəhərlərarası Müntəzəm Sərnişin Daşıma, Kvota və Tender Portalı"
+            >
+              <Bus className="w-4 h-4 text-teal-400" />
+              <span className="hidden xl:inline">AYNA Mobillik</span>
             </button>
           )}
 

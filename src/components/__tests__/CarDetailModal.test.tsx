@@ -1795,4 +1795,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenElectronicSealMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders AYNA Intercity Mobility shortcut button and calls callback when clicked', () => {
+    const onOpenIntercityMobilityMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenIntercityMobility={onOpenIntercityMobilityMock}
+      />
+    );
+
+    const btn = screen.getByTestId('intercity-mobility-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenIntercityMobilityMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });
