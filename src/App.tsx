@@ -106,6 +106,7 @@ const IntercityMobilityModal = React.lazy(() => import('./components/IntercityMo
 const TankerSafetyModal = React.lazy(() => import('./components/TankerSafetyModal').then(m => ({ default: m.TankerSafetyModal })));
 const LezEcoModal = React.lazy(() => import('./components/LezEcoModal').then(m => ({ default: m.LezEcoModal })));
 const PiggybackRailModal = React.lazy(() => import('./components/PiggybackRailModal').then(m => ({ default: m.PiggybackRailModal })));
+const CustomsScannerModal = React.lazy(() => import('./components/CustomsScannerModal').then(m => ({ default: m.CustomsScannerModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -348,6 +349,8 @@ export function App() {
   const [isLezEcoModalOpen, setIsLezEcoModalOpen] = useState(false);
   const [piggybackRailTargetCar, setPiggybackRailTargetCar] = useState<Vehicle | null>(null);
   const [isPiggybackRailModalOpen, setIsPiggybackRailModalOpen] = useState(false);
+  const [customsScannerTargetCar, setCustomsScannerTargetCar] = useState<Vehicle | null>(null);
+  const [isCustomsScannerModalOpen, setIsCustomsScannerModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -672,6 +675,9 @@ export function App() {
         }}
         onOpenPiggybackRail={() => {
           setIsPiggybackRailModalOpen(true);
+        }}
+        onOpenCustomsScanner={() => {
+          setIsCustomsScannerModalOpen(true);
         }}
       />
 
@@ -1520,6 +1526,9 @@ export function App() {
           }}
           onOpenPiggybackRail={(v) => {
             setPiggybackRailTargetCar(v);
+          }}
+          onOpenCustomsScanner={(v) => {
+            setCustomsScannerTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2451,6 +2460,16 @@ export function App() {
           onClose={() => {
             setIsPiggybackRailModalOpen(false);
             setPiggybackRailTargetCar(null);
+          }}
+        />
+
+        {/* DGK, AYNA & BDYP Qeyri-İntruziv Rentgen-Qantri Skaneri Portalı Modal */}
+        <CustomsScannerModal
+          isOpen={isCustomsScannerModalOpen || !!customsScannerTargetCar}
+          targetCar={customsScannerTargetCar}
+          onClose={() => {
+            setIsCustomsScannerModalOpen(false);
+            setCustomsScannerTargetCar(null);
           }}
         />
 

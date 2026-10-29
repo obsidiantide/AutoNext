@@ -1875,4 +1875,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenPiggybackRailMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders DGK, AYNA & BDYP Customs Scanner shortcut button and calls callback when clicked', () => {
+    const onOpenCustomsScannerMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenCustomsScanner={onOpenCustomsScannerMock}
+      />
+    );
+
+    const btn = screen.getByTestId('customs-scanner-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenCustomsScannerMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

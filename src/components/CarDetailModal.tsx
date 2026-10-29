@@ -81,7 +81,8 @@ import {
   Snowflake,
   ThermometerSnowflake,
   Warehouse,
-  Lock
+  Lock,
+  Scan
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -185,6 +186,7 @@ interface CarDetailModalProps {
   onOpenTankerSafety?: (vehicle: Vehicle) => void;
   onOpenLezEco?: (vehicle: Vehicle) => void;
   onOpenPiggybackRail?: (vehicle: Vehicle) => void;
+  onOpenCustomsScanner?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -278,6 +280,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenTankerSafety,
   onOpenLezEco,
   onOpenPiggybackRail,
+  onOpenCustomsScanner,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1607,6 +1610,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Train className="w-4 h-4 text-cyan-400" />
                     <span>ADY & AYNA İntermodal Kontreyler (Piggyback) Portalı</span>
+                  </button>
+                )}
+
+                {/* DGK, AYNA & BDYP Qeyri-İntruziv Rentgen-Qantri Skaneri Portalı Shortcut */}
+                {onOpenCustomsScanner && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenCustomsScanner(vehicle)}
+                    data-testid="customs-scanner-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Scan className="w-4 h-4 text-emerald-400" />
+                    <span>DGK & AYNA Rentgen-Qantri (NII 6.0 MeV) Skaneri Portalı</span>
                   </button>
                 )}
 

@@ -58,7 +58,8 @@ import {
   ThermometerSnowflake,
   Warehouse,
   Scale,
-  Lock
+  Lock,
+  Scan
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -142,6 +143,7 @@ interface NavbarProps {
   onOpenTankerSafety?: () => void;
   onOpenLezEco?: () => void;
   onOpenPiggybackRail?: () => void;
+  onOpenCustomsScanner?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -225,6 +227,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenTankerSafety,
   onOpenLezEco,
   onOpenPiggybackRail,
+  onOpenCustomsScanner,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1108,6 +1111,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Train className="w-4 h-4 text-cyan-400" />
               <span className="hidden xl:inline">İntermodal Dəmir Yolu</span>
+            </button>
+          )}
+
+          {/* DGK, AYNA & BDYP Qeyri-İntruziv Rentgen-Qantri Skaneri Portalı Button */}
+          {onOpenCustomsScanner && (
+            <button
+              onClick={onOpenCustomsScanner}
+              data-testid="navbar-customs-scanner-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="DGK, AYNA & BDYP Qeyri-İntruziv Rentgen-Qantri Skaneri Portalı"
+            >
+              <Scan className="w-4 h-4 text-emerald-400" />
+              <span className="hidden xl:inline">Rentgen-Qantri Skaner</span>
             </button>
           )}
 

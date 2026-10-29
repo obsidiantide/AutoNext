@@ -758,4 +758,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenPiggybackRail).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DGK, AYNA & BDYP Customs Scanner button and calls onOpenCustomsScanner when clicked', () => {
+    const onOpenCustomsScanner = vi.fn();
+    render(<Navbar {...defaultProps} onOpenCustomsScanner={onOpenCustomsScanner} />);
+
+    const btn = screen.getByTestId('navbar-customs-scanner-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenCustomsScanner).toHaveBeenCalledTimes(1);
+  });
 });
