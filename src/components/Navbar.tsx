@@ -148,6 +148,7 @@ interface NavbarProps {
   onOpenCustomsScanner?: () => void;
   onOpenAutonomousVehicle?: () => void;
   onOpenAdaptiveTraffic?: () => void;
+  onOpenBorderQueue?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -234,6 +235,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCustomsScanner,
   onOpenAutonomousVehicle,
   onOpenAdaptiveTraffic,
+  onOpenBorderQueue,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1156,6 +1158,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Radio className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">İTS Yaşıl Dalğa</span>
+            </button>
+          )}
+
+          {/* Official DSX, DGK & BDYP Cross-Border Commercial Vehicle e-Queue Portal Button */}
+          {onOpenBorderQueue && (
+            <button
+              onClick={onOpenBorderQueue}
+              data-testid="navbar-border-queue-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-300 border border-blue-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="DSX, DGK & BDYP Sərhəd Buraxılış Məntəqəsi Elektron Növbə Portalı"
+            >
+              <Compass className="w-4 h-4 text-blue-400" />
+              <span className="hidden xl:inline">Sərhəd e-Növbə</span>
             </button>
           )}
 

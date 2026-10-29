@@ -1935,4 +1935,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenAdaptiveTrafficMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders DSX, DGK & BDYP Cross-Border Commercial Vehicle e-Queue shortcut button and calls callback when clicked', () => {
+    const onOpenBorderQueueMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenBorderQueue={onOpenBorderQueueMock}
+      />
+    );
+
+    const btn = screen.getByTestId('border-queue-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenBorderQueueMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

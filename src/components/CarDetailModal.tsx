@@ -191,6 +191,7 @@ interface CarDetailModalProps {
   onOpenCustomsScanner?: (vehicle: Vehicle) => void;
   onOpenAutonomousVehicle?: (vehicle: Vehicle) => void;
   onOpenAdaptiveTraffic?: (vehicle: Vehicle) => void;
+  onOpenBorderQueue?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -287,6 +288,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenCustomsScanner,
   onOpenAutonomousVehicle,
   onOpenAdaptiveTraffic,
+  onOpenBorderQueue,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1655,6 +1657,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Radio className="w-4 h-4 text-emerald-400" />
                     <span>RİNN & AYNA İTS Yaşıl Dalğa və Svetofor Sinxronizasiyası</span>
+                  </button>
+                )}
+
+                {/* DSX, DGK & BDYP Cross-Border Commercial Vehicle e-Queue Shortcut */}
+                {onOpenBorderQueue && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenBorderQueue(vehicle)}
+                    data-testid="border-queue-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-300 border border-blue-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Compass className="w-4 h-4 text-blue-400" />
+                    <span>DSX & DGK Sərhəd Buraxılış Məntəqəsi Elektron Növbə</span>
                   </button>
                 )}
 

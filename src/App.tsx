@@ -109,6 +109,7 @@ const PiggybackRailModal = React.lazy(() => import('./components/PiggybackRailMo
 const CustomsScannerModal = React.lazy(() => import('./components/CustomsScannerModal').then(m => ({ default: m.CustomsScannerModal })));
 const AutonomousVehicleModal = React.lazy(() => import('./components/AutonomousVehicleModal').then(m => ({ default: m.AutonomousVehicleModal })));
 const AdaptiveTrafficModal = React.lazy(() => import('./components/AdaptiveTrafficModal').then(m => ({ default: m.AdaptiveTrafficModal })));
+const BorderQueueModal = React.lazy(() => import('./components/BorderQueueModal').then(m => ({ default: m.BorderQueueModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -357,6 +358,8 @@ export function App() {
   const [isAutonomousVehicleModalOpen, setIsAutonomousVehicleModalOpen] = useState(false);
   const [adaptiveTrafficTargetCar, setAdaptiveTrafficTargetCar] = useState<Vehicle | null>(null);
   const [isAdaptiveTrafficModalOpen, setIsAdaptiveTrafficModalOpen] = useState(false);
+  const [borderQueueTargetCar, setBorderQueueTargetCar] = useState<Vehicle | null>(null);
+  const [isBorderQueueModalOpen, setIsBorderQueueModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -690,6 +693,9 @@ export function App() {
         }}
         onOpenAdaptiveTraffic={() => {
           setIsAdaptiveTrafficModalOpen(true);
+        }}
+        onOpenBorderQueue={() => {
+          setIsBorderQueueModalOpen(true);
         }}
       />
 
@@ -1547,6 +1553,9 @@ export function App() {
           }}
           onOpenAdaptiveTraffic={(v) => {
             setAdaptiveTrafficTargetCar(v);
+          }}
+          onOpenBorderQueue={(v) => {
+            setBorderQueueTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2508,6 +2517,16 @@ export function App() {
           onClose={() => {
             setIsAdaptiveTrafficModalOpen(false);
             setAdaptiveTrafficTargetCar(null);
+          }}
+        />
+
+        {/* Official DSX, DGK & BDYP Cross-Border Commercial Vehicle e-Queue Modal */}
+        <BorderQueueModal
+          isOpen={isBorderQueueModalOpen || !!borderQueueTargetCar}
+          targetCar={borderQueueTargetCar}
+          onClose={() => {
+            setIsBorderQueueModalOpen(false);
+            setBorderQueueTargetCar(null);
           }}
         />
 

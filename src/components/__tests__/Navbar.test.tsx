@@ -788,4 +788,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAdaptiveTraffic).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DSX, DGK & BDYP Cross-Border e-Queue button and calls onOpenBorderQueue when clicked', () => {
+    const onOpenBorderQueue = vi.fn();
+    render(<Navbar {...defaultProps} onOpenBorderQueue={onOpenBorderQueue} />);
+
+    const btn = screen.getByTestId('navbar-border-queue-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenBorderQueue).toHaveBeenCalledTimes(1);
+  });
 });
