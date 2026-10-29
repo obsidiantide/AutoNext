@@ -110,6 +110,7 @@ const CustomsScannerModal = React.lazy(() => import('./components/CustomsScanner
 const AutonomousVehicleModal = React.lazy(() => import('./components/AutonomousVehicleModal').then(m => ({ default: m.AutonomousVehicleModal })));
 const AdaptiveTrafficModal = React.lazy(() => import('./components/AdaptiveTrafficModal').then(m => ({ default: m.AdaptiveTrafficModal })));
 const BorderQueueModal = React.lazy(() => import('./components/BorderQueueModal').then(m => ({ default: m.BorderQueueModal })));
+const AirCargoModal = React.lazy(() => import('./components/AirCargoModal').then(m => ({ default: m.AirCargoModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -360,6 +361,8 @@ export function App() {
   const [isAdaptiveTrafficModalOpen, setIsAdaptiveTrafficModalOpen] = useState(false);
   const [borderQueueTargetCar, setBorderQueueTargetCar] = useState<Vehicle | null>(null);
   const [isBorderQueueModalOpen, setIsBorderQueueModalOpen] = useState(false);
+  const [airCargoTargetCar, setAirCargoTargetCar] = useState<Vehicle | null>(null);
+  const [isAirCargoModalOpen, setIsAirCargoModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -696,6 +699,9 @@ export function App() {
         }}
         onOpenBorderQueue={() => {
           setIsBorderQueueModalOpen(true);
+        }}
+        onOpenAirCargo={() => {
+          setIsAirCargoModalOpen(true);
         }}
       />
 
@@ -1556,6 +1562,9 @@ export function App() {
           }}
           onOpenBorderQueue={(v) => {
             setBorderQueueTargetCar(v);
+          }}
+          onOpenAirCargo={(v) => {
+            setAirCargoTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2527,6 +2536,16 @@ export function App() {
           onClose={() => {
             setIsBorderQueueModalOpen(false);
             setBorderQueueTargetCar(null);
+          }}
+        />
+
+        {/* Official DDAA, AZAL & Silk Way West Air-Truck Intermodal Cargo Modal */}
+        <AirCargoModal
+          isOpen={isAirCargoModalOpen || !!airCargoTargetCar}
+          targetCar={airCargoTargetCar}
+          onClose={() => {
+            setIsAirCargoModalOpen(false);
+            setAirCargoTargetCar(null);
           }}
         />
 

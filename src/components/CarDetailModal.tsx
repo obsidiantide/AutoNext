@@ -192,6 +192,7 @@ interface CarDetailModalProps {
   onOpenAutonomousVehicle?: (vehicle: Vehicle) => void;
   onOpenAdaptiveTraffic?: (vehicle: Vehicle) => void;
   onOpenBorderQueue?: (vehicle: Vehicle) => void;
+  onOpenAirCargo?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -289,6 +290,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenAutonomousVehicle,
   onOpenAdaptiveTraffic,
   onOpenBorderQueue,
+  onOpenAirCargo,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1670,6 +1672,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Compass className="w-4 h-4 text-blue-400" />
                     <span>DSX & DGK Sərhəd Buraxılış Məntəqəsi Elektron Növbə</span>
+                  </button>
+                )}
+
+                {/* DDAA, AZAL & Silk Way West Air-Truck Intermodal Cargo Shortcut */}
+                {onOpenAirCargo && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenAirCargo(vehicle)}
+                    data-testid="air-cargo-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-sky-600/10 hover:bg-sky-600/20 text-sky-300 border border-sky-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Plane className="w-4 h-4 text-sky-400" />
+                    <span>DDAA & Silk Way West Avia Karqo və RFS Portalı</span>
                   </button>
                 )}
 

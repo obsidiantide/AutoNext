@@ -798,4 +798,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenBorderQueue).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DDAA, AZAL & Silk Way West Air Cargo button and calls onOpenAirCargo when clicked', () => {
+    const onOpenAirCargo = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAirCargo={onOpenAirCargo} />);
+
+    const btn = screen.getByTestId('navbar-air-cargo-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAirCargo).toHaveBeenCalledTimes(1);
+  });
 });

@@ -861,12 +861,21 @@ This backlog is actively maintained and executed by the **GitHub Growth Agent** 
 
 ---
 
-### 🛩️ Milestone 95: Official State Civil Aviation Agency (DDAA), "Azərbaycan Hava Yolları" (AZAL), Heydar Aliyev International Airport (GYD) & Silk Way West Cargo Air-Truck Intermodal Road Feeder Service (RFS), ICAO / IATA Air Cargo Security Screening & Official AIR-CARGO-AZ-2026 Flight Transit Portal (Planned)
-- [ ] Add Official DDAA, AZAL & Silk Way West Air-Truck Intermodal Modal (`AirCargoModal.tsx`) with 6 Strategic Aviation Cargo Hubs Radar (Baku Heydar Aliyev GYD, Ganja KVD, Fuzuli FZL, Zangilan ZZE, Nakhchivan NAJ, Gabala GBB), Air Waybill (AWB) & Dynamic Air-Truck Freight Tariff Calculator, ICAO Annex 17 & IATA DGR Dangerous Goods Screening Stand, Bonded Customs Airport Apron Ramp Telemetry, 10-Point Aviation Cargo Security Checklist, 10-Question Aviation Transport Law Examination Simulator, Official AIR-CARGO-AZ-2026 Electronic Flight Transit Certificate Generator, and Unified Public Registry
-- [ ] Implement statutory air freight compliance engine adhering to the Air Code of the Republic of Azerbaijan, ICAO Annex 17 (Aviation Security), and IATA Cargo Services regulations
-- [ ] Add comprehensive mock air cargo database covering strategic international airport cargo terminals, active freighter flights, cargo presets, and theoretical examination questions
-- [ ] Build official DDAA & Silk Way Electronic Flight Transit Clearance Voucher generator (`AIR-CARGO-AZ-2026-XXXXX`) with cryptographic SHA-256 checksum, SİMA UID, and printable layout
-- [ ] Comprehensive Vitest unit test suites covering air cargo tariffs, security screening thresholds, checklist evaluation, exam scoring, certificate generation, and modal integration
+### 🛩️ Milestone 95: Official State Civil Aviation Agency (DDAA), "Azərbaycan Hava Yolları" (AZAL), Heydar Aliyev International Airport (GYD) & Silk Way West Cargo Air-Truck Intermodal Road Feeder Service (RFS), ICAO / IATA Air Cargo Security Screening & Official AIR-CARGO-AZ-2026 Flight Transit Portal (Completed)
+- [x] Add Official DDAA, AZAL & Silk Way West Air-Truck Intermodal Modal (`AirCargoModal.tsx`) with 6 Strategic Aviation Cargo Hubs Radar (Baku Heydar Aliyev GYD, Ganja KVD, Fuzuli FZL, Zangilan ZZE, Nakhchivan NAJ, Gabala GBB), Air Waybill (AWB) & Dynamic Air-Truck Freight Tariff Calculator, ICAO Annex 17 & IATA DGR Dangerous Goods Screening Stand, Bonded Customs Airport Apron Ramp Telemetry, 10-Point Aviation Cargo Security Checklist, 10-Question Aviation Transport Law Examination Simulator, Official AIR-CARGO-AZ-2026 Electronic Flight Transit Certificate Generator, and Unified Public Registry
+- [x] Implement statutory air freight compliance engine adhering to the Air Code of the Republic of Azerbaijan, ICAO Annex 17 (Aviation Security), and IATA Cargo Services regulations
+- [x] Add comprehensive mock air cargo database covering strategic international airport cargo terminals, active freighter flights, cargo presets, and theoretical examination questions
+- [x] Build official DDAA & Silk Way Electronic Flight Transit Clearance Voucher generator (`AIR-CARGO-AZ-2026-XXXXX`) with cryptographic SHA-256 checksum, SİMA UID, and printable layout
+- [x] Comprehensive Vitest unit test suites covering air cargo tariffs, security screening thresholds, checklist evaluation, exam scoring, certificate generation, and modal integration
+
+---
+
+### 🚁 Milestone 96: Official State Civil Aviation Agency (DDAA), Ministry of Emergency Situations (FHN) & TƏBİB Helicopter Emergency Medical Services (HEMS / Aviasiya Təcili Tibbi Yardım), Air Ambulance Helipad Radar, Mountain & Highway Medevac Telemetry & Official HEMS-AZ-2026 Flight Clearance Portal (Planned)
+- [ ] Add Official DDAA, FHN & TƏBİB Helicopter Emergency Medical Services (HEMS) Modal (`HemsAviationModal.tsx`) with 8 Strategic Medical Helipads Radar (Baku Yeni Klinika Helipad, Republican Clinical Hospital, FHN Hospital Darnagul, Shusha City Hospital, Gabala Emergency Helipad, Ganja Regional Center, Nakhchivan Med Center, Khachmaz Regional Hub), Flight Clearance & Golden Hour Response Time Calculator, Night Vision Goggles (NVG) & Visual Flight Rules (VFR) Weather Telemetry Stand, Helicopter Fleet Specifications (Airbus H145 / H135, Bell 412, Mi-17-1V), 10-Point HEMS Aeronautical & Clinical Safety Checklist, 10-Question Air Ambulance Regulations Examination Simulator, Official HEMS-AZ-2026 Electronic Medevac Flight Clearance Certificate Generator, and Unified Public Registry
+- [ ] Implement statutory air ambulance dispatch engine adhering to the Air Code of the Republic of Azerbaijan, ICAO Annex 6 Part III (Helicopter Operations), European Aviation Safety Agency (EASA SPA.HEMS), and TƏBİB emergency medical protocols
+- [ ] Add comprehensive mock HEMS aviation database covering strategic hospital helipads, medical helicopter fleet presets, dispatch logs, checklist items, and theoretical examination questions
+- [ ] Build official DDAA & TƏBİB Electronic Medevac Flight Clearance Certificate generator (`HEMS-AZ-2026-XXXXX`) with cryptographic SHA-256 checksum, SİMA UID, and printable layout
+- [ ] Comprehensive Vitest unit test suites covering response time models, weather minimums, checklist evaluation, exam scoring, certificate generation, and modal integration
 
 
 

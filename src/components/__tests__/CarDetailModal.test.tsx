@@ -1955,4 +1955,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenBorderQueueMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders DDAA, AZAL & Silk Way West Air Cargo shortcut button and calls callback when clicked', () => {
+    const onOpenAirCargoMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenAirCargo={onOpenAirCargoMock}
+      />
+    );
+
+    const btn = screen.getByTestId('air-cargo-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAirCargoMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });
