@@ -808,4 +808,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAirCargo).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DDAA, FHN & TƏBİB Helicopter Emergency Medical Services (HEMS) button and calls onOpenHemsAviation when clicked', () => {
+    const onOpenHemsAviation = vi.fn();
+    render(<Navbar {...defaultProps} onOpenHemsAviation={onOpenHemsAviation} />);
+
+    const btn = screen.getByTestId('navbar-hems-aviation-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenHemsAviation).toHaveBeenCalledTimes(1);
+  });
 });

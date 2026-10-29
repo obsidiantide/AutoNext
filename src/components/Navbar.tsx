@@ -150,6 +150,7 @@ interface NavbarProps {
   onOpenAdaptiveTraffic?: () => void;
   onOpenBorderQueue?: () => void;
   onOpenAirCargo?: () => void;
+  onOpenHemsAviation?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -238,6 +239,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAdaptiveTraffic,
   onOpenBorderQueue,
   onOpenAirCargo,
+  onOpenHemsAviation,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1186,6 +1188,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Plane className="w-4 h-4 text-sky-400" />
               <span className="hidden xl:inline">Avia Karqo</span>
+            </button>
+          )}
+
+          {/* Official DDAA, FHN & TƏBİB Helicopter Emergency Medical Services (HEMS) Portal Button */}
+          {onOpenHemsAviation && (
+            <button
+              onClick={onOpenHemsAviation}
+              data-testid="navbar-hems-aviation-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-300 border border-red-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="DDAA, FHN & TƏBİB Sanitar Aviasiya (HEMS) və Helipor Portalı"
+            >
+              <HeartPulse className="w-4 h-4 text-red-400 animate-pulse" />
+              <span className="hidden xl:inline">Sanitar HEMS</span>
             </button>
           )}
 

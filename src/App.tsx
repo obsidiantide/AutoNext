@@ -111,6 +111,7 @@ const AutonomousVehicleModal = React.lazy(() => import('./components/AutonomousV
 const AdaptiveTrafficModal = React.lazy(() => import('./components/AdaptiveTrafficModal').then(m => ({ default: m.AdaptiveTrafficModal })));
 const BorderQueueModal = React.lazy(() => import('./components/BorderQueueModal').then(m => ({ default: m.BorderQueueModal })));
 const AirCargoModal = React.lazy(() => import('./components/AirCargoModal').then(m => ({ default: m.AirCargoModal })));
+const HemsAviationModal = React.lazy(() => import('./components/HemsAviationModal').then(m => ({ default: m.HemsAviationModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -363,6 +364,8 @@ export function App() {
   const [isBorderQueueModalOpen, setIsBorderQueueModalOpen] = useState(false);
   const [airCargoTargetCar, setAirCargoTargetCar] = useState<Vehicle | null>(null);
   const [isAirCargoModalOpen, setIsAirCargoModalOpen] = useState(false);
+  const [hemsAviationTargetCar, setHemsAviationTargetCar] = useState<Vehicle | null>(null);
+  const [isHemsAviationModalOpen, setIsHemsAviationModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -702,6 +705,9 @@ export function App() {
         }}
         onOpenAirCargo={() => {
           setIsAirCargoModalOpen(true);
+        }}
+        onOpenHemsAviation={() => {
+          setIsHemsAviationModalOpen(true);
         }}
       />
 
@@ -2546,6 +2552,16 @@ export function App() {
           onClose={() => {
             setIsAirCargoModalOpen(false);
             setAirCargoTargetCar(null);
+          }}
+        />
+
+        {/* Official DDAA, FHN & TƏBİB Helicopter Emergency Medical Services (HEMS) Modal */}
+        <HemsAviationModal
+          isOpen={isHemsAviationModalOpen || !!hemsAviationTargetCar}
+          targetCar={hemsAviationTargetCar}
+          onClose={() => {
+            setIsHemsAviationModalOpen(false);
+            setHemsAviationTargetCar(null);
           }}
         />
 
