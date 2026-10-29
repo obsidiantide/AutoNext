@@ -108,6 +108,7 @@ const LezEcoModal = React.lazy(() => import('./components/LezEcoModal').then(m =
 const PiggybackRailModal = React.lazy(() => import('./components/PiggybackRailModal').then(m => ({ default: m.PiggybackRailModal })));
 const CustomsScannerModal = React.lazy(() => import('./components/CustomsScannerModal').then(m => ({ default: m.CustomsScannerModal })));
 const AutonomousVehicleModal = React.lazy(() => import('./components/AutonomousVehicleModal').then(m => ({ default: m.AutonomousVehicleModal })));
+const AdaptiveTrafficModal = React.lazy(() => import('./components/AdaptiveTrafficModal').then(m => ({ default: m.AdaptiveTrafficModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -354,6 +355,8 @@ export function App() {
   const [isCustomsScannerModalOpen, setIsCustomsScannerModalOpen] = useState(false);
   const [autonomousVehicleTargetCar, setAutonomousVehicleTargetCar] = useState<Vehicle | null>(null);
   const [isAutonomousVehicleModalOpen, setIsAutonomousVehicleModalOpen] = useState(false);
+  const [adaptiveTrafficTargetCar, setAdaptiveTrafficTargetCar] = useState<Vehicle | null>(null);
+  const [isAdaptiveTrafficModalOpen, setIsAdaptiveTrafficModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -684,6 +687,9 @@ export function App() {
         }}
         onOpenAutonomousVehicle={() => {
           setIsAutonomousVehicleModalOpen(true);
+        }}
+        onOpenAdaptiveTraffic={() => {
+          setIsAdaptiveTrafficModalOpen(true);
         }}
       />
 
@@ -1538,6 +1544,9 @@ export function App() {
           }}
           onOpenAutonomousVehicle={(v) => {
             setAutonomousVehicleTargetCar(v);
+          }}
+          onOpenAdaptiveTraffic={(v) => {
+            setAdaptiveTrafficTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2489,6 +2498,16 @@ export function App() {
           onClose={() => {
             setIsAutonomousVehicleModalOpen(false);
             setAutonomousVehicleTargetCar(null);
+          }}
+        />
+
+        {/* Official RİNN, AYNA & BDYP Intelligent Transport Systems (ITS) Traffic Light Synchronization Modal */}
+        <AdaptiveTrafficModal
+          isOpen={isAdaptiveTrafficModalOpen || !!adaptiveTrafficTargetCar}
+          targetCar={adaptiveTrafficTargetCar}
+          onClose={() => {
+            setIsAdaptiveTrafficModalOpen(false);
+            setAdaptiveTrafficTargetCar(null);
           }}
         />
 

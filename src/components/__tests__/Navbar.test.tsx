@@ -778,4 +778,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAutonomousVehicle).toHaveBeenCalledTimes(1);
   });
+
+  it('renders RİNN, AYNA & BDYP Intelligent Transport Systems button and calls onOpenAdaptiveTraffic when clicked', () => {
+    const onOpenAdaptiveTraffic = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAdaptiveTraffic={onOpenAdaptiveTraffic} />);
+
+    const btn = screen.getByTestId('navbar-adaptive-traffic-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAdaptiveTraffic).toHaveBeenCalledTimes(1);
+  });
 });

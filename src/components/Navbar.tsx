@@ -60,7 +60,8 @@ import {
   Scale,
   Lock,
   Scan,
-  Cpu
+  Cpu,
+  Radio,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -146,6 +147,7 @@ interface NavbarProps {
   onOpenPiggybackRail?: () => void;
   onOpenCustomsScanner?: () => void;
   onOpenAutonomousVehicle?: () => void;
+  onOpenAdaptiveTraffic?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -231,6 +233,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenPiggybackRail,
   onOpenCustomsScanner,
   onOpenAutonomousVehicle,
+  onOpenAdaptiveTraffic,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1140,6 +1143,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Cpu className="w-4 h-4 text-cyan-400" />
               <span className="hidden xl:inline">Avtonom Sınaq (SAE L3/4)</span>
+            </button>
+          )}
+
+          {/* Official RİNN, AYNA & BDYP Intelligent Transport Systems (ITS) Traffic Light Synchronization Portal Button */}
+          {onOpenAdaptiveTraffic && (
+            <button
+              onClick={onOpenAdaptiveTraffic}
+              data-testid="navbar-adaptive-traffic-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="RİNN, AYNA & BDYP İTS Yaşıl Dalğa və Svetofor Sinxronizasiyası Portalı"
+            >
+              <Radio className="w-4 h-4 text-emerald-400" />
+              <span className="hidden xl:inline">İTS Yaşıl Dalğa</span>
             </button>
           )}
 

@@ -83,7 +83,8 @@ import {
   Warehouse,
   Lock,
   Scan,
-  Cpu
+  Cpu,
+  Radio,
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -189,6 +190,7 @@ interface CarDetailModalProps {
   onOpenPiggybackRail?: (vehicle: Vehicle) => void;
   onOpenCustomsScanner?: (vehicle: Vehicle) => void;
   onOpenAutonomousVehicle?: (vehicle: Vehicle) => void;
+  onOpenAdaptiveTraffic?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -284,6 +286,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenPiggybackRail,
   onOpenCustomsScanner,
   onOpenAutonomousVehicle,
+  onOpenAdaptiveTraffic,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1639,6 +1642,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Cpu className="w-4 h-4 text-cyan-400" />
                     <span>AYNA & BDYP Avtonom Sınaq (SAE L3/4) & V2X Portalı</span>
+                  </button>
+                )}
+
+                {/* RİNN, AYNA & BDYP Intelligent Transport Systems (ITS) Traffic Light Synchronization Shortcut */}
+                {onOpenAdaptiveTraffic && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenAdaptiveTraffic(vehicle)}
+                    data-testid="adaptive-traffic-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Radio className="w-4 h-4 text-emerald-400" />
+                    <span>RİNN & AYNA İTS Yaşıl Dalğa və Svetofor Sinxronizasiyası</span>
                   </button>
                 )}
 
