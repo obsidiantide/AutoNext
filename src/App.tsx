@@ -107,6 +107,7 @@ const TankerSafetyModal = React.lazy(() => import('./components/TankerSafetyModa
 const LezEcoModal = React.lazy(() => import('./components/LezEcoModal').then(m => ({ default: m.LezEcoModal })));
 const PiggybackRailModal = React.lazy(() => import('./components/PiggybackRailModal').then(m => ({ default: m.PiggybackRailModal })));
 const CustomsScannerModal = React.lazy(() => import('./components/CustomsScannerModal').then(m => ({ default: m.CustomsScannerModal })));
+const AutonomousVehicleModal = React.lazy(() => import('./components/AutonomousVehicleModal').then(m => ({ default: m.AutonomousVehicleModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -351,6 +352,8 @@ export function App() {
   const [isPiggybackRailModalOpen, setIsPiggybackRailModalOpen] = useState(false);
   const [customsScannerTargetCar, setCustomsScannerTargetCar] = useState<Vehicle | null>(null);
   const [isCustomsScannerModalOpen, setIsCustomsScannerModalOpen] = useState(false);
+  const [autonomousVehicleTargetCar, setAutonomousVehicleTargetCar] = useState<Vehicle | null>(null);
+  const [isAutonomousVehicleModalOpen, setIsAutonomousVehicleModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -678,6 +681,9 @@ export function App() {
         }}
         onOpenCustomsScanner={() => {
           setIsCustomsScannerModalOpen(true);
+        }}
+        onOpenAutonomousVehicle={() => {
+          setIsAutonomousVehicleModalOpen(true);
         }}
       />
 
@@ -1529,6 +1535,9 @@ export function App() {
           }}
           onOpenCustomsScanner={(v) => {
             setCustomsScannerTargetCar(v);
+          }}
+          onOpenAutonomousVehicle={(v) => {
+            setAutonomousVehicleTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2470,6 +2479,16 @@ export function App() {
           onClose={() => {
             setIsCustomsScannerModalOpen(false);
             setCustomsScannerTargetCar(null);
+          }}
+        />
+
+        {/* Official AYNA, BDYP & FHN Autonomous Self-Driving Vehicles Modal */}
+        <AutonomousVehicleModal
+          isOpen={isAutonomousVehicleModalOpen || !!autonomousVehicleTargetCar}
+          targetCar={autonomousVehicleTargetCar}
+          onClose={() => {
+            setIsAutonomousVehicleModalOpen(false);
+            setAutonomousVehicleTargetCar(null);
           }}
         />
 

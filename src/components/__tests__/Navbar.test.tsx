@@ -768,4 +768,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenCustomsScanner).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AYNA, BDYP & FHN Autonomous Vehicle button and calls onOpenAutonomousVehicle when clicked', () => {
+    const onOpenAutonomousVehicle = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAutonomousVehicle={onOpenAutonomousVehicle} />);
+
+    const btn = screen.getByTestId('navbar-autonomous-vehicle-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAutonomousVehicle).toHaveBeenCalledTimes(1);
+  });
 });

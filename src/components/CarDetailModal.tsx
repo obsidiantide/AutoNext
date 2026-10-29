@@ -82,7 +82,8 @@ import {
   ThermometerSnowflake,
   Warehouse,
   Lock,
-  Scan
+  Scan,
+  Cpu
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -187,6 +188,7 @@ interface CarDetailModalProps {
   onOpenLezEco?: (vehicle: Vehicle) => void;
   onOpenPiggybackRail?: (vehicle: Vehicle) => void;
   onOpenCustomsScanner?: (vehicle: Vehicle) => void;
+  onOpenAutonomousVehicle?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -281,6 +283,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenLezEco,
   onOpenPiggybackRail,
   onOpenCustomsScanner,
+  onOpenAutonomousVehicle,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1623,6 +1626,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <Scan className="w-4 h-4 text-emerald-400" />
                     <span>DGK & AYNA Rentgen-Qantri (NII 6.0 MeV) Skaneri Portalı</span>
+                  </button>
+                )}
+
+                {/* AYNA, BDYP & FHN Autonomous Self-Driving Vehicles Portal Shortcut */}
+                {onOpenAutonomousVehicle && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenAutonomousVehicle(vehicle)}
+                    data-testid="autonomous-vehicle-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-cyan-600/10 hover:bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Cpu className="w-4 h-4 text-cyan-400" />
+                    <span>AYNA & BDYP Avtonom Sınaq (SAE L3/4) & V2X Portalı</span>
                   </button>
                 )}
 

@@ -59,7 +59,8 @@ import {
   Warehouse,
   Scale,
   Lock,
-  Scan
+  Scan,
+  Cpu
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -144,6 +145,7 @@ interface NavbarProps {
   onOpenLezEco?: () => void;
   onOpenPiggybackRail?: () => void;
   onOpenCustomsScanner?: () => void;
+  onOpenAutonomousVehicle?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -228,6 +230,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenLezEco,
   onOpenPiggybackRail,
   onOpenCustomsScanner,
+  onOpenAutonomousVehicle,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1124,6 +1127,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Scan className="w-4 h-4 text-emerald-400" />
               <span className="hidden xl:inline">Rentgen-Qantri Skaner</span>
+            </button>
+          )}
+
+          {/* Official AYNA, BDYP & FHN Autonomous Self-Driving Vehicles Portal Button */}
+          {onOpenAutonomousVehicle && (
+            <button
+              onClick={onOpenAutonomousVehicle}
+              data-testid="navbar-autonomous-vehicle-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600/10 hover:bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AYNA, BDYP & FHN Avtonom Nəqliyyat Vasitələri & V2X Sınaq Portalı"
+            >
+              <Cpu className="w-4 h-4 text-cyan-400" />
+              <span className="hidden xl:inline">Avtonom Sınaq (SAE L3/4)</span>
             </button>
           )}
 
