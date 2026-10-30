@@ -112,6 +112,7 @@ const AdaptiveTrafficModal = React.lazy(() => import('./components/AdaptiveTraff
 const BorderQueueModal = React.lazy(() => import('./components/BorderQueueModal').then(m => ({ default: m.BorderQueueModal })));
 const AirCargoModal = React.lazy(() => import('./components/AirCargoModal').then(m => ({ default: m.AirCargoModal })));
 const HemsAviationModal = React.lazy(() => import('./components/HemsAviationModal').then(m => ({ default: m.HemsAviationModal })));
+const MaritimeSarModal = React.lazy(() => import('./components/MaritimeSarModal').then(m => ({ default: m.MaritimeSarModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -366,6 +367,8 @@ export function App() {
   const [isAirCargoModalOpen, setIsAirCargoModalOpen] = useState(false);
   const [hemsAviationTargetCar, setHemsAviationTargetCar] = useState<Vehicle | null>(null);
   const [isHemsAviationModalOpen, setIsHemsAviationModalOpen] = useState(false);
+  const [maritimeSarTargetCar, setMaritimeSarTargetCar] = useState<Vehicle | null>(null);
+  const [isMaritimeSarModalOpen, setIsMaritimeSarModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -708,6 +711,9 @@ export function App() {
         }}
         onOpenHemsAviation={() => {
           setIsHemsAviationModalOpen(true);
+        }}
+        onOpenMaritimeSar={() => {
+          setIsMaritimeSarModalOpen(true);
         }}
       />
 
@@ -2562,6 +2568,16 @@ export function App() {
           onClose={() => {
             setIsHemsAviationModalOpen(false);
             setHemsAviationTargetCar(null);
+          }}
+        />
+
+        {/* Official DDAA, FHN & DSX Maritime Search & Rescue (SAR) Modal */}
+        <MaritimeSarModal
+          isOpen={isMaritimeSarModalOpen || !!maritimeSarTargetCar}
+          targetCar={maritimeSarTargetCar}
+          onClose={() => {
+            setIsMaritimeSarModalOpen(false);
+            setMaritimeSarTargetCar(null);
           }}
         />
 

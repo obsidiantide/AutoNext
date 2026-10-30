@@ -151,6 +151,7 @@ interface NavbarProps {
   onOpenBorderQueue?: () => void;
   onOpenAirCargo?: () => void;
   onOpenHemsAviation?: () => void;
+  onOpenMaritimeSar?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -240,6 +241,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenBorderQueue,
   onOpenAirCargo,
   onOpenHemsAviation,
+  onOpenMaritimeSar,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1201,6 +1203,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <HeartPulse className="w-4 h-4 text-red-400 animate-pulse" />
               <span className="hidden xl:inline">Sanitar HEMS</span>
+            </button>
+          )}
+
+          {/* Official DDAA, FHN & DSX Maritime Search & Rescue (SAR) Portal Button */}
+          {onOpenMaritimeSar && (
+            <button
+              onClick={onOpenMaritimeSar}
+              data-testid="navbar-maritime-sar-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600/10 hover:bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="DDAA, FHN & DSX Dəniz Axtarış-Xilasetmə (SAR) və Sahil Mühafizəsi Portalı"
+            >
+              <Anchor className="w-4 h-4 text-cyan-400 animate-pulse" />
+              <span className="hidden xl:inline">Dəniz SAR</span>
             </button>
           )}
 

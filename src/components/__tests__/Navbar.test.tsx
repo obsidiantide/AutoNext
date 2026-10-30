@@ -818,4 +818,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenHemsAviation).toHaveBeenCalledTimes(1);
   });
+
+  it('renders DDAA, FHN & DSX Maritime Search & Rescue (SAR) button and calls onOpenMaritimeSar when clicked', () => {
+    const onOpenMaritimeSar = vi.fn();
+    render(<Navbar {...defaultProps} onOpenMaritimeSar={onOpenMaritimeSar} />);
+
+    const btn = screen.getByTestId('navbar-maritime-sar-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMaritimeSar).toHaveBeenCalledTimes(1);
+  });
 });
