@@ -838,4 +838,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenSatelliteFleet).toHaveBeenCalledTimes(1);
   });
+
+  it('renders RİNN, AzInTelecom & BDYP Cloud Transportation Data Center button and calls onOpenCloudTransportData when clicked', () => {
+    const onOpenCloudTransportData = vi.fn();
+    render(<Navbar {...defaultProps} onOpenCloudTransportData={onOpenCloudTransportData} />);
+
+    const btn = screen.getByTestId('navbar-cloud-transport-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenCloudTransportData).toHaveBeenCalledTimes(1);
+  });
 });

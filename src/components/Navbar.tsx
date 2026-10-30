@@ -63,6 +63,7 @@ import {
   Cpu,
   Radio,
   Satellite,
+  Cloud,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -154,6 +155,7 @@ interface NavbarProps {
   onOpenHemsAviation?: () => void;
   onOpenMaritimeSar?: () => void;
   onOpenSatelliteFleet?: () => void;
+  onOpenCloudTransportData?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -245,6 +247,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenHemsAviation,
   onOpenMaritimeSar,
   onOpenSatelliteFleet,
+  onOpenCloudTransportData,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1232,6 +1235,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Satellite className="w-4 h-4 text-indigo-400 animate-pulse" />
               <span className="hidden xl:inline">Peyk RTK</span>
+            </button>
+          )}
+
+          {/* Official RİNN, AzInTelecom & BDYP Cloud Transportation Data Center Button */}
+          {onOpenCloudTransportData && (
+            <button
+              onClick={onOpenCloudTransportData}
+              data-testid="navbar-cloud-transport-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-600/10 hover:bg-sky-600/20 text-sky-300 border border-sky-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="RİNN, AzInTelecom & BDYP Nəqliyyat Bulud Məlumat Mərkəzi və Telemetriya Portalı"
+            >
+              <Cloud className="w-4 h-4 text-sky-400 animate-pulse" />
+              <span className="hidden xl:inline">Bulud DC</span>
             </button>
           )}
 

@@ -114,6 +114,7 @@ const AirCargoModal = React.lazy(() => import('./components/AirCargoModal').then
 const HemsAviationModal = React.lazy(() => import('./components/HemsAviationModal').then(m => ({ default: m.HemsAviationModal })));
 const MaritimeSarModal = React.lazy(() => import('./components/MaritimeSarModal').then(m => ({ default: m.MaritimeSarModal })));
 const SatelliteFleetModal = React.lazy(() => import('./components/SatelliteFleetModal').then(m => ({ default: m.SatelliteFleetModal })));
+const CloudTransportDataModal = React.lazy(() => import('./components/CloudTransportDataModal').then(m => ({ default: m.CloudTransportDataModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -372,6 +373,8 @@ export function App() {
   const [isMaritimeSarModalOpen, setIsMaritimeSarModalOpen] = useState(false);
   const [satelliteFleetTargetCar, setSatelliteFleetTargetCar] = useState<Vehicle | null>(null);
   const [isSatelliteFleetModalOpen, setIsSatelliteFleetModalOpen] = useState(false);
+  const [cloudTransportTargetCar, setCloudTransportTargetCar] = useState<Vehicle | null>(null);
+  const [isCloudTransportModalOpen, setIsCloudTransportModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -720,6 +723,9 @@ export function App() {
         }}
         onOpenSatelliteFleet={() => {
           setIsSatelliteFleetModalOpen(true);
+        }}
+        onOpenCloudTransportData={() => {
+          setIsCloudTransportModalOpen(true);
         }}
       />
 
@@ -2594,6 +2600,16 @@ export function App() {
           onClose={() => {
             setIsSatelliteFleetModalOpen(false);
             setSatelliteFleetTargetCar(null);
+          }}
+        />
+
+        {/* Official RİNN, AzInTelecom & BDYP Cloud Transportation Data Center Modal */}
+        <CloudTransportDataModal
+          isOpen={isCloudTransportModalOpen || !!cloudTransportTargetCar}
+          targetCar={cloudTransportTargetCar}
+          onClose={() => {
+            setIsCloudTransportModalOpen(false);
+            setCloudTransportTargetCar(null);
           }}
         />
 
