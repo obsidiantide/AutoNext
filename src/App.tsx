@@ -113,6 +113,7 @@ const BorderQueueModal = React.lazy(() => import('./components/BorderQueueModal'
 const AirCargoModal = React.lazy(() => import('./components/AirCargoModal').then(m => ({ default: m.AirCargoModal })));
 const HemsAviationModal = React.lazy(() => import('./components/HemsAviationModal').then(m => ({ default: m.HemsAviationModal })));
 const MaritimeSarModal = React.lazy(() => import('./components/MaritimeSarModal').then(m => ({ default: m.MaritimeSarModal })));
+const SatelliteFleetModal = React.lazy(() => import('./components/SatelliteFleetModal').then(m => ({ default: m.SatelliteFleetModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -369,6 +370,8 @@ export function App() {
   const [isHemsAviationModalOpen, setIsHemsAviationModalOpen] = useState(false);
   const [maritimeSarTargetCar, setMaritimeSarTargetCar] = useState<Vehicle | null>(null);
   const [isMaritimeSarModalOpen, setIsMaritimeSarModalOpen] = useState(false);
+  const [satelliteFleetTargetCar, setSatelliteFleetTargetCar] = useState<Vehicle | null>(null);
+  const [isSatelliteFleetModalOpen, setIsSatelliteFleetModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -714,6 +717,9 @@ export function App() {
         }}
         onOpenMaritimeSar={() => {
           setIsMaritimeSarModalOpen(true);
+        }}
+        onOpenSatelliteFleet={() => {
+          setIsSatelliteFleetModalOpen(true);
         }}
       />
 
@@ -2578,6 +2584,16 @@ export function App() {
           onClose={() => {
             setIsMaritimeSarModalOpen(false);
             setMaritimeSarTargetCar(null);
+          }}
+        />
+
+        {/* Official Azercosmos, AYNA & BDYP Satellite GNSS Fleet Telemetry & S-AIS Portal Modal */}
+        <SatelliteFleetModal
+          isOpen={isSatelliteFleetModalOpen || !!satelliteFleetTargetCar}
+          targetCar={satelliteFleetTargetCar}
+          onClose={() => {
+            setIsSatelliteFleetModalOpen(false);
+            setSatelliteFleetTargetCar(null);
           }}
         />
 

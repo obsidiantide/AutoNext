@@ -828,4 +828,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenMaritimeSar).toHaveBeenCalledTimes(1);
   });
+
+  it('renders Azercosmos, AYNA & BDYP Satellite GNSS Fleet Telemetry button and calls onOpenSatelliteFleet when clicked', () => {
+    const onOpenSatelliteFleet = vi.fn();
+    render(<Navbar {...defaultProps} onOpenSatelliteFleet={onOpenSatelliteFleet} />);
+
+    const btn = screen.getByTestId('navbar-satellite-fleet-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSatelliteFleet).toHaveBeenCalledTimes(1);
+  });
 });

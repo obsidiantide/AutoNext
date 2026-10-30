@@ -62,6 +62,7 @@ import {
   Scan,
   Cpu,
   Radio,
+  Satellite,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -152,6 +153,7 @@ interface NavbarProps {
   onOpenAirCargo?: () => void;
   onOpenHemsAviation?: () => void;
   onOpenMaritimeSar?: () => void;
+  onOpenSatelliteFleet?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -242,6 +244,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAirCargo,
   onOpenHemsAviation,
   onOpenMaritimeSar,
+  onOpenSatelliteFleet,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1216,6 +1219,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Anchor className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span className="hidden xl:inline">Dəniz SAR</span>
+            </button>
+          )}
+
+          {/* Official Azercosmos, AYNA & BDYP Satellite GNSS Fleet Telemetry & S-AIS Portal Button */}
+          {onOpenSatelliteFleet && (
+            <button
+              onClick={onOpenSatelliteFleet}
+              data-testid="navbar-satellite-fleet-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="Azərkosmos, AYNA & BDYP Peyk Donanma Telemetriyası, S-AIS və RTK Portalı"
+            >
+              <Satellite className="w-4 h-4 text-indigo-400 animate-pulse" />
+              <span className="hidden xl:inline">Peyk RTK</span>
             </button>
           )}
 
