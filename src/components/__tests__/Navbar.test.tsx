@@ -848,4 +848,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenCloudTransportData).toHaveBeenCalledTimes(1);
   });
+
+  it('renders RİNN, AYNA & BDYP National ITS Digital Twin button and calls onOpenDigitalTwinIts when clicked', () => {
+    const onOpenDigitalTwinIts = vi.fn();
+    render(<Navbar {...defaultProps} onOpenDigitalTwinIts={onOpenDigitalTwinIts} />);
+
+    const btn = screen.getByTestId('navbar-digital-twin-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenDigitalTwinIts).toHaveBeenCalledTimes(1);
+  });
 });

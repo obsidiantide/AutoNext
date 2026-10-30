@@ -115,6 +115,7 @@ const HemsAviationModal = React.lazy(() => import('./components/HemsAviationModa
 const MaritimeSarModal = React.lazy(() => import('./components/MaritimeSarModal').then(m => ({ default: m.MaritimeSarModal })));
 const SatelliteFleetModal = React.lazy(() => import('./components/SatelliteFleetModal').then(m => ({ default: m.SatelliteFleetModal })));
 const CloudTransportDataModal = React.lazy(() => import('./components/CloudTransportDataModal').then(m => ({ default: m.CloudTransportDataModal })));
+const DigitalTwinItsModal = React.lazy(() => import('./components/DigitalTwinItsModal').then(m => ({ default: m.DigitalTwinItsModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -375,6 +376,8 @@ export function App() {
   const [isSatelliteFleetModalOpen, setIsSatelliteFleetModalOpen] = useState(false);
   const [cloudTransportTargetCar, setCloudTransportTargetCar] = useState<Vehicle | null>(null);
   const [isCloudTransportModalOpen, setIsCloudTransportModalOpen] = useState(false);
+  const [digitalTwinTargetCar, setDigitalTwinTargetCar] = useState<Vehicle | null>(null);
+  const [isDigitalTwinModalOpen, setIsDigitalTwinModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -726,6 +729,9 @@ export function App() {
         }}
         onOpenCloudTransportData={() => {
           setIsCloudTransportModalOpen(true);
+        }}
+        onOpenDigitalTwinIts={() => {
+          setIsDigitalTwinModalOpen(true);
         }}
       />
 
@@ -2610,6 +2616,16 @@ export function App() {
           onClose={() => {
             setIsCloudTransportModalOpen(false);
             setCloudTransportTargetCar(null);
+          }}
+        />
+
+        {/* Official RİNN, AYNA & BDYP National ITS Digital Twin Modal */}
+        <DigitalTwinItsModal
+          isOpen={isDigitalTwinModalOpen || !!digitalTwinTargetCar}
+          targetCar={digitalTwinTargetCar}
+          onClose={() => {
+            setIsDigitalTwinModalOpen(false);
+            setDigitalTwinTargetCar(null);
           }}
         />
 

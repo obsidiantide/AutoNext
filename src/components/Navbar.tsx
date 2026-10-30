@@ -156,6 +156,7 @@ interface NavbarProps {
   onOpenMaritimeSar?: () => void;
   onOpenSatelliteFleet?: () => void;
   onOpenCloudTransportData?: () => void;
+  onOpenDigitalTwinIts?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -248,6 +249,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenMaritimeSar,
   onOpenSatelliteFleet,
   onOpenCloudTransportData,
+  onOpenDigitalTwinIts,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1248,6 +1250,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Cloud className="w-4 h-4 text-sky-400 animate-pulse" />
               <span className="hidden xl:inline">Bulud DC</span>
+            </button>
+          )}
+
+          {/* Official RİNN, AYNA & BDYP National ITS Digital Twin Button */}
+          {onOpenDigitalTwinIts && (
+            <button
+              onClick={onOpenDigitalTwinIts}
+              data-testid="navbar-digital-twin-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="RİNN, AYNA & BDYP Milli ITS Rəqəmsal Əkiz 3D BIM Baku Portalı"
+            >
+              <Activity className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <span className="hidden xl:inline">ITS Əkiz</span>
             </button>
           )}
 
