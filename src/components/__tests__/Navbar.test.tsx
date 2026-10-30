@@ -868,4 +868,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenHighwayTunnel).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN & BDYP Highway Smart Bridge & Viaduct SHM button and calls onOpenBridgeShm when clicked', () => {
+    const onOpenBridgeShm = vi.fn();
+    render(<Navbar {...defaultProps} onOpenBridgeShm={onOpenBridgeShm} />);
+
+    const btn = screen.getByTestId('navbar-bridge-shm-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenBridgeShm).toHaveBeenCalledTimes(1);
+  });
 });

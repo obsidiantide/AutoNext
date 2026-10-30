@@ -117,6 +117,7 @@ const SatelliteFleetModal = React.lazy(() => import('./components/SatelliteFleet
 const CloudTransportDataModal = React.lazy(() => import('./components/CloudTransportDataModal').then(m => ({ default: m.CloudTransportDataModal })));
 const DigitalTwinItsModal = React.lazy(() => import('./components/DigitalTwinItsModal').then(m => ({ default: m.DigitalTwinItsModal })));
 const HighwayTunnelModal = React.lazy(() => import('./components/HighwayTunnelModal').then(m => ({ default: m.HighwayTunnelModal })));
+const BridgeShmModal = React.lazy(() => import('./components/BridgeShmModal').then(m => ({ default: m.BridgeShmModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -381,6 +382,8 @@ export function App() {
   const [isDigitalTwinModalOpen, setIsDigitalTwinModalOpen] = useState(false);
   const [highwayTunnelTargetCar, setHighwayTunnelTargetCar] = useState<Vehicle | null>(null);
   const [isHighwayTunnelModalOpen, setIsHighwayTunnelModalOpen] = useState(false);
+  const [bridgeShmTargetCar, setBridgeShmTargetCar] = useState<Vehicle | null>(null);
+  const [isBridgeShmModalOpen, setIsBridgeShmModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -738,6 +741,9 @@ export function App() {
         }}
         onOpenHighwayTunnel={() => {
           setIsHighwayTunnelModalOpen(true);
+        }}
+        onOpenBridgeShm={() => {
+          setIsBridgeShmModalOpen(true);
         }}
       />
 
@@ -2642,6 +2648,16 @@ export function App() {
           onClose={() => {
             setIsHighwayTunnelModalOpen(false);
             setHighwayTunnelTargetCar(null);
+          }}
+        />
+
+        {/* Official AAYDA, FHN & BDYP Highway Smart Bridge & Viaduct SHM Portal */}
+        <BridgeShmModal
+          isOpen={isBridgeShmModalOpen || !!bridgeShmTargetCar}
+          targetCar={bridgeShmTargetCar}
+          onClose={() => {
+            setIsBridgeShmModalOpen(false);
+            setBridgeShmTargetCar(null);
           }}
         />
 
