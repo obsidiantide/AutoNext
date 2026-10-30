@@ -858,4 +858,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenDigitalTwinIts).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN & BDYP Highway Tunnel SCADA button and calls onOpenHighwayTunnel when clicked', () => {
+    const onOpenHighwayTunnel = vi.fn();
+    render(<Navbar {...defaultProps} onOpenHighwayTunnel={onOpenHighwayTunnel} />);
+
+    const btn = screen.getByTestId('navbar-highway-tunnel-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenHighwayTunnel).toHaveBeenCalledTimes(1);
+  });
 });

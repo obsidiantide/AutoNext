@@ -116,6 +116,7 @@ const MaritimeSarModal = React.lazy(() => import('./components/MaritimeSarModal'
 const SatelliteFleetModal = React.lazy(() => import('./components/SatelliteFleetModal').then(m => ({ default: m.SatelliteFleetModal })));
 const CloudTransportDataModal = React.lazy(() => import('./components/CloudTransportDataModal').then(m => ({ default: m.CloudTransportDataModal })));
 const DigitalTwinItsModal = React.lazy(() => import('./components/DigitalTwinItsModal').then(m => ({ default: m.DigitalTwinItsModal })));
+const HighwayTunnelModal = React.lazy(() => import('./components/HighwayTunnelModal').then(m => ({ default: m.HighwayTunnelModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -378,6 +379,8 @@ export function App() {
   const [isCloudTransportModalOpen, setIsCloudTransportModalOpen] = useState(false);
   const [digitalTwinTargetCar, setDigitalTwinTargetCar] = useState<Vehicle | null>(null);
   const [isDigitalTwinModalOpen, setIsDigitalTwinModalOpen] = useState(false);
+  const [highwayTunnelTargetCar, setHighwayTunnelTargetCar] = useState<Vehicle | null>(null);
+  const [isHighwayTunnelModalOpen, setIsHighwayTunnelModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -732,6 +735,9 @@ export function App() {
         }}
         onOpenDigitalTwinIts={() => {
           setIsDigitalTwinModalOpen(true);
+        }}
+        onOpenHighwayTunnel={() => {
+          setIsHighwayTunnelModalOpen(true);
         }}
       />
 
@@ -2626,6 +2632,16 @@ export function App() {
           onClose={() => {
             setIsDigitalTwinModalOpen(false);
             setDigitalTwinTargetCar(null);
+          }}
+        />
+
+        {/* Official AAYDA, FHN & BDYP Highway Tunnel SCADA Safety Modal */}
+        <HighwayTunnelModal
+          isOpen={isHighwayTunnelModalOpen || !!highwayTunnelTargetCar}
+          targetCar={highwayTunnelTargetCar}
+          onClose={() => {
+            setIsHighwayTunnelModalOpen(false);
+            setHighwayTunnelTargetCar(null);
           }}
         />
 
