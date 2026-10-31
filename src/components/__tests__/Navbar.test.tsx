@@ -888,4 +888,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenMicromobility).toHaveBeenCalledTimes(1);
   });
+
+  it('renders ADY, AAYDA & BDYP Highway-Railway Level Crossing button and calls onOpenLevelCrossing when clicked', () => {
+    const onOpenLevelCrossing = vi.fn();
+    render(<Navbar {...defaultProps} onOpenLevelCrossing={onOpenLevelCrossing} />);
+
+    const btn = screen.getByTestId('navbar-level-crossing-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenLevelCrossing).toHaveBeenCalledTimes(1);
+  });
 });

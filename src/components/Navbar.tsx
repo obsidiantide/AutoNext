@@ -160,6 +160,7 @@ interface NavbarProps {
   onOpenHighwayTunnel?: () => void;
   onOpenBridgeShm?: () => void;
   onOpenMicromobility?: () => void;
+  onOpenLevelCrossing?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -256,6 +257,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenHighwayTunnel,
   onOpenBridgeShm,
   onOpenMicromobility,
+  onOpenLevelCrossing,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1308,6 +1310,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Bike className="w-4 h-4 text-emerald-400 animate-pulse" />
               <span className="hidden xl:inline">Mikromobillik</span>
+            </button>
+          )}
+
+          {/* Official ADY, AAYDA & BDYP Highway-Railway Level Crossing SCADA Portal Button */}
+          {onOpenLevelCrossing && (
+            <button
+              onClick={onOpenLevelCrossing}
+              data-testid="navbar-level-crossing-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-300 border border-red-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="ADY, AAYDA & BDYP Həmsəviyyəli Dəmiryolu Keçidləri SCADA & Təhlükəsizlik Portalı"
+            >
+              <Train className="w-4 h-4 text-red-400 animate-pulse" />
+              <span className="hidden xl:inline">Dəmiryol Keçidi</span>
             </button>
           )}
 

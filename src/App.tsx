@@ -119,6 +119,7 @@ const DigitalTwinItsModal = React.lazy(() => import('./components/DigitalTwinIts
 const HighwayTunnelModal = React.lazy(() => import('./components/HighwayTunnelModal').then(m => ({ default: m.HighwayTunnelModal })));
 const BridgeShmModal = React.lazy(() => import('./components/BridgeShmModal').then(m => ({ default: m.BridgeShmModal })));
 const MicromobilityModal = React.lazy(() => import('./components/MicromobilityModal').then(m => ({ default: m.MicromobilityModal })));
+const LevelCrossingModal = React.lazy(() => import('./components/LevelCrossingModal').then(m => ({ default: m.LevelCrossingModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -387,6 +388,8 @@ export function App() {
   const [isBridgeShmModalOpen, setIsBridgeShmModalOpen] = useState(false);
   const [micromobilityTargetCar, setMicromobilityTargetCar] = useState<Vehicle | null>(null);
   const [isMicromobilityModalOpen, setIsMicromobilityModalOpen] = useState(false);
+  const [levelCrossingTargetCar, setLevelCrossingTargetCar] = useState<Vehicle | null>(null);
+  const [isLevelCrossingModalOpen, setIsLevelCrossingModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -750,6 +753,9 @@ export function App() {
         }}
         onOpenMicromobility={() => {
           setIsMicromobilityModalOpen(true);
+        }}
+        onOpenLevelCrossing={() => {
+          setIsLevelCrossingModalOpen(true);
         }}
       />
 
@@ -2674,6 +2680,16 @@ export function App() {
           onClose={() => {
             setIsMicromobilityModalOpen(false);
             setMicromobilityTargetCar(null);
+          }}
+        />
+
+        {/* Official ADY, AAYDA & BDYP Highway-Railway Level Crossing SCADA Portal */}
+        <LevelCrossingModal
+          isOpen={isLevelCrossingModalOpen || !!levelCrossingTargetCar}
+          targetCar={levelCrossingTargetCar}
+          onClose={() => {
+            setIsLevelCrossingModalOpen(false);
+            setLevelCrossingTargetCar(null);
           }}
         />
 
