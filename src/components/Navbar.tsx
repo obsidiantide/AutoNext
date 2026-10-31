@@ -65,6 +65,7 @@ import {
   Satellite,
   Cloud,
   Waves,
+  Mountain,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -163,6 +164,7 @@ interface NavbarProps {
   onOpenMicromobility?: () => void;
   onOpenLevelCrossing?: () => void;
   onOpenHighwayFlood?: () => void;
+  onOpenSlopeSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -261,6 +263,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenMicromobility,
   onOpenLevelCrossing,
   onOpenHighwayFlood,
+  onOpenSlopeSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1339,6 +1342,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Waves className="w-4 h-4 text-blue-400 animate-pulse" />
               <span className="hidden xl:inline">Subasma SCADA</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, FHN & BDYP Highway Landslide, Rockfall & Slope Stability SCADA Portal Button */}
+          {onOpenSlopeSafe && (
+            <button
+              onClick={onOpenSlopeSafe}
+              data-testid="navbar-slope-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600/10 hover:bg-amber-600/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, FHN & BDYP Dağ Yolları Sürüşmə, Qaya Uçqunu və Yamac Stabilliyi SCADA Portalı"
+            >
+              <Mountain className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Yamac SCADA</span>
             </button>
           )}
 

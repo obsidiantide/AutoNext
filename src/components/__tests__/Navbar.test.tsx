@@ -908,4 +908,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenHighwayFlood).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN & BDYP Highway Landslide & Slope Stability SCADA button and calls onOpenSlopeSafe when clicked', () => {
+    const onOpenSlopeSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenSlopeSafe={onOpenSlopeSafe} />);
+
+    const btn = screen.getByTestId('navbar-slope-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSlopeSafe).toHaveBeenCalledTimes(1);
+  });
 });

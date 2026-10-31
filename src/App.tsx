@@ -121,6 +121,7 @@ const BridgeShmModal = React.lazy(() => import('./components/BridgeShmModal').th
 const MicromobilityModal = React.lazy(() => import('./components/MicromobilityModal').then(m => ({ default: m.MicromobilityModal })));
 const LevelCrossingModal = React.lazy(() => import('./components/LevelCrossingModal').then(m => ({ default: m.LevelCrossingModal })));
 const HighwayFloodModal = React.lazy(() => import('./components/HighwayFloodModal').then(m => ({ default: m.HighwayFloodModal })));
+const SlopeSafeModal = React.lazy(() => import('./components/SlopeSafeModal').then(m => ({ default: m.SlopeSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -393,6 +394,8 @@ export function App() {
   const [isLevelCrossingModalOpen, setIsLevelCrossingModalOpen] = useState(false);
   const [highwayFloodTargetCar, setHighwayFloodTargetCar] = useState<Vehicle | null>(null);
   const [isHighwayFloodModalOpen, setIsHighwayFloodModalOpen] = useState(false);
+  const [slopeSafeTargetCar, setSlopeSafeTargetCar] = useState<Vehicle | null>(null);
+  const [isSlopeSafeModalOpen, setIsSlopeSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -762,6 +765,9 @@ export function App() {
         }}
         onOpenHighwayFlood={() => {
           setIsHighwayFloodModalOpen(true);
+        }}
+        onOpenSlopeSafe={() => {
+          setIsSlopeSafeModalOpen(true);
         }}
       />
 
@@ -2706,6 +2712,16 @@ export function App() {
           onClose={() => {
             setIsHighwayFloodModalOpen(false);
             setHighwayFloodTargetCar(null);
+          }}
+        />
+
+        {/* Official AAYDA, FHN & BDYP Highway Landslide, Rockfall & Slope Stability SCADA Portal */}
+        <SlopeSafeModal
+          isOpen={isSlopeSafeModalOpen || !!slopeSafeTargetCar}
+          initialVehiclePlate={slopeSafeTargetCar?.plateNumber || '99-SL-101'}
+          onClose={() => {
+            setIsSlopeSafeModalOpen(false);
+            setSlopeSafeTargetCar(null);
           }}
         />
 
