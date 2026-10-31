@@ -66,6 +66,7 @@ import {
   Cloud,
   Waves,
   Mountain,
+  Trees,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -165,6 +166,7 @@ interface NavbarProps {
   onOpenLevelCrossing?: () => void;
   onOpenHighwayFlood?: () => void;
   onOpenSlopeSafe?: () => void;
+  onOpenWildlifeCrossing?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -264,6 +266,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenLevelCrossing,
   onOpenHighwayFlood,
   onOpenSlopeSafe,
+  onOpenWildlifeCrossing,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1355,6 +1358,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Mountain className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Yamac SCADA</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, ETSN & BDYP Highway Wildlife Crossing & Ecological Corridors Portal Button */}
+          {onOpenWildlifeCrossing && (
+            <button
+              onClick={onOpenWildlifeCrossing}
+              data-testid="navbar-wildlife-crossing-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, ETSN & BDYP Magistral Yollarda Vəhşi Heyvan Keçidləri, Ekoloji Dəhlizlər və Yaşıl Ekodukt Portalı"
+            >
+              <Trees className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <span className="hidden xl:inline">Fauna Dəhlizi</span>
             </button>
           )}
 

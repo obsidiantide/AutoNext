@@ -1975,4 +1975,24 @@ describe('CarDetailModal', () => {
     fireEvent.click(btn);
     expect(onOpenAirCargoMock).toHaveBeenCalledWith(mockVehicle);
   });
+
+  it('renders AAYDA, ETSN & BDYP Wildlife Crossing shortcut button and calls callback when clicked', () => {
+    const onOpenWildlifeCrossingMock = vi.fn();
+    render(
+      <CarDetailModal
+        vehicle={mockVehicle}
+        currency="AZN"
+        lang="az"
+        onClose={onCloseMock}
+        onOpenLoanForCar={onOpenLoanForCarMock}
+        onOpenVinHistory={onOpenVinHistoryMock}
+        onOpenWildlifeCrossing={onOpenWildlifeCrossingMock}
+      />
+    );
+
+    const btn = screen.getByTestId('wildlife-crossing-shortcut-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenWildlifeCrossingMock).toHaveBeenCalledWith(mockVehicle);
+  });
 });

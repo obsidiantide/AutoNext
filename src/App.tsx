@@ -122,6 +122,7 @@ const MicromobilityModal = React.lazy(() => import('./components/MicromobilityMo
 const LevelCrossingModal = React.lazy(() => import('./components/LevelCrossingModal').then(m => ({ default: m.LevelCrossingModal })));
 const HighwayFloodModal = React.lazy(() => import('./components/HighwayFloodModal').then(m => ({ default: m.HighwayFloodModal })));
 const SlopeSafeModal = React.lazy(() => import('./components/SlopeSafeModal').then(m => ({ default: m.SlopeSafeModal })));
+const WildlifeCrossingModal = React.lazy(() => import('./components/WildlifeCrossingModal').then(m => ({ default: m.WildlifeCrossingModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -396,6 +397,8 @@ export function App() {
   const [isHighwayFloodModalOpen, setIsHighwayFloodModalOpen] = useState(false);
   const [slopeSafeTargetCar, setSlopeSafeTargetCar] = useState<Vehicle | null>(null);
   const [isSlopeSafeModalOpen, setIsSlopeSafeModalOpen] = useState(false);
+  const [wildlifeCrossingTargetCar, setWildlifeCrossingTargetCar] = useState<Vehicle | null>(null);
+  const [isWildlifeCrossingModalOpen, setIsWildlifeCrossingModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -768,6 +771,9 @@ export function App() {
         }}
         onOpenSlopeSafe={() => {
           setIsSlopeSafeModalOpen(true);
+        }}
+        onOpenWildlifeCrossing={() => {
+          setIsWildlifeCrossingModalOpen(true);
         }}
       />
 
@@ -1631,6 +1637,9 @@ export function App() {
           }}
           onOpenAirCargo={(v) => {
             setAirCargoTargetCar(v);
+          }}
+          onOpenWildlifeCrossing={(v) => {
+            setWildlifeCrossingTargetCar(v);
           }}
           onOpenDealership={(seller) => {
             setDealershipTarget(seller);
@@ -2722,6 +2731,17 @@ export function App() {
           onClose={() => {
             setIsSlopeSafeModalOpen(false);
             setSlopeSafeTargetCar(null);
+          }}
+        />
+
+        {/* Official AAYDA, ETSN & BDYP Highway Wildlife Crossing & Ecological Corridors Portal */}
+        <WildlifeCrossingModal
+          isOpen={isWildlifeCrossingModalOpen || !!wildlifeCrossingTargetCar}
+          initialVehiclePlate={wildlifeCrossingTargetCar?.plateNumber || '99-WL-901'}
+          initialVehicleModel={wildlifeCrossingTargetCar ? `${wildlifeCrossingTargetCar.make} ${wildlifeCrossingTargetCar.model}` : 'Toyota RAV4 Hybrid AWD'}
+          onClose={() => {
+            setIsWildlifeCrossingModalOpen(false);
+            setWildlifeCrossingTargetCar(null);
           }}
         />
 

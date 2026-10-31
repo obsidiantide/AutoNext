@@ -918,4 +918,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenSlopeSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, ETSN & BDYP Highway Wildlife Crossing button and calls onOpenWildlifeCrossing when clicked', () => {
+    const onOpenWildlifeCrossing = vi.fn();
+    render(<Navbar {...defaultProps} onOpenWildlifeCrossing={onOpenWildlifeCrossing} />);
+
+    const btn = screen.getByTestId('navbar-wildlife-crossing-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenWildlifeCrossing).toHaveBeenCalledTimes(1);
+  });
 });

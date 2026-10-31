@@ -85,6 +85,7 @@ import {
   Scan,
   Cpu,
   Radio,
+  Trees,
 } from 'lucide-react';
 import { Gauge } from './Gauge';
 import { BarChart, generateVehiclePriceDistribution } from './BarChart';
@@ -193,6 +194,7 @@ interface CarDetailModalProps {
   onOpenAdaptiveTraffic?: (vehicle: Vehicle) => void;
   onOpenBorderQueue?: (vehicle: Vehicle) => void;
   onOpenAirCargo?: (vehicle: Vehicle) => void;
+  onOpenWildlifeCrossing?: (vehicle: Vehicle) => void;
 }
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({
@@ -291,6 +293,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
   onOpenAdaptiveTraffic,
   onOpenBorderQueue,
   onOpenAirCargo,
+  onOpenWildlifeCrossing,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedDamagePart, setSelectedDamagePart] = useState<string | null>(null);
@@ -1699,6 +1702,19 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({
                   >
                     <BatteryCharging className="w-4 h-4" />
                     <span>AZS & BDYP Elektromobil/Hibrid HV İzolyasiya (R100), SOH% & AMB Yaşıl Kredit</span>
+                  </button>
+                )}
+
+                {/* AAYDA, ETSN & BDYP Highway Wildlife Crossing & Ecological Corridors Shortcut */}
+                {onOpenWildlifeCrossing && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenWildlifeCrossing(vehicle)}
+                    data-testid="wildlife-crossing-shortcut-btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Trees className="w-4 h-4" />
+                    <span>AAYDA & ETSN Vəhşi Heyvan Keçidləri, Ekoloji Dəhlizlər & WILD-PASS Portalı</span>
                   </button>
                 )}
               </div>
