@@ -118,6 +118,7 @@ const CloudTransportDataModal = React.lazy(() => import('./components/CloudTrans
 const DigitalTwinItsModal = React.lazy(() => import('./components/DigitalTwinItsModal').then(m => ({ default: m.DigitalTwinItsModal })));
 const HighwayTunnelModal = React.lazy(() => import('./components/HighwayTunnelModal').then(m => ({ default: m.HighwayTunnelModal })));
 const BridgeShmModal = React.lazy(() => import('./components/BridgeShmModal').then(m => ({ default: m.BridgeShmModal })));
+const MicromobilityModal = React.lazy(() => import('./components/MicromobilityModal').then(m => ({ default: m.MicromobilityModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -384,6 +385,8 @@ export function App() {
   const [isHighwayTunnelModalOpen, setIsHighwayTunnelModalOpen] = useState(false);
   const [bridgeShmTargetCar, setBridgeShmTargetCar] = useState<Vehicle | null>(null);
   const [isBridgeShmModalOpen, setIsBridgeShmModalOpen] = useState(false);
+  const [micromobilityTargetCar, setMicromobilityTargetCar] = useState<Vehicle | null>(null);
+  const [isMicromobilityModalOpen, setIsMicromobilityModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -744,6 +747,9 @@ export function App() {
         }}
         onOpenBridgeShm={() => {
           setIsBridgeShmModalOpen(true);
+        }}
+        onOpenMicromobility={() => {
+          setIsMicromobilityModalOpen(true);
         }}
       />
 
@@ -2658,6 +2664,16 @@ export function App() {
           onClose={() => {
             setIsBridgeShmModalOpen(false);
             setBridgeShmTargetCar(null);
+          }}
+        />
+
+        {/* Official AYNA & BDYP Urban Micromobility & Bicycle Lanes Network Portal */}
+        <MicromobilityModal
+          isOpen={isMicromobilityModalOpen || !!micromobilityTargetCar}
+          targetCar={micromobilityTargetCar}
+          onClose={() => {
+            setIsMicromobilityModalOpen(false);
+            setMicromobilityTargetCar(null);
           }}
         />
 

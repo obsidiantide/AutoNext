@@ -878,4 +878,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenBridgeShm).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AYNA & BDYP Urban Micromobility & Bicycle Lanes button and calls onOpenMicromobility when clicked', () => {
+    const onOpenMicromobility = vi.fn();
+    render(<Navbar {...defaultProps} onOpenMicromobility={onOpenMicromobility} />);
+
+    const btn = screen.getByTestId('navbar-micromobility-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMicromobility).toHaveBeenCalledTimes(1);
+  });
 });
