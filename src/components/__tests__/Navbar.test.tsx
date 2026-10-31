@@ -928,4 +928,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenWildlifeCrossing).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, ETSN & BDYP Highway Acoustic Noise Barrier button and calls onOpenNoiseBarrier when clicked', () => {
+    const onOpenNoiseBarrier = vi.fn();
+    render(<Navbar {...defaultProps} onOpenNoiseBarrier={onOpenNoiseBarrier} />);
+
+    const btn = screen.getByTestId('navbar-noise-barrier-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenNoiseBarrier).toHaveBeenCalledTimes(1);
+  });
 });

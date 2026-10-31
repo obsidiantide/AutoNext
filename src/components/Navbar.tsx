@@ -67,6 +67,7 @@ import {
   Waves,
   Mountain,
   Trees,
+  VolumeX,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -167,6 +168,7 @@ interface NavbarProps {
   onOpenHighwayFlood?: () => void;
   onOpenSlopeSafe?: () => void;
   onOpenWildlifeCrossing?: () => void;
+  onOpenNoiseBarrier?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -267,6 +269,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenHighwayFlood,
   onOpenSlopeSafe,
   onOpenWildlifeCrossing,
+  onOpenNoiseBarrier,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1371,6 +1374,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Trees className="w-4 h-4 text-emerald-400 animate-pulse" />
               <span className="hidden xl:inline">Fauna Dəhlizi</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, ETSN & BDYP Highway Acoustic Noise Barrier & Sound Telemetry Portal Button */}
+          {onOpenNoiseBarrier && (
+            <button
+              onClick={onOpenNoiseBarrier}
+              data-testid="navbar-noise-barrier-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600/10 hover:bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, ETSN & BDYP Magistral Yollarda Səs Baryerləri, Akustik Ekranlar və Telemetriya Portalı"
+            >
+              <VolumeX className="w-4 h-4 text-cyan-400 animate-pulse" />
+              <span className="hidden xl:inline">Səs Baryeri</span>
             </button>
           )}
 

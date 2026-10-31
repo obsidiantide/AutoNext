@@ -123,6 +123,7 @@ const LevelCrossingModal = React.lazy(() => import('./components/LevelCrossingMo
 const HighwayFloodModal = React.lazy(() => import('./components/HighwayFloodModal').then(m => ({ default: m.HighwayFloodModal })));
 const SlopeSafeModal = React.lazy(() => import('./components/SlopeSafeModal').then(m => ({ default: m.SlopeSafeModal })));
 const WildlifeCrossingModal = React.lazy(() => import('./components/WildlifeCrossingModal').then(m => ({ default: m.WildlifeCrossingModal })));
+const NoiseBarrierModal = React.lazy(() => import('./components/NoiseBarrierModal').then(m => ({ default: m.NoiseBarrierModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -399,6 +400,8 @@ export function App() {
   const [isSlopeSafeModalOpen, setIsSlopeSafeModalOpen] = useState(false);
   const [wildlifeCrossingTargetCar, setWildlifeCrossingTargetCar] = useState<Vehicle | null>(null);
   const [isWildlifeCrossingModalOpen, setIsWildlifeCrossingModalOpen] = useState(false);
+  const [noiseBarrierTargetCar, setNoiseBarrierTargetCar] = useState<Vehicle | null>(null);
+  const [isNoiseBarrierModalOpen, setIsNoiseBarrierModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -774,6 +777,9 @@ export function App() {
         }}
         onOpenWildlifeCrossing={() => {
           setIsWildlifeCrossingModalOpen(true);
+        }}
+        onOpenNoiseBarrier={() => {
+          setIsNoiseBarrierModalOpen(true);
         }}
       />
 
@@ -2742,6 +2748,17 @@ export function App() {
           onClose={() => {
             setIsWildlifeCrossingModalOpen(false);
             setWildlifeCrossingTargetCar(null);
+          }}
+        />
+
+        {/* Official AAYDA, ETSN & BDYP Highway Acoustic Noise Barrier & Sound Telemetry Portal */}
+        <NoiseBarrierModal
+          isOpen={isNoiseBarrierModalOpen || !!noiseBarrierTargetCar}
+          initialVehicle={noiseBarrierTargetCar}
+          currency={currency}
+          onClose={() => {
+            setIsNoiseBarrierModalOpen(false);
+            setNoiseBarrierTargetCar(null);
           }}
         />
 
