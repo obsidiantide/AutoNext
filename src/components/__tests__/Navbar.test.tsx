@@ -898,4 +898,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenLevelCrossing).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN, ADSEA & BDYP Highway Underpass Flooding SCADA button and calls onOpenHighwayFlood when clicked', () => {
+    const onOpenHighwayFlood = vi.fn();
+    render(<Navbar {...defaultProps} onOpenHighwayFlood={onOpenHighwayFlood} />);
+
+    const btn = screen.getByTestId('navbar-highway-flood-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenHighwayFlood).toHaveBeenCalledTimes(1);
+  });
 });

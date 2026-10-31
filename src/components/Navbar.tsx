@@ -64,6 +64,7 @@ import {
   Radio,
   Satellite,
   Cloud,
+  Waves,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -161,6 +162,7 @@ interface NavbarProps {
   onOpenBridgeShm?: () => void;
   onOpenMicromobility?: () => void;
   onOpenLevelCrossing?: () => void;
+  onOpenHighwayFlood?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -258,6 +260,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenBridgeShm,
   onOpenMicromobility,
   onOpenLevelCrossing,
+  onOpenHighwayFlood,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1323,6 +1326,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Train className="w-4 h-4 text-red-400 animate-pulse" />
               <span className="hidden xl:inline">Dəmiryol Keçidi</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, FHN, ADSEA & BDYP Highway Underpass Flooding SCADA Portal Button */}
+          {onOpenHighwayFlood && (
+            <button
+              onClick={onOpenHighwayFlood}
+              data-testid="navbar-highway-flood-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-300 border border-blue-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, FHN, ADSEA & BDYP Avtomobil Yolları Subasma, Drenaj SCADA & Hidrostatik Telemetriya Portalı"
+            >
+              <Waves className="w-4 h-4 text-blue-400 animate-pulse" />
+              <span className="hidden xl:inline">Subasma SCADA</span>
             </button>
           )}
 

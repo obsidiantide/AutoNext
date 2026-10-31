@@ -120,6 +120,7 @@ const HighwayTunnelModal = React.lazy(() => import('./components/HighwayTunnelMo
 const BridgeShmModal = React.lazy(() => import('./components/BridgeShmModal').then(m => ({ default: m.BridgeShmModal })));
 const MicromobilityModal = React.lazy(() => import('./components/MicromobilityModal').then(m => ({ default: m.MicromobilityModal })));
 const LevelCrossingModal = React.lazy(() => import('./components/LevelCrossingModal').then(m => ({ default: m.LevelCrossingModal })));
+const HighwayFloodModal = React.lazy(() => import('./components/HighwayFloodModal').then(m => ({ default: m.HighwayFloodModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -390,6 +391,8 @@ export function App() {
   const [isMicromobilityModalOpen, setIsMicromobilityModalOpen] = useState(false);
   const [levelCrossingTargetCar, setLevelCrossingTargetCar] = useState<Vehicle | null>(null);
   const [isLevelCrossingModalOpen, setIsLevelCrossingModalOpen] = useState(false);
+  const [highwayFloodTargetCar, setHighwayFloodTargetCar] = useState<Vehicle | null>(null);
+  const [isHighwayFloodModalOpen, setIsHighwayFloodModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -756,6 +759,9 @@ export function App() {
         }}
         onOpenLevelCrossing={() => {
           setIsLevelCrossingModalOpen(true);
+        }}
+        onOpenHighwayFlood={() => {
+          setIsHighwayFloodModalOpen(true);
         }}
       />
 
@@ -2690,6 +2696,16 @@ export function App() {
           onClose={() => {
             setIsLevelCrossingModalOpen(false);
             setLevelCrossingTargetCar(null);
+          }}
+        />
+
+        {/* Official AAYDA, FHN, ADSEA & BDYP Highway Underpass Submersion & Drainage SCADA Portal */}
+        <HighwayFloodModal
+          isOpen={isHighwayFloodModalOpen || !!highwayFloodTargetCar}
+          targetCar={highwayFloodTargetCar}
+          onClose={() => {
+            setIsHighwayFloodModalOpen(false);
+            setHighwayFloodTargetCar(null);
           }}
         />
 

@@ -1,0 +1,150 @@
+import {
+  UnderpassId,
+  VehicleClass,
+  FloodGuardCertificate,
+} from '../utils/floodGuardCompliance';
+
+export interface VehiclePreset {
+  id: string;
+  plate: string;
+  makeModel: string;
+  vehicleClass: VehicleClass;
+  groundClearanceMm: number;
+  airIntakeMm: number;
+  isElectric: boolean;
+  notesAz: string;
+  notesEn: string;
+}
+
+export const MOCK_VEHICLE_PRESETS: VehiclePreset[] = [
+  {
+    id: 'sedan_corolla',
+    plate: '99-FL-101',
+    makeModel: 'Toyota Corolla 1.6 VVT-i',
+    vehicleClass: 'sedan_compact',
+    groundClearanceMm: 150,
+    airIntakeMm: 450,
+    isElectric: false,
+    notesAz: 'Standart şəhər sedanı, hava filtri ön sol qanad daxilində yerləşir.',
+    notesEn: 'Standard city sedan; air intake located inside front left fender.',
+  },
+  {
+    id: 'crossover_tucson',
+    plate: '10-AZ-555',
+    makeModel: 'Hyundai Tucson 2.0 HTRAC AWD',
+    vehicleClass: 'crossover_suv',
+    groundClearanceMm: 195,
+    airIntakeMm: 580,
+    isElectric: false,
+    notesAz: 'Tam ötürücülü şəhər krossoveri, 20 sm-dək dayaz sularda təhlükəsiz keçid.',
+    notesEn: 'All-wheel drive compact SUV, capable of up to 20 cm shallow water wading.',
+  },
+  {
+    id: 'offroad_lc300',
+    plate: '77-TR-700',
+    makeModel: 'Toyota Land Cruiser 300 GR Sport + Snorkel',
+    vehicleClass: 'heavy_4x4',
+    groundClearanceMm: 260,
+    airIntakeMm: 850,
+    isElectric: false,
+    notesAz: 'A-pillar yüksək dam şnorkeli, mexaniki diferensial kilidi, 85 sm brod təchizatı.',
+    notesEn: 'Roofline snorkel on A-pillar, mechanical diff lock, 85 cm wading rating.',
+  },
+  {
+    id: 'ev_byd_seal',
+    plate: '90-EV-404',
+    makeModel: 'BYD Seal AWD Excellence (82.5 kWh Blade Battery)',
+    vehicleClass: 'electric_vehicle',
+    groundClearanceMm: 160,
+    airIntakeMm: 9999,
+    isElectric: true,
+    notesAz: 'IP68 hermetik Blade batareya paketi, daxili yanma intake-i yoxdur, yüksək gərginlik qoruması.',
+    notesEn: 'IP68 sealed Blade battery enclosure; zero combustion hydro-lock, high-voltage sensor safeties.',
+  },
+  {
+    id: 'bus_bakubus_bmc',
+    plate: '99-JH-999',
+    makeModel: 'BakuBus BMC Procity 12m CNG Transit Bus',
+    vehicleClass: 'bus_truck',
+    groundClearanceMm: 340,
+    airIntakeMm: 1150,
+    isElectric: false,
+    notesAz: 'Damüstü CNG təbii qaz balonları, yüksək mühərrik karteri, 40 sm su qatında keçid qabiliyyəti.',
+    notesEn: 'Roof-mounted CNG fuel cylinders, high engine crankcase, 40 cm wading clearance.',
+  },
+];
+
+export const MOCK_FLOOD_CERTIFICATES: FloodGuardCertificate[] = [
+  {
+    certificateId: 'FLOOD-GUARD-AZ-2026-78210',
+    underpassId: 'sabunchu_tunnel',
+    underpassNameAz: 'Sabunçu Yolötürücü Keçidi və Tuneli',
+    underpassNameEn: 'Sabunchu Highway Underpass & Interchange Tunnel',
+    vehiclePlate: '99-FL-101',
+    vehicleClass: 'sedan_compact',
+    measuredWaterDepthMm: 90,
+    permissibleMaxDepthMm: 150,
+    evaluatedRiskLevel: 'safe',
+    barrierPassPinCode: '4821',
+    simaDigitalUid: 'SIMA-AZ-99A1BC2D-FLOOD',
+    sha256Checksum: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+    issuedAt: '2026-10-31T07:15:00.000Z',
+    validUntil: '2026-10-31T11:15:00.000Z',
+    aaydaInspectorCallsign: 'AAYDA-DRENAJ-№14',
+    status: 'active_valid',
+  },
+  {
+    certificateId: 'FLOOD-GUARD-AZ-2026-55142',
+    underpassId: 'dernegul_underpass',
+    underpassNameAz: 'Dərnəgül Dairəsi - Biləcəri Dəmiryolu Altı Keçid',
+    underpassNameEn: 'Dernegul Roundabout - Bilajari Railway Underpass',
+    vehiclePlate: '77-TR-700',
+    vehicleClass: 'heavy_4x4',
+    measuredWaterDepthMm: 220,
+    permissibleMaxDepthMm: 260,
+    evaluatedRiskLevel: 'caution',
+    barrierPassPinCode: '7392',
+    simaDigitalUid: 'SIMA-AZ-77B2CC8E-FLOOD',
+    sha256Checksum: '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',
+    issuedAt: '2026-10-31T08:30:00.000Z',
+    validUntil: '2026-10-31T12:30:00.000Z',
+    aaydaInspectorCallsign: 'AAYDA-DRENAJ-№21',
+    status: 'active_valid',
+  },
+  {
+    certificateId: 'FLOOD-GUARD-AZ-2026-31908',
+    underpassId: 'bagirov_bridge',
+    underpassNameAz: 'Bağırov Körpüsü Altı Yol Keçidi',
+    underpassNameEn: 'Bagirov Bridge Sub-Railway Underpass',
+    vehiclePlate: '10-AZ-555',
+    vehicleClass: 'crossover_suv',
+    measuredWaterDepthMm: 110,
+    permissibleMaxDepthMm: 195,
+    evaluatedRiskLevel: 'safe',
+    barrierPassPinCode: '6124',
+    simaDigitalUid: 'SIMA-AZ-10E3DF99-FLOOD',
+    sha256Checksum: '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',
+    issuedAt: '2026-10-31T09:00:00.000Z',
+    validUntil: '2026-10-31T13:00:00.000Z',
+    aaydaInspectorCallsign: 'AAYDA-DRENAJ-№18',
+    status: 'active_valid',
+  },
+  {
+    certificateId: 'FLOOD-GUARD-AZ-2026-90431',
+    underpassId: 'khatai_nobel',
+    underpassNameAz: 'Xətai - 8 Noyabr Sahil Yağış-Drenaj və Tunel Keçidi',
+    underpassNameEn: 'Khatai - 8 November Coastal Drainage Underpass',
+    vehiclePlate: '99-JH-999',
+    vehicleClass: 'bus_truck',
+    measuredWaterDepthMm: 180,
+    permissibleMaxDepthMm: 340,
+    evaluatedRiskLevel: 'safe',
+    barrierPassPinCode: '8519',
+    simaDigitalUid: 'SIMA-AZ-88C4FF01-FLOOD',
+    sha256Checksum: '4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a',
+    issuedAt: '2026-10-31T06:45:00.000Z',
+    validUntil: '2026-10-31T10:45:00.000Z',
+    aaydaInspectorCallsign: 'AAYDA-DRENAJ-№25',
+    status: 'expired',
+  },
+];
