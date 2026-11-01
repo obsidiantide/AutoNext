@@ -70,6 +70,7 @@ import {
   VolumeX,
   CloudFog,
   MountainSnow,
+  Shield,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -176,6 +177,7 @@ interface NavbarProps {
   onOpenWindSafe?: () => void;
   onOpenEscapeRamp?: () => void;
   onOpenAsphaltGuard?: () => void;
+  onOpenGuardrailSafety?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -282,6 +284,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenWindSafe,
   onOpenEscapeRamp,
   onOpenAsphaltGuard,
+  onOpenGuardrailSafety,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1464,6 +1467,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Flame className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Asfalt Mühafizəsi</span>
+            </button>
+          )}
+
+          {/* Official AAYDA & BDYP Highway Guardrail, Crash Cushion & VRS (GUARD-SAFE-AZ-2026) Portal Button */}
+          {onOpenGuardrailSafety && (
+            <button
+              onClick={onOpenGuardrailSafety}
+              data-testid="navbar-guardrail-safety-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-300 border border-blue-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA & BDYP Magistral Yollarda Çəpərlər, Zərbəuducu Qurğular (Crash Cushion) və Tutma Qabiliyyəti (EN 1317) Portalı (GUARD-SAFE-AZ-2026)"
+            >
+              <Shield className="w-4 h-4 text-blue-400 animate-pulse" />
+              <span className="hidden xl:inline">Yol Çəpərləri VRS</span>
             </button>
           )}
 

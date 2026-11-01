@@ -988,4 +988,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAsphaltGuard).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA & BDYP Highway Guardrail & VRS Safety button and calls onOpenGuardrailSafety when clicked', () => {
+    const onOpenGuardrailSafety = vi.fn();
+    render(<Navbar {...defaultProps} onOpenGuardrailSafety={onOpenGuardrailSafety} />);
+
+    const btn = screen.getByTestId('navbar-guardrail-safety-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenGuardrailSafety).toHaveBeenCalledTimes(1);
+  });
 });

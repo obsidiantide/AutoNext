@@ -129,6 +129,7 @@ const AvalancheSafeModal = React.lazy(() => import('./components/AvalancheSafeMo
 const WindSafeModal = React.lazy(() => import('./components/WindSafeModal').then(m => ({ default: m.WindSafeModal })));
 const EscapeRampModal = React.lazy(() => import('./components/EscapeRampModal').then(m => ({ default: m.EscapeRampModal })));
 const AsphaltGuardModal = React.lazy(() => import('./components/AsphaltGuardModal').then(m => ({ default: m.AsphaltGuardModal })));
+const GuardrailSafetyModal = React.lazy(() => import('./components/GuardrailSafetyModal').then(m => ({ default: m.GuardrailSafetyModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -412,6 +413,7 @@ export function App() {
   const [isWindSafeModalOpen, setIsWindSafeModalOpen] = useState(false);
   const [isEscapeRampModalOpen, setIsEscapeRampModalOpen] = useState(false);
   const [isAsphaltGuardModalOpen, setIsAsphaltGuardModalOpen] = useState(false);
+  const [isGuardrailSafetyModalOpen, setIsGuardrailSafetyModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -805,6 +807,9 @@ export function App() {
         }}
         onOpenAsphaltGuard={() => {
           setIsAsphaltGuardModalOpen(true);
+        }}
+        onOpenGuardrailSafety={() => {
+          setIsGuardrailSafetyModalOpen(true);
         }}
       />
 
@@ -2829,6 +2834,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsAsphaltGuardModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA & BDYP Highway Guardrail, Crash Cushion & Vehicle Restraint System (GUARD-SAFE-AZ-2026) Portal */}
+        <GuardrailSafetyModal
+          isOpen={isGuardrailSafetyModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsGuardrailSafetyModalOpen(false);
           }}
         />
 
