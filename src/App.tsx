@@ -126,6 +126,7 @@ const WildlifeCrossingModal = React.lazy(() => import('./components/WildlifeCros
 const NoiseBarrierModal = React.lazy(() => import('./components/NoiseBarrierModal').then(m => ({ default: m.NoiseBarrierModal })));
 const FogSafeModal = React.lazy(() => import('./components/FogSafeModal').then(m => ({ default: m.FogSafeModal })));
 const AvalancheSafeModal = React.lazy(() => import('./components/AvalancheSafeModal').then(m => ({ default: m.AvalancheSafeModal })));
+const WindSafeModal = React.lazy(() => import('./components/WindSafeModal').then(m => ({ default: m.WindSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -406,6 +407,7 @@ export function App() {
   const [isNoiseBarrierModalOpen, setIsNoiseBarrierModalOpen] = useState(false);
   const [isFogSafeModalOpen, setIsFogSafeModalOpen] = useState(false);
   const [isAvalancheSafeModalOpen, setIsAvalancheSafeModalOpen] = useState(false);
+  const [isWindSafeModalOpen, setIsWindSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -790,6 +792,9 @@ export function App() {
         }}
         onOpenAvalancheSafe={() => {
           setIsAvalancheSafeModalOpen(true);
+        }}
+        onOpenWindSafe={() => {
+          setIsWindSafeModalOpen(true);
         }}
       />
 
@@ -2787,6 +2792,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsAvalancheSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, ETSN & BDYP Highway Crosswind & Gale-Force SCADA Portal */}
+        <WindSafeModal
+          isOpen={isWindSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsWindSafeModalOpen(false);
           }}
         />
 

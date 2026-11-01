@@ -173,6 +173,7 @@ interface NavbarProps {
   onOpenNoiseBarrier?: () => void;
   onOpenFogSafe?: () => void;
   onOpenAvalancheSafe?: () => void;
+  onOpenWindSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -276,6 +277,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenNoiseBarrier,
   onOpenFogSafe,
   onOpenAvalancheSafe,
+  onOpenWindSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1419,6 +1421,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <MountainSnow className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span className="hidden xl:inline">Qar Uçqunu</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, ETSN & BDYP Highway Crosswind & Gale-Force SCADA Portal Button */}
+          {onOpenWindSafe && (
+            <button
+              onClick={onOpenWindSafe}
+              data-testid="navbar-wind-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-600/10 hover:bg-sky-600/20 text-sky-300 border border-sky-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, ETSN & BDYP Magistral Yan Külək, Xəzri/Giləvar və Aşma Riski SCADA Portalı"
+            >
+              <Wind className="w-4 h-4 text-sky-400 animate-pulse" />
+              <span className="hidden xl:inline">Qasırğalı Külək</span>
             </button>
           )}
 

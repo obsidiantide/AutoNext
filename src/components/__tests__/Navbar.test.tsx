@@ -958,4 +958,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAvalancheSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, ETSN & BDYP Highway Crosswind & Gale-Force button and calls onOpenWindSafe when clicked', () => {
+    const onOpenWindSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenWindSafe={onOpenWindSafe} />);
+
+    const btn = screen.getByTestId('navbar-wind-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenWindSafe).toHaveBeenCalledTimes(1);
+  });
 });
