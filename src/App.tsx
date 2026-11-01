@@ -127,6 +127,7 @@ const NoiseBarrierModal = React.lazy(() => import('./components/NoiseBarrierModa
 const FogSafeModal = React.lazy(() => import('./components/FogSafeModal').then(m => ({ default: m.FogSafeModal })));
 const AvalancheSafeModal = React.lazy(() => import('./components/AvalancheSafeModal').then(m => ({ default: m.AvalancheSafeModal })));
 const WindSafeModal = React.lazy(() => import('./components/WindSafeModal').then(m => ({ default: m.WindSafeModal })));
+const EscapeRampModal = React.lazy(() => import('./components/EscapeRampModal').then(m => ({ default: m.EscapeRampModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -408,6 +409,7 @@ export function App() {
   const [isFogSafeModalOpen, setIsFogSafeModalOpen] = useState(false);
   const [isAvalancheSafeModalOpen, setIsAvalancheSafeModalOpen] = useState(false);
   const [isWindSafeModalOpen, setIsWindSafeModalOpen] = useState(false);
+  const [isEscapeRampModalOpen, setIsEscapeRampModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -795,6 +797,9 @@ export function App() {
         }}
         onOpenWindSafe={() => {
           setIsWindSafeModalOpen(true);
+        }}
+        onOpenEscapeRamp={() => {
+          setIsEscapeRampModalOpen(true);
         }}
       />
 
@@ -2801,6 +2806,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsWindSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, FHN & BDYP Highway Emergency Escape Ramp (EER) & Gravitational Arrester Bed SCADA Portal */}
+        <EscapeRampModal
+          isOpen={isEscapeRampModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsEscapeRampModalOpen(false);
           }}
         />
 

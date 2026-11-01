@@ -174,6 +174,7 @@ interface NavbarProps {
   onOpenFogSafe?: () => void;
   onOpenAvalancheSafe?: () => void;
   onOpenWindSafe?: () => void;
+  onOpenEscapeRamp?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -278,6 +279,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenFogSafe,
   onOpenAvalancheSafe,
   onOpenWindSafe,
+  onOpenEscapeRamp,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1434,6 +1436,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Wind className="w-4 h-4 text-sky-400 animate-pulse" />
               <span className="hidden xl:inline">Qasırğalı Külək</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, FHN & BDYP Highway Emergency Escape Ramp (EER) SCADA Portal Button */}
+          {onOpenEscapeRamp && (
+            <button
+              onClick={onOpenEscapeRamp}
+              data-testid="navbar-escape-ramp-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-300 border border-red-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, FHN & BDYP Dağlıq Magistral Qəza Zolaqları, Qravitasiya Çınqıl Yatağı və Termal SCADA Portalı (ESCAPE-RAMP-AZ-2026)"
+            >
+              <Truck className="w-4 h-4 text-red-400 animate-pulse" />
+              <span className="hidden xl:inline">Qəza Zolağı EER</span>
             </button>
           )}
 

@@ -968,4 +968,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenWindSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN & BDYP Highway Emergency Escape Ramp (EER) button and calls onOpenEscapeRamp when clicked', () => {
+    const onOpenEscapeRamp = vi.fn();
+    render(<Navbar {...defaultProps} onOpenEscapeRamp={onOpenEscapeRamp} />);
+
+    const btn = screen.getByTestId('navbar-escape-ramp-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenEscapeRamp).toHaveBeenCalledTimes(1);
+  });
 });
