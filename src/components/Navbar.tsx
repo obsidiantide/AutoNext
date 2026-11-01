@@ -175,6 +175,7 @@ interface NavbarProps {
   onOpenAvalancheSafe?: () => void;
   onOpenWindSafe?: () => void;
   onOpenEscapeRamp?: () => void;
+  onOpenAsphaltGuard?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -280,6 +281,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAvalancheSafe,
   onOpenWindSafe,
   onOpenEscapeRamp,
+  onOpenAsphaltGuard,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1449,6 +1451,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Truck className="w-4 h-4 text-red-400 animate-pulse" />
               <span className="hidden xl:inline">Qəza Zolağı EER</span>
+            </button>
+          )}
+
+          {/* Official AAYDA & BDYP Highway Asphalt Heat Protection & Rutting (ASPHALT-GUARD-AZ-2026) Portal Button */}
+          {onOpenAsphaltGuard && (
+            <button
+              onClick={onOpenAsphaltGuard}
+              data-testid="navbar-asphalt-guard-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600/10 hover:bg-amber-600/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA & BDYP Magistral Yollarda Asfalt Örtüyünün Yay İstisində Mühafizəsi, Təkər İzi (Rutting) və +32°C Temperatur Qadağası Portalı"
+            >
+              <Flame className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Asfalt Mühafizəsi</span>
             </button>
           )}
 

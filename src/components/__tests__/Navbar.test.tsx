@@ -978,4 +978,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenEscapeRamp).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA & BDYP Highway Asphalt Heat Protection & Rutting button and calls onOpenAsphaltGuard when clicked', () => {
+    const onOpenAsphaltGuard = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAsphaltGuard={onOpenAsphaltGuard} />);
+
+    const btn = screen.getByTestId('navbar-asphalt-guard-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAsphaltGuard).toHaveBeenCalledTimes(1);
+  });
 });

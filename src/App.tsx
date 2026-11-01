@@ -128,6 +128,7 @@ const FogSafeModal = React.lazy(() => import('./components/FogSafeModal').then(m
 const AvalancheSafeModal = React.lazy(() => import('./components/AvalancheSafeModal').then(m => ({ default: m.AvalancheSafeModal })));
 const WindSafeModal = React.lazy(() => import('./components/WindSafeModal').then(m => ({ default: m.WindSafeModal })));
 const EscapeRampModal = React.lazy(() => import('./components/EscapeRampModal').then(m => ({ default: m.EscapeRampModal })));
+const AsphaltGuardModal = React.lazy(() => import('./components/AsphaltGuardModal').then(m => ({ default: m.AsphaltGuardModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -410,6 +411,7 @@ export function App() {
   const [isAvalancheSafeModalOpen, setIsAvalancheSafeModalOpen] = useState(false);
   const [isWindSafeModalOpen, setIsWindSafeModalOpen] = useState(false);
   const [isEscapeRampModalOpen, setIsEscapeRampModalOpen] = useState(false);
+  const [isAsphaltGuardModalOpen, setIsAsphaltGuardModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -800,6 +802,9 @@ export function App() {
         }}
         onOpenEscapeRamp={() => {
           setIsEscapeRampModalOpen(true);
+        }}
+        onOpenAsphaltGuard={() => {
+          setIsAsphaltGuardModalOpen(true);
         }}
       />
 
@@ -2815,6 +2820,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsEscapeRampModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA & BDYP Highway Asphalt Pavement Protection & Summer Heat Restriction (ASPHALT-GUARD-AZ-2026) Portal */}
+        <AsphaltGuardModal
+          isOpen={isAsphaltGuardModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsAsphaltGuardModalOpen(false);
           }}
         />
 
