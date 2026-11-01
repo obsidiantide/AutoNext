@@ -124,6 +124,7 @@ const HighwayFloodModal = React.lazy(() => import('./components/HighwayFloodModa
 const SlopeSafeModal = React.lazy(() => import('./components/SlopeSafeModal').then(m => ({ default: m.SlopeSafeModal })));
 const WildlifeCrossingModal = React.lazy(() => import('./components/WildlifeCrossingModal').then(m => ({ default: m.WildlifeCrossingModal })));
 const NoiseBarrierModal = React.lazy(() => import('./components/NoiseBarrierModal').then(m => ({ default: m.NoiseBarrierModal })));
+const FogSafeModal = React.lazy(() => import('./components/FogSafeModal').then(m => ({ default: m.FogSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -402,6 +403,7 @@ export function App() {
   const [isWildlifeCrossingModalOpen, setIsWildlifeCrossingModalOpen] = useState(false);
   const [noiseBarrierTargetCar, setNoiseBarrierTargetCar] = useState<Vehicle | null>(null);
   const [isNoiseBarrierModalOpen, setIsNoiseBarrierModalOpen] = useState(false);
+  const [isFogSafeModalOpen, setIsFogSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -780,6 +782,9 @@ export function App() {
         }}
         onOpenNoiseBarrier={() => {
           setIsNoiseBarrierModalOpen(true);
+        }}
+        onOpenFogSafe={() => {
+          setIsFogSafeModalOpen(true);
         }}
       />
 
@@ -2759,6 +2764,15 @@ export function App() {
           onClose={() => {
             setIsNoiseBarrierModalOpen(false);
             setNoiseBarrierTargetCar(null);
+          }}
+        />
+
+        {/* Official AAYDA, ETSN & BDYP Highway Fog, Dust Storm & Low Visibility SCADA Portal */}
+        <FogSafeModal
+          isOpen={isFogSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsFogSafeModalOpen(false);
           }}
         />
 

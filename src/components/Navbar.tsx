@@ -68,6 +68,7 @@ import {
   Mountain,
   Trees,
   VolumeX,
+  CloudFog,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -169,6 +170,7 @@ interface NavbarProps {
   onOpenSlopeSafe?: () => void;
   onOpenWildlifeCrossing?: () => void;
   onOpenNoiseBarrier?: () => void;
+  onOpenFogSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -270,6 +272,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSlopeSafe,
   onOpenWildlifeCrossing,
   onOpenNoiseBarrier,
+  onOpenFogSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1387,6 +1390,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <VolumeX className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span className="hidden xl:inline">Səs Baryeri</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, ETSN & BDYP Highway Fog, Dust Storm & Low Visibility SCADA Portal Button */}
+          {onOpenFogSafe && (
+            <button
+              onClick={onOpenFogSafe}
+              data-testid="navbar-fog-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-600/10 hover:bg-sky-600/20 text-sky-300 border border-sky-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, ETSN & BDYP Magistral Yollarda Qatı Duman, Toz Fırtınası və VSL Dinamik Portalı"
+            >
+              <CloudFog className="w-4 h-4 text-sky-400 animate-pulse" />
+              <span className="hidden xl:inline">Duman & VSL</span>
             </button>
           )}
 

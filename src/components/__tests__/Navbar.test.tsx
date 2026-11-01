@@ -938,4 +938,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenNoiseBarrier).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, ETSN & BDYP Highway Fog, Dust Storm & Low Visibility button and calls onOpenFogSafe when clicked', () => {
+    const onOpenFogSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenFogSafe={onOpenFogSafe} />);
+
+    const btn = screen.getByTestId('navbar-fog-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenFogSafe).toHaveBeenCalledTimes(1);
+  });
 });
