@@ -69,6 +69,7 @@ import {
   Trees,
   VolumeX,
   CloudFog,
+  MountainSnow,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -171,6 +172,7 @@ interface NavbarProps {
   onOpenWildlifeCrossing?: () => void;
   onOpenNoiseBarrier?: () => void;
   onOpenFogSafe?: () => void;
+  onOpenAvalancheSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -273,6 +275,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenWildlifeCrossing,
   onOpenNoiseBarrier,
   onOpenFogSafe,
+  onOpenAvalancheSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1403,6 +1406,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <CloudFog className="w-4 h-4 text-sky-400 animate-pulse" />
               <span className="hidden xl:inline">Duman & VSL</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, FHN & BDYP Highway Avalanche, Blizzard & SCADA De-Icing Portal Button */}
+          {onOpenAvalancheSafe && (
+            <button
+              onClick={onOpenAvalancheSafe}
+              data-testid="navbar-avalanche-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600/10 hover:bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, FHN & BDYP Dağ Aşırımlarında Qar Uçqunu, Gazex və Buzlaşma SCADA Portalı"
+            >
+              <MountainSnow className="w-4 h-4 text-cyan-400 animate-pulse" />
+              <span className="hidden xl:inline">Qar Uçqunu</span>
             </button>
           )}
 

@@ -948,4 +948,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenFogSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN & BDYP Highway Avalanche & Blizzard button and calls onOpenAvalancheSafe when clicked', () => {
+    const onOpenAvalancheSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAvalancheSafe={onOpenAvalancheSafe} />);
+
+    const btn = screen.getByTestId('navbar-avalanche-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAvalancheSafe).toHaveBeenCalledTimes(1);
+  });
 });
