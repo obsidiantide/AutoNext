@@ -998,4 +998,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenGuardrailSafety).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway Overheight (OHVDS) button and calls onOpenOverheightSafe when clicked', () => {
+    const onOpenOverheightSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenOverheightSafe={onOpenOverheightSafe} />);
+
+    const btn = screen.getByTestId('navbar-overheight-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenOverheightSafe).toHaveBeenCalledTimes(1);
+  });
 });

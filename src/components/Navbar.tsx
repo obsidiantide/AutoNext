@@ -178,6 +178,7 @@ interface NavbarProps {
   onOpenEscapeRamp?: () => void;
   onOpenAsphaltGuard?: () => void;
   onOpenGuardrailSafety?: () => void;
+  onOpenOverheightSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -285,6 +286,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenEscapeRamp,
   onOpenAsphaltGuard,
   onOpenGuardrailSafety,
+  onOpenOverheightSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1480,6 +1482,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Shield className="w-4 h-4 text-blue-400 animate-pulse" />
               <span className="hidden xl:inline">Yol Çəpərləri VRS</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Overheight Vehicle Detection System (OVERHEIGHT-SAFE-AZ-2026) Portal Button */}
+          {onOpenOverheightSafe && (
+            <button
+              onClick={onOpenOverheightSafe}
+              data-testid="navbar-overheight-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600/10 hover:bg-amber-600/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Yollarda Körpüaltı və Qabarit Hündürlük Nəzarəti (OHVDS / LiDAR) Portalı (OVERHEIGHT-SAFE-AZ-2026)"
+            >
+              <ShieldAlert className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Qabarit Hündürlük OHVDS</span>
             </button>
           )}
 

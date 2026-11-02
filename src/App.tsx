@@ -130,6 +130,7 @@ const WindSafeModal = React.lazy(() => import('./components/WindSafeModal').then
 const EscapeRampModal = React.lazy(() => import('./components/EscapeRampModal').then(m => ({ default: m.EscapeRampModal })));
 const AsphaltGuardModal = React.lazy(() => import('./components/AsphaltGuardModal').then(m => ({ default: m.AsphaltGuardModal })));
 const GuardrailSafetyModal = React.lazy(() => import('./components/GuardrailSafetyModal').then(m => ({ default: m.GuardrailSafetyModal })));
+const OverheightSafeModal = React.lazy(() => import('./components/OverheightSafeModal').then(m => ({ default: m.OverheightSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -414,6 +415,7 @@ export function App() {
   const [isEscapeRampModalOpen, setIsEscapeRampModalOpen] = useState(false);
   const [isAsphaltGuardModalOpen, setIsAsphaltGuardModalOpen] = useState(false);
   const [isGuardrailSafetyModalOpen, setIsGuardrailSafetyModalOpen] = useState(false);
+  const [isOverheightSafeModalOpen, setIsOverheightSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -810,6 +812,9 @@ export function App() {
         }}
         onOpenGuardrailSafety={() => {
           setIsGuardrailSafetyModalOpen(true);
+        }}
+        onOpenOverheightSafe={() => {
+          setIsOverheightSafeModalOpen(true);
         }}
       />
 
@@ -2843,6 +2848,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsGuardrailSafetyModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Overheight Vehicle Detection System (OVERHEIGHT-SAFE-AZ-2026) Portal */}
+        <OverheightSafeModal
+          isOpen={isOverheightSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsOverheightSafeModalOpen(false);
           }}
         />
 
