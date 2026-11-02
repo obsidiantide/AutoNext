@@ -1018,4 +1018,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenSkidSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN & BDYP Highway Mountain Tunnel Fire Safety (TUNNEL-SAFE) button and calls onOpenTunnelSafe when clicked', () => {
+    const onOpenTunnelSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenTunnelSafe={onOpenTunnelSafe} />);
+
+    const btn = screen.getByTestId('navbar-tunnel-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenTunnelSafe).toHaveBeenCalledTimes(1);
+  });
 });

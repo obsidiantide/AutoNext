@@ -181,6 +181,7 @@ interface NavbarProps {
   onOpenGuardrailSafety?: () => void;
   onOpenOverheightSafe?: () => void;
   onOpenSkidSafe?: () => void;
+  onOpenTunnelSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -290,6 +291,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenGuardrailSafety,
   onOpenOverheightSafe,
   onOpenSkidSafe,
+  onOpenTunnelSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1511,6 +1513,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Droplets className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span className="hidden xl:inline">Asfalt İlişməsi SKID</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, FHN & BDYP Highway Tunnel Fire Safety & SCADA Jet Fan Ventilation (TUNNEL-SAFE-AZ-2026) Portal Button */}
+          {onOpenTunnelSafe && (
+            <button
+              onClick={onOpenTunnelSafe}
+              data-testid="navbar-tunnel-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600/10 hover:bg-amber-600/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, FHN & BDYP Magistral Dağ Tünellərində Yanğın Təhlükəsizliyi və SCADA Jet Fan Telemetriyası (TUNNEL-SAFE-AZ-2026)"
+            >
+              <Flame className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Tünel Yanğın Jet Fan</span>
             </button>
           )}
 

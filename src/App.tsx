@@ -132,6 +132,7 @@ const AsphaltGuardModal = React.lazy(() => import('./components/AsphaltGuardModa
 const GuardrailSafetyModal = React.lazy(() => import('./components/GuardrailSafetyModal').then(m => ({ default: m.GuardrailSafetyModal })));
 const OverheightSafeModal = React.lazy(() => import('./components/OverheightSafeModal').then(m => ({ default: m.OverheightSafeModal })));
 const SkidSafeModal = React.lazy(() => import('./components/SkidSafeModal').then(m => ({ default: m.SkidSafeModal })));
+const TunnelSafeModal = React.lazy(() => import('./components/TunnelSafeModal').then(m => ({ default: m.TunnelSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -418,6 +419,7 @@ export function App() {
   const [isGuardrailSafetyModalOpen, setIsGuardrailSafetyModalOpen] = useState(false);
   const [isOverheightSafeModalOpen, setIsOverheightSafeModalOpen] = useState(false);
   const [isSkidSafeModalOpen, setIsSkidSafeModalOpen] = useState(false);
+  const [isTunnelSafeModalOpen, setIsTunnelSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -820,6 +822,9 @@ export function App() {
         }}
         onOpenSkidSafe={() => {
           setIsSkidSafeModalOpen(true);
+        }}
+        onOpenTunnelSafe={() => {
+          setIsTunnelSafeModalOpen(true);
         }}
       />
 
@@ -2872,6 +2877,16 @@ export function App() {
           language={lang}
           onClose={() => {
             setIsSkidSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, FHN & BDYP Highway Tunnel Fire Safety & SCADA Jet Fan Ventilation (TUNNEL-SAFE-AZ-2026) Portal */}
+        <TunnelSafeModal
+          isOpen={isTunnelSafeModalOpen}
+          currency={currency}
+          language={lang}
+          onClose={() => {
+            setIsTunnelSafeModalOpen(false);
           }}
         />
 
