@@ -1008,4 +1008,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenOverheightSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, ETSN & BDYP Highway Skid Resistance (SKID-SAFE) button and calls onOpenSkidSafe when clicked', () => {
+    const onOpenSkidSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenSkidSafe={onOpenSkidSafe} />);
+
+    const btn = screen.getByTestId('navbar-skid-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSkidSafe).toHaveBeenCalledTimes(1);
+  });
 });

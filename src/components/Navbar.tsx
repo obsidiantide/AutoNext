@@ -71,6 +71,7 @@ import {
   CloudFog,
   MountainSnow,
   Shield,
+  Droplets,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -179,6 +180,7 @@ interface NavbarProps {
   onOpenAsphaltGuard?: () => void;
   onOpenGuardrailSafety?: () => void;
   onOpenOverheightSafe?: () => void;
+  onOpenSkidSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -287,6 +289,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAsphaltGuard,
   onOpenGuardrailSafety,
   onOpenOverheightSafe,
+  onOpenSkidSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1495,6 +1498,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <ShieldAlert className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Qabarit Hündürlük OHVDS</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, ETSN & BDYP Highway Skid Resistance, Macrotexture & Aquaplaning (SKID-SAFE-AZ-2026) Portal Button */}
+          {onOpenSkidSafe && (
+            <button
+              onClick={onOpenSkidSafe}
+              data-testid="navbar-skid-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600/10 hover:bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, ETSN & BDYP Magistral Yollarda Asfalt İlişmə Əmsalı və Hidroplaninq Telemetriyası (SKID-SAFE-AZ-2026)"
+            >
+              <Droplets className="w-4 h-4 text-cyan-400 animate-pulse" />
+              <span className="hidden xl:inline">Asfalt İlişməsi SKID</span>
             </button>
           )}
 

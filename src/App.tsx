@@ -131,6 +131,7 @@ const EscapeRampModal = React.lazy(() => import('./components/EscapeRampModal').
 const AsphaltGuardModal = React.lazy(() => import('./components/AsphaltGuardModal').then(m => ({ default: m.AsphaltGuardModal })));
 const GuardrailSafetyModal = React.lazy(() => import('./components/GuardrailSafetyModal').then(m => ({ default: m.GuardrailSafetyModal })));
 const OverheightSafeModal = React.lazy(() => import('./components/OverheightSafeModal').then(m => ({ default: m.OverheightSafeModal })));
+const SkidSafeModal = React.lazy(() => import('./components/SkidSafeModal').then(m => ({ default: m.SkidSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -416,6 +417,7 @@ export function App() {
   const [isAsphaltGuardModalOpen, setIsAsphaltGuardModalOpen] = useState(false);
   const [isGuardrailSafetyModalOpen, setIsGuardrailSafetyModalOpen] = useState(false);
   const [isOverheightSafeModalOpen, setIsOverheightSafeModalOpen] = useState(false);
+  const [isSkidSafeModalOpen, setIsSkidSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -815,6 +817,9 @@ export function App() {
         }}
         onOpenOverheightSafe={() => {
           setIsOverheightSafeModalOpen(true);
+        }}
+        onOpenSkidSafe={() => {
+          setIsSkidSafeModalOpen(true);
         }}
       />
 
@@ -2857,6 +2862,16 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsOverheightSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, ETSN & BDYP Highway Skid Resistance, Macrotexture & Aquaplaning (SKID-SAFE-AZ-2026) Portal */}
+        <SkidSafeModal
+          isOpen={isSkidSafeModalOpen}
+          currency={currency}
+          language={lang}
+          onClose={() => {
+            setIsSkidSafeModalOpen(false);
           }}
         />
 
