@@ -1048,4 +1048,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenWorkZoneSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, Azərişıq & BDYP Highway Smart LED Lighting (LIGHT-SAFE) button and calls onOpenLightSafe when clicked', () => {
+    const onOpenLightSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenLightSafe={onOpenLightSafe} />);
+
+    const btn = screen.getByTestId('navbar-light-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenLightSafe).toHaveBeenCalledTimes(1);
+  });
 });

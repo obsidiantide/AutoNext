@@ -135,6 +135,7 @@ const SkidSafeModal = React.lazy(() => import('./components/SkidSafeModal').then
 const TunnelSafeModal = React.lazy(() => import('./components/TunnelSafeModal').then(m => ({ default: m.TunnelSafeModal })));
 const MarkSafeModal = React.lazy(() => import('./components/MarkSafeModal').then(m => ({ default: m.MarkSafeModal })));
 const WorkZoneSafeModal = React.lazy(() => import('./components/WorkZoneSafeModal').then(m => ({ default: m.WorkZoneSafeModal })));
+const LightSafeModal = React.lazy(() => import('./components/LightSafeModal').then(m => ({ default: m.LightSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -424,6 +425,7 @@ export function App() {
   const [isTunnelSafeModalOpen, setIsTunnelSafeModalOpen] = useState(false);
   const [isMarkSafeModalOpen, setIsMarkSafeModalOpen] = useState(false);
   const [isWorkZoneSafeModalOpen, setIsWorkZoneSafeModalOpen] = useState(false);
+  const [isLightSafeModalOpen, setIsLightSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -835,6 +837,9 @@ export function App() {
         }}
         onOpenWorkZoneSafe={() => {
           setIsWorkZoneSafeModalOpen(true);
+        }}
+        onOpenLightSafe={() => {
+          setIsLightSafeModalOpen(true);
         }}
       />
 
@@ -2915,6 +2920,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsWorkZoneSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, Azərişıq & BDYP Highway Smart LED Lighting, Photometry & Night Visibility (LIGHT-SAFE-AZ-2026) Portal */}
+        <LightSafeModal
+          isOpen={isLightSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsLightSafeModalOpen(false);
           }}
         />
 

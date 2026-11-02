@@ -9,6 +9,7 @@ import {
   PlusCircle, 
   Heart,
   Sun,
+  SunMedium,
   Moon,
   Zap,
   CircleParking,
@@ -185,6 +186,7 @@ interface NavbarProps {
   onOpenTunnelSafe?: () => void;
   onOpenMarkSafe?: () => void;
   onOpenWorkZoneSafe?: () => void;
+  onOpenLightSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -297,6 +299,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenTunnelSafe,
   onOpenMarkSafe,
   onOpenWorkZoneSafe,
+  onOpenLightSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1557,6 +1560,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <HardHat className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Təmir Sahələri TMA</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, Azərişıq & BDYP Highway Smart LED Lighting, Photometry & Night Visibility (LIGHT-SAFE-AZ-2026) Portal Button */}
+          {onOpenLightSafe && (
+            <button
+              onClick={onOpenLightSafe}
+              data-testid="navbar-light-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, Azərişıq & BDYP Magistral Ağıllı Yol İşıqlandırması və Fotometriya Portalı (LIGHT-SAFE-AZ-2026)"
+            >
+              <SunMedium className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">İşıqlandırma LIGHT</span>
             </button>
           )}
 
