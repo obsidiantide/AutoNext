@@ -133,6 +133,7 @@ const GuardrailSafetyModal = React.lazy(() => import('./components/GuardrailSafe
 const OverheightSafeModal = React.lazy(() => import('./components/OverheightSafeModal').then(m => ({ default: m.OverheightSafeModal })));
 const SkidSafeModal = React.lazy(() => import('./components/SkidSafeModal').then(m => ({ default: m.SkidSafeModal })));
 const TunnelSafeModal = React.lazy(() => import('./components/TunnelSafeModal').then(m => ({ default: m.TunnelSafeModal })));
+const MarkSafeModal = React.lazy(() => import('./components/MarkSafeModal').then(m => ({ default: m.MarkSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -420,6 +421,7 @@ export function App() {
   const [isOverheightSafeModalOpen, setIsOverheightSafeModalOpen] = useState(false);
   const [isSkidSafeModalOpen, setIsSkidSafeModalOpen] = useState(false);
   const [isTunnelSafeModalOpen, setIsTunnelSafeModalOpen] = useState(false);
+  const [isMarkSafeModalOpen, setIsMarkSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -825,6 +827,9 @@ export function App() {
         }}
         onOpenTunnelSafe={() => {
           setIsTunnelSafeModalOpen(true);
+        }}
+        onOpenMarkSafe={() => {
+          setIsMarkSafeModalOpen(true);
         }}
       />
 
@@ -2887,6 +2892,15 @@ export function App() {
           language={lang}
           onClose={() => {
             setIsTunnelSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA & BDYP Highway Road Markings, Retroreflectivity & Glass Bead Micro-optics (MARK-SAFE-AZ-2026) Portal */}
+        <MarkSafeModal
+          isOpen={isMarkSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsMarkSafeModalOpen(false);
           }}
         />
 

@@ -182,6 +182,7 @@ interface NavbarProps {
   onOpenOverheightSafe?: () => void;
   onOpenSkidSafe?: () => void;
   onOpenTunnelSafe?: () => void;
+  onOpenMarkSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -292,6 +293,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenOverheightSafe,
   onOpenSkidSafe,
   onOpenTunnelSafe,
+  onOpenMarkSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1526,6 +1528,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Flame className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Tünel Yanğın Jet Fan</span>
+            </button>
+          )}
+
+          {/* Official AAYDA & BDYP Highway Road Markings, Retroreflectivity & Glass Bead Micro-optics (MARK-SAFE-AZ-2026) Portal Button */}
+          {onOpenMarkSafe && (
+            <button
+              onClick={onOpenMarkSafe}
+              data-testid="navbar-mark-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA & BDYP Magistral Yollarda Üfüqi Yol Nişanlanması Xətləri, Retrorefleksiya və Mikrosferlər Portalı (MARK-SAFE-AZ-2026)"
+            >
+              <Eye className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <span className="hidden xl:inline">Nişanlama Xətləri MARK</span>
             </button>
           )}
 

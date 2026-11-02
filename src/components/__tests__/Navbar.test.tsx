@@ -1028,4 +1028,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenTunnelSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA & BDYP Highway Road Markings (MARK-SAFE) button and calls onOpenMarkSafe when clicked', () => {
+    const onOpenMarkSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenMarkSafe={onOpenMarkSafe} />);
+
+    const btn = screen.getByTestId('navbar-mark-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenMarkSafe).toHaveBeenCalledTimes(1);
+  });
 });
