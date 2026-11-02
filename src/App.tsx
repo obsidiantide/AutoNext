@@ -134,6 +134,7 @@ const OverheightSafeModal = React.lazy(() => import('./components/OverheightSafe
 const SkidSafeModal = React.lazy(() => import('./components/SkidSafeModal').then(m => ({ default: m.SkidSafeModal })));
 const TunnelSafeModal = React.lazy(() => import('./components/TunnelSafeModal').then(m => ({ default: m.TunnelSafeModal })));
 const MarkSafeModal = React.lazy(() => import('./components/MarkSafeModal').then(m => ({ default: m.MarkSafeModal })));
+const WorkZoneSafeModal = React.lazy(() => import('./components/WorkZoneSafeModal').then(m => ({ default: m.WorkZoneSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -422,6 +423,7 @@ export function App() {
   const [isSkidSafeModalOpen, setIsSkidSafeModalOpen] = useState(false);
   const [isTunnelSafeModalOpen, setIsTunnelSafeModalOpen] = useState(false);
   const [isMarkSafeModalOpen, setIsMarkSafeModalOpen] = useState(false);
+  const [isWorkZoneSafeModalOpen, setIsWorkZoneSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -830,6 +832,9 @@ export function App() {
         }}
         onOpenMarkSafe={() => {
           setIsMarkSafeModalOpen(true);
+        }}
+        onOpenWorkZoneSafe={() => {
+          setIsWorkZoneSafeModalOpen(true);
         }}
       />
 
@@ -2901,6 +2906,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsMarkSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA & BDYP Highway Work Zone Traffic Safety, Taper & TMA Attenuator (WORKZONE-SAFE-AZ-2026) Portal */}
+        <WorkZoneSafeModal
+          isOpen={isWorkZoneSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsWorkZoneSafeModalOpen(false);
           }}
         />
 

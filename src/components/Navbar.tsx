@@ -48,6 +48,7 @@ import {
   Tractor,
   Trophy,
   Ambulance,
+  HardHat,
   WineOff,
   Video,
   Plane,
@@ -183,6 +184,7 @@ interface NavbarProps {
   onOpenSkidSafe?: () => void;
   onOpenTunnelSafe?: () => void;
   onOpenMarkSafe?: () => void;
+  onOpenWorkZoneSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -294,6 +296,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSkidSafe,
   onOpenTunnelSafe,
   onOpenMarkSafe,
+  onOpenWorkZoneSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1541,6 +1544,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Eye className="w-4 h-4 text-emerald-400 animate-pulse" />
               <span className="hidden xl:inline">Nişanlama Xətləri MARK</span>
+            </button>
+          )}
+
+          {/* Official AAYDA & BDYP Highway Work Zone Traffic Safety, Taper & TMA Attenuator (WORKZONE-SAFE-AZ-2026) Portal Button */}
+          {onOpenWorkZoneSafe && (
+            <button
+              onClick={onOpenWorkZoneSafe}
+              data-testid="navbar-work-zone-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600/10 hover:bg-amber-600/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA & BDYP Magistral Yollarda Təmir Sahələri, Zolaq Qapanması və TMA Zərbəuducu Portalı (WORKZONE-SAFE-AZ-2026)"
+            >
+              <HardHat className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Təmir Sahələri TMA</span>
             </button>
           )}
 

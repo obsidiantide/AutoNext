@@ -1038,4 +1038,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenMarkSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA & BDYP Highway Work Zone (WORKZONE-SAFE) button and calls onOpenWorkZoneSafe when clicked', () => {
+    const onOpenWorkZoneSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenWorkZoneSafe={onOpenWorkZoneSafe} />);
+
+    const btn = screen.getByTestId('navbar-work-zone-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenWorkZoneSafe).toHaveBeenCalledTimes(1);
+  });
 });
