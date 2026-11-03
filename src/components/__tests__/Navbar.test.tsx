@@ -1078,4 +1078,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenVmsSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway Automatic Incident Detection (AID-SAFE) button and calls onOpenAidSafe when clicked', () => {
+    const onOpenAidSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenAidSafe={onOpenAidSafe} />);
+
+    const btn = screen.getByTestId('navbar-aid-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenAidSafe).toHaveBeenCalledTimes(1);
+  });
 });

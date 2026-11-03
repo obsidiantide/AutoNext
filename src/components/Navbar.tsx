@@ -190,6 +190,7 @@ interface NavbarProps {
   onOpenLightSafe?: () => void;
   onOpenSosSafe?: () => void;
   onOpenVmsSafe?: () => void;
+  onOpenAidSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -305,6 +306,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenLightSafe,
   onOpenSosSafe,
   onOpenVmsSafe,
+  onOpenAidSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1604,6 +1606,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Radio className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">VMS Qantry</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Automatic Incident Detection (AID-SAFE-AZ-2026) Portal Button */}
+          {onOpenAidSafe && (
+            <button
+              onClick={onOpenAidSafe}
+              data-testid="navbar-aid-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Avtomatik Hadisə Aşkarlama (AID) & CCTV Video Analitika Portalı (AID-SAFE-AZ-2026)"
+            >
+              <Video className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <span className="hidden xl:inline">AID CCTV</span>
             </button>
           )}
 
