@@ -1098,4 +1098,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenRestSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, ETSN, AYNA & BDYP Highway RWIS & Black Ice (RWIS-SAFE) button and calls onOpenRwisSafe when clicked', () => {
+    const onOpenRwisSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenRwisSafe={onOpenRwisSafe} />);
+
+    const btn = screen.getByTestId('navbar-rwis-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenRwisSafe).toHaveBeenCalledTimes(1);
+  });
 });

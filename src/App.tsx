@@ -140,6 +140,7 @@ const SosSafeModal = React.lazy(() => import('./components/SosSafeModal').then(m
 const VmsSafeModal = React.lazy(() => import('./components/VmsSafeModal').then(m => ({ default: m.VmsSafeModal })));
 const AidSafeModal = React.lazy(() => import('./components/AidSafeModal').then(m => ({ default: m.AidSafeModal })));
 const RestSafeModal = React.lazy(() => import('./components/RestSafeModal').then(m => ({ default: m.RestSafeModal })));
+const RwisSafeModal = React.lazy(() => import('./components/RwisSafeModal').then(m => ({ default: m.RwisSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -434,6 +435,7 @@ export function App() {
   const [isVmsSafeModalOpen, setIsVmsSafeModalOpen] = useState(false);
   const [isAidSafeModalOpen, setIsAidSafeModalOpen] = useState(false);
   const [isRestSafeModalOpen, setIsRestSafeModalOpen] = useState(false);
+  const [isRwisSafeModalOpen, setIsRwisSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -860,6 +862,9 @@ export function App() {
         }}
         onOpenRestSafe={() => {
           setIsRestSafeModalOpen(true);
+        }}
+        onOpenRwisSafe={() => {
+          setIsRwisSafeModalOpen(true);
         }}
       />
 
@@ -2985,6 +2990,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsRestSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, ETSN, AYNA & BDYP Highway RWIS, Black Ice & FAST Anti-Icing (RWIS-SAFE-AZ-2026) Portal */}
+        <RwisSafeModal
+          isOpen={isRwisSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsRwisSafeModalOpen(false);
           }}
         />
 

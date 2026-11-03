@@ -193,6 +193,7 @@ interface NavbarProps {
   onOpenVmsSafe?: () => void;
   onOpenAidSafe?: () => void;
   onOpenRestSafe?: () => void;
+  onOpenRwisSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -310,6 +311,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenVmsSafe,
   onOpenAidSafe,
   onOpenRestSafe,
+  onOpenRwisSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1635,6 +1637,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Coffee className="w-4 h-4 text-teal-400 animate-bounce" />
               <span className="hidden xl:inline">TIR Rest</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, ETSN, AYNA & BDYP Highway RWIS, Black Ice & FAST Anti-Icing (RWIS-SAFE-AZ-2026) Portal Button */}
+          {onOpenRwisSafe && (
+            <button
+              onClick={onOpenRwisSafe}
+              data-testid="navbar-rwis-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, ETSN, AYNA & BDYP Magistral Yol-Hava Məlumat (RWIS), Qara Buz və FAST Çiləmə Portalı (RWIS-SAFE-AZ-2026)"
+            >
+              <Snowflake className="w-4 h-4 text-cyan-400 animate-spin-slow" />
+              <span className="hidden xl:inline">RWIS Buz</span>
             </button>
           )}
 
