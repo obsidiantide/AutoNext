@@ -136,6 +136,7 @@ const TunnelSafeModal = React.lazy(() => import('./components/TunnelSafeModal').
 const MarkSafeModal = React.lazy(() => import('./components/MarkSafeModal').then(m => ({ default: m.MarkSafeModal })));
 const WorkZoneSafeModal = React.lazy(() => import('./components/WorkZoneSafeModal').then(m => ({ default: m.WorkZoneSafeModal })));
 const LightSafeModal = React.lazy(() => import('./components/LightSafeModal').then(m => ({ default: m.LightSafeModal })));
+const SosSafeModal = React.lazy(() => import('./components/SosSafeModal').then(m => ({ default: m.SosSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -426,6 +427,7 @@ export function App() {
   const [isMarkSafeModalOpen, setIsMarkSafeModalOpen] = useState(false);
   const [isWorkZoneSafeModalOpen, setIsWorkZoneSafeModalOpen] = useState(false);
   const [isLightSafeModalOpen, setIsLightSafeModalOpen] = useState(false);
+  const [isSosSafeModalOpen, setIsSosSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -840,6 +842,9 @@ export function App() {
         }}
         onOpenLightSafe={() => {
           setIsLightSafeModalOpen(true);
+        }}
+        onOpenSosSafe={() => {
+          setIsSosSafeModalOpen(true);
         }}
       />
 
@@ -2929,6 +2934,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsLightSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, FHN & BDYP Highway Emergency Call Box (SOS / ERT) & Shoulder Breakdown Safety (SOS-SAFE-AZ-2026) Portal */}
+        <SosSafeModal
+          isOpen={isSosSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsSosSafeModalOpen(false);
           }}
         />
 

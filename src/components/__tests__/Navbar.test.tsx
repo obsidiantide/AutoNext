@@ -1058,4 +1058,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenLightSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN & BDYP Highway Emergency Call Box (SOS-SAFE) button and calls onOpenSosSafe when clicked', () => {
+    const onOpenSosSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenSosSafe={onOpenSosSafe} />);
+
+    const btn = screen.getByTestId('navbar-sos-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSosSafe).toHaveBeenCalledTimes(1);
+  });
 });

@@ -58,6 +58,7 @@ import {
   CableCar,
   Snowflake,
   ThermometerSnowflake,
+  PhoneCall,
   Warehouse,
   Scale,
   Lock,
@@ -187,6 +188,7 @@ interface NavbarProps {
   onOpenMarkSafe?: () => void;
   onOpenWorkZoneSafe?: () => void;
   onOpenLightSafe?: () => void;
+  onOpenSosSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -300,6 +302,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenMarkSafe,
   onOpenWorkZoneSafe,
   onOpenLightSafe,
+  onOpenSosSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1573,6 +1576,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <SunMedium className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">İşıqlandırma LIGHT</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, FHN & BDYP Highway Emergency Call Box (SOS / ERT) & Shoulder Breakdown Safety (SOS-SAFE-AZ-2026) Portal Button */}
+          {onOpenSosSafe && (
+            <button
+              onClick={onOpenSosSafe}
+              data-testid="navbar-sos-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, FHN & BDYP Magistral Təcili SOS Çağırış Sütunları və Yol Çiyini Qəza Portalı (SOS-SAFE-AZ-2026)"
+            >
+              <PhoneCall className="w-4 h-4 text-rose-400 animate-pulse" />
+              <span className="hidden xl:inline">SOS Zəng</span>
             </button>
           )}
 
