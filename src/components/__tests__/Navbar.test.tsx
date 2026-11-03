@@ -1068,4 +1068,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenSosSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway VMS & Dynamic Gantry (VMS-SAFE) button and calls onOpenVmsSafe when clicked', () => {
+    const onOpenVmsSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenVmsSafe={onOpenVmsSafe} />);
+
+    const btn = screen.getByTestId('navbar-vms-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenVmsSafe).toHaveBeenCalledTimes(1);
+  });
 });

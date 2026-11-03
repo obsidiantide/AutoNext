@@ -189,6 +189,7 @@ interface NavbarProps {
   onOpenWorkZoneSafe?: () => void;
   onOpenLightSafe?: () => void;
   onOpenSosSafe?: () => void;
+  onOpenVmsSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -303,6 +304,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenWorkZoneSafe,
   onOpenLightSafe,
   onOpenSosSafe,
+  onOpenVmsSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1589,6 +1591,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <PhoneCall className="w-4 h-4 text-rose-400 animate-pulse" />
               <span className="hidden xl:inline">SOS Zəng</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Variable Message Signs (VMS / DMS) & Lane Control Signals (VMS-SAFE-AZ-2026) Portal Button */}
+          {onOpenVmsSafe && (
+            <button
+              onClick={onOpenVmsSafe}
+              data-testid="navbar-vms-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Dəyişən Məlumat Nişanları (VMS / DMS) və Qantry Portalı (VMS-SAFE-AZ-2026)"
+            >
+              <Radio className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">VMS Qantry</span>
             </button>
           )}
 

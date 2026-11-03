@@ -137,6 +137,7 @@ const MarkSafeModal = React.lazy(() => import('./components/MarkSafeModal').then
 const WorkZoneSafeModal = React.lazy(() => import('./components/WorkZoneSafeModal').then(m => ({ default: m.WorkZoneSafeModal })));
 const LightSafeModal = React.lazy(() => import('./components/LightSafeModal').then(m => ({ default: m.LightSafeModal })));
 const SosSafeModal = React.lazy(() => import('./components/SosSafeModal').then(m => ({ default: m.SosSafeModal })));
+const VmsSafeModal = React.lazy(() => import('./components/VmsSafeModal').then(m => ({ default: m.VmsSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -428,6 +429,7 @@ export function App() {
   const [isWorkZoneSafeModalOpen, setIsWorkZoneSafeModalOpen] = useState(false);
   const [isLightSafeModalOpen, setIsLightSafeModalOpen] = useState(false);
   const [isSosSafeModalOpen, setIsSosSafeModalOpen] = useState(false);
+  const [isVmsSafeModalOpen, setIsVmsSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -845,6 +847,9 @@ export function App() {
         }}
         onOpenSosSafe={() => {
           setIsSosSafeModalOpen(true);
+        }}
+        onOpenVmsSafe={() => {
+          setIsVmsSafeModalOpen(true);
         }}
       />
 
@@ -2943,6 +2948,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsSosSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Variable Message Signs (VMS / DMS) & Lane Control Signals (VMS-SAFE-AZ-2026) Portal */}
+        <VmsSafeModal
+          isOpen={isVmsSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsVmsSafeModalOpen(false);
           }}
         />
 
