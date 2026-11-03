@@ -1088,4 +1088,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenAidSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway Rest Areas & Driver Fatigue (REST-SAFE) button and calls onOpenRestSafe when clicked', () => {
+    const onOpenRestSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenRestSafe={onOpenRestSafe} />);
+
+    const btn = screen.getByTestId('navbar-rest-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenRestSafe).toHaveBeenCalledTimes(1);
+  });
 });

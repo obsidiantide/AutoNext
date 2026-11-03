@@ -139,6 +139,7 @@ const LightSafeModal = React.lazy(() => import('./components/LightSafeModal').th
 const SosSafeModal = React.lazy(() => import('./components/SosSafeModal').then(m => ({ default: m.SosSafeModal })));
 const VmsSafeModal = React.lazy(() => import('./components/VmsSafeModal').then(m => ({ default: m.VmsSafeModal })));
 const AidSafeModal = React.lazy(() => import('./components/AidSafeModal').then(m => ({ default: m.AidSafeModal })));
+const RestSafeModal = React.lazy(() => import('./components/RestSafeModal').then(m => ({ default: m.RestSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -432,6 +433,7 @@ export function App() {
   const [isSosSafeModalOpen, setIsSosSafeModalOpen] = useState(false);
   const [isVmsSafeModalOpen, setIsVmsSafeModalOpen] = useState(false);
   const [isAidSafeModalOpen, setIsAidSafeModalOpen] = useState(false);
+  const [isRestSafeModalOpen, setIsRestSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -855,6 +857,9 @@ export function App() {
         }}
         onOpenAidSafe={() => {
           setIsAidSafeModalOpen(true);
+        }}
+        onOpenRestSafe={() => {
+          setIsRestSafeModalOpen(true);
         }}
       />
 
@@ -2971,6 +2976,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsAidSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Rest Areas & Driver Fatigue (REST-SAFE-AZ-2026) Portal */}
+        <RestSafeModal
+          isOpen={isRestSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsRestSafeModalOpen(false);
           }}
         />
 

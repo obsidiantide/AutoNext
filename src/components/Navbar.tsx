@@ -75,6 +75,7 @@ import {
   MountainSnow,
   Shield,
   Droplets,
+  Coffee,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -191,6 +192,7 @@ interface NavbarProps {
   onOpenSosSafe?: () => void;
   onOpenVmsSafe?: () => void;
   onOpenAidSafe?: () => void;
+  onOpenRestSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -307,6 +309,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSosSafe,
   onOpenVmsSafe,
   onOpenAidSafe,
+  onOpenRestSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1619,6 +1622,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Video className="w-4 h-4 text-emerald-400 animate-pulse" />
               <span className="hidden xl:inline">AID CCTV</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Rest Areas & Driver Fatigue (REST-SAFE-AZ-2026) Portal Button */}
+          {onOpenRestSafe && (
+            <button
+              onClick={onOpenRestSafe}
+              data-testid="navbar-rest-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Yol İstirahət Zonaları & Sürücü Yorğunluğu SCADA Portalı (REST-SAFE-AZ-2026)"
+            >
+              <Coffee className="w-4 h-4 text-teal-400 animate-bounce" />
+              <span className="hidden xl:inline">TIR Rest</span>
             </button>
           )}
 
