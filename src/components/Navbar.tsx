@@ -194,6 +194,7 @@ interface NavbarProps {
   onOpenAidSafe?: () => void;
   onOpenRestSafe?: () => void;
   onOpenRwisSafe?: () => void;
+  onOpenRampSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -312,6 +313,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAidSafe,
   onOpenRestSafe,
   onOpenRwisSafe,
+  onOpenRampSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1650,6 +1652,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Snowflake className="w-4 h-4 text-cyan-400 animate-spin-slow" />
               <span className="hidden xl:inline">RWIS Buz</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Ramp Metering, ALINEA SCADA & Merge Safety (RAMP-SAFE-AZ-2026) Portal Button */}
+          {onOpenRampSafe && (
+            <button
+              onClick={onOpenRampSafe}
+              data-testid="navbar-ramp-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Giriş Rampası Nəzarət və ALINEA SCADA Portalı (RAMP-SAFE-AZ-2026)"
+            >
+              <Zap className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <span className="hidden xl:inline">Ramp Nəzarət</span>
             </button>
           )}
 

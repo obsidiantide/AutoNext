@@ -1108,4 +1108,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenRwisSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway Ramp Metering (RAMP-SAFE) button and calls onOpenRampSafe when clicked', () => {
+    const onOpenRampSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenRampSafe={onOpenRampSafe} />);
+
+    const btn = screen.getByTestId('navbar-ramp-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenRampSafe).toHaveBeenCalledTimes(1);
+  });
 });

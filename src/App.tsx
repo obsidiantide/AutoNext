@@ -141,6 +141,7 @@ const VmsSafeModal = React.lazy(() => import('./components/VmsSafeModal').then(m
 const AidSafeModal = React.lazy(() => import('./components/AidSafeModal').then(m => ({ default: m.AidSafeModal })));
 const RestSafeModal = React.lazy(() => import('./components/RestSafeModal').then(m => ({ default: m.RestSafeModal })));
 const RwisSafeModal = React.lazy(() => import('./components/RwisSafeModal').then(m => ({ default: m.RwisSafeModal })));
+const RampSafeModal = React.lazy(() => import('./components/RampSafeModal').then(m => ({ default: m.RampSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -436,6 +437,7 @@ export function App() {
   const [isAidSafeModalOpen, setIsAidSafeModalOpen] = useState(false);
   const [isRestSafeModalOpen, setIsRestSafeModalOpen] = useState(false);
   const [isRwisSafeModalOpen, setIsRwisSafeModalOpen] = useState(false);
+  const [isRampSafeModalOpen, setIsRampSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -865,6 +867,9 @@ export function App() {
         }}
         onOpenRwisSafe={() => {
           setIsRwisSafeModalOpen(true);
+        }}
+        onOpenRampSafe={() => {
+          setIsRampSafeModalOpen(true);
         }}
       />
 
@@ -2999,6 +3004,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsRwisSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Ramp Metering, ALINEA SCADA & Merge Safety (RAMP-SAFE-AZ-2026) Portal */}
+        <RampSafeModal
+          isOpen={isRampSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsRampSafeModalOpen(false);
           }}
         />
 
