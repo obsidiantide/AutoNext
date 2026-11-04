@@ -1138,4 +1138,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenFastGate).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway Crash Cushions & Impact Attenuators button and calls onOpenCushionSafe when clicked', () => {
+    const onOpenCushionSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenCushionSafe={onOpenCushionSafe} />);
+
+    const btn = screen.getByTestId('navbar-cushion-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenCushionSafe).toHaveBeenCalledTimes(1);
+  });
 });

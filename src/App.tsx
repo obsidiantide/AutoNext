@@ -144,6 +144,7 @@ const RwisSafeModal = React.lazy(() => import('./components/RwisSafeModal').then
 const RampSafeModal = React.lazy(() => import('./components/RampSafeModal').then(m => ({ default: m.RampSafeModal })));
 const SectionSafeModal = React.lazy(() => import('./components/SectionSafeModal').then(m => ({ default: m.SectionSafeModal })));
 const FastGateModal = React.lazy(() => import('./components/FastGateModal').then(m => ({ default: m.FastGateModal })));
+const CushionSafeModal = React.lazy(() => import('./components/CushionSafeModal').then(m => ({ default: m.CushionSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -442,6 +443,7 @@ export function App() {
   const [isRampSafeModalOpen, setIsRampSafeModalOpen] = useState(false);
   const [isSectionSafeModalOpen, setIsSectionSafeModalOpen] = useState(false);
   const [isFastGateModalOpen, setIsFastGateModalOpen] = useState(false);
+  const [isCushionSafeModalOpen, setIsCushionSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -880,6 +882,9 @@ export function App() {
         }}
         onOpenFastGate={() => {
           setIsFastGateModalOpen(true);
+        }}
+        onOpenCushionSafe={() => {
+          setIsCushionSafeModalOpen(true);
         }}
       />
 
@@ -3041,6 +3046,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsFastGateModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Crash Cushions & Impact Attenuators (CUSHION-SAFE-AZ-2026) Portal */}
+        <CushionSafeModal
+          isOpen={isCushionSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsCushionSafeModalOpen(false);
           }}
         />
 

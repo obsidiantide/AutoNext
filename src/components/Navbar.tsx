@@ -197,6 +197,7 @@ interface NavbarProps {
   onOpenRampSafe?: () => void;
   onOpenSectionSafe?: () => void;
   onOpenFastGate?: () => void;
+  onOpenCushionSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -318,6 +319,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenRampSafe,
   onOpenSectionSafe,
   onOpenFastGate,
+  onOpenCushionSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1695,6 +1697,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <ShieldCheck className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Fast-Gate Median</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Crash Cushions & Impact Attenuator (CUSHION-SAFE-AZ-2026) Portal Button */}
+          {onOpenCushionSafe && (
+            <button
+              onClick={onOpenCushionSafe}
+              data-testid="navbar-cushion-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Qəza Sönümləyici Yastıqlar və Zərbə Amortizatorları Portalı (CUSHION-SAFE-AZ-2026)"
+            >
+              <ShieldCheck className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Qəza Yastıqları</span>
             </button>
           )}
 
