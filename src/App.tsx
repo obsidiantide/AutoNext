@@ -143,6 +143,7 @@ const RestSafeModal = React.lazy(() => import('./components/RestSafeModal').then
 const RwisSafeModal = React.lazy(() => import('./components/RwisSafeModal').then(m => ({ default: m.RwisSafeModal })));
 const RampSafeModal = React.lazy(() => import('./components/RampSafeModal').then(m => ({ default: m.RampSafeModal })));
 const SectionSafeModal = React.lazy(() => import('./components/SectionSafeModal').then(m => ({ default: m.SectionSafeModal })));
+const FastGateModal = React.lazy(() => import('./components/FastGateModal').then(m => ({ default: m.FastGateModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -440,6 +441,7 @@ export function App() {
   const [isRwisSafeModalOpen, setIsRwisSafeModalOpen] = useState(false);
   const [isRampSafeModalOpen, setIsRampSafeModalOpen] = useState(false);
   const [isSectionSafeModalOpen, setIsSectionSafeModalOpen] = useState(false);
+  const [isFastGateModalOpen, setIsFastGateModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -875,6 +877,9 @@ export function App() {
         }}
         onOpenSectionSafe={() => {
           setIsSectionSafeModalOpen(true);
+        }}
+        onOpenFastGate={() => {
+          setIsFastGateModalOpen(true);
         }}
       />
 
@@ -3027,6 +3032,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsSectionSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, FHN & BDYP Highway Emergency Median Crossover, Fast-Gate & Contraflow (FAST-GATE-AZ-2026) Portal */}
+        <FastGateModal
+          isOpen={isFastGateModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsFastGateModalOpen(false);
           }}
         />
 

@@ -196,6 +196,7 @@ interface NavbarProps {
   onOpenRwisSafe?: () => void;
   onOpenRampSafe?: () => void;
   onOpenSectionSafe?: () => void;
+  onOpenFastGate?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -316,6 +317,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenRwisSafe,
   onOpenRampSafe,
   onOpenSectionSafe,
+  onOpenFastGate,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1680,6 +1682,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <ShieldCheck className="w-4 h-4 text-teal-400 animate-pulse" />
               <span className="hidden xl:inline">Section Control</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, FHN & BDYP Highway Emergency Median Crossover, Fast-Gate & Contraflow (FAST-GATE-AZ-2026) Portal Button */}
+          {onOpenFastGate && (
+            <button
+              onClick={onOpenFastGate}
+              data-testid="navbar-fast-gate-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, FHN & BDYP Magistral Qəza Ayrıcı Keçidləri və Fast-Gate Portalı (FAST-GATE-AZ-2026)"
+            >
+              <ShieldCheck className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Fast-Gate Median</span>
             </button>
           )}
 

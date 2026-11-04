@@ -1128,4 +1128,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenSectionSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, FHN & BDYP Highway Fast-Gate Median Crossover button and calls onOpenFastGate when clicked', () => {
+    const onOpenFastGate = vi.fn();
+    render(<Navbar {...defaultProps} onOpenFastGate={onOpenFastGate} />);
+
+    const btn = screen.getByTestId('navbar-fast-gate-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenFastGate).toHaveBeenCalledTimes(1);
+  });
 });
