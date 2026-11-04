@@ -147,6 +147,7 @@ const FastGateModal = React.lazy(() => import('./components/FastGateModal').then
 const CushionSafeModal = React.lazy(() => import('./components/CushionSafeModal').then(m => ({ default: m.CushionSafeModal })));
 const FaunaSafeModal = React.lazy(() => import('./components/FaunaSafeModal').then(m => ({ default: m.FaunaSafeModal })));
 const GlareSafeModal = React.lazy(() => import('./components/GlareSafeModal').then(m => ({ default: m.GlareSafeModal })));
+const RumbleSafeModal = React.lazy(() => import('./components/RumbleSafeModal').then(m => ({ default: m.RumbleSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -448,6 +449,7 @@ export function App() {
   const [isCushionSafeModalOpen, setIsCushionSafeModalOpen] = useState(false);
   const [isFaunaSafeModalOpen, setIsFaunaSafeModalOpen] = useState(false);
   const [isGlareSafeModalOpen, setIsGlareSafeModalOpen] = useState(false);
+  const [isRumbleSafeModalOpen, setIsRumbleSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -895,6 +897,9 @@ export function App() {
         }}
         onOpenGlareSafe={() => {
           setIsGlareSafeModalOpen(true);
+        }}
+        onOpenRumbleSafe={() => {
+          setIsRumbleSafeModalOpen(true);
         }}
       />
 
@@ -3082,6 +3087,14 @@ export function App() {
           isOpen={isGlareSafeModalOpen}
           onClose={() => {
             setIsGlareSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA & BDYP Highway Rumble Strips, Milled Shoulder & Centerline Delineation (RUMBLE-SAFE-AZ-2026) Portal */}
+        <RumbleSafeModal
+          isOpen={isRumbleSafeModalOpen}
+          onClose={() => {
+            setIsRumbleSafeModalOpen(false);
           }}
         />
 

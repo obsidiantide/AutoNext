@@ -200,6 +200,7 @@ interface NavbarProps {
   onOpenCushionSafe?: () => void;
   onOpenFaunaSafe?: () => void;
   onOpenGlareSafe?: () => void;
+  onOpenRumbleSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -324,6 +325,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCushionSafe,
   onOpenFaunaSafe,
   onOpenGlareSafe,
+  onOpenRumbleSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1740,6 +1742,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <SunMedium className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span className="hidden xl:inline">Anti-Glare</span>
+            </button>
+          )}
+
+          {/* Official AAYDA & BDYP Highway Rumble Strips, Milled Shoulder & Centerline Delineation (RUMBLE-SAFE-AZ-2026) Portal Button */}
+          {onOpenRumbleSafe && (
+            <button
+              onClick={onOpenRumbleSafe}
+              data-testid="navbar-rumble-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA & BDYP Magistral Səs-Küy və Titrəyiş Zolaqları Portalı (RUMBLE-SAFE-AZ-2026)"
+            >
+              <Waves className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Rumble-Safe</span>
             </button>
           )}
 

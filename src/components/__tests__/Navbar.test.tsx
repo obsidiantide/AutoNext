@@ -1168,4 +1168,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenGlareSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA & BDYP Highway Rumble Strips button and calls onOpenRumbleSafe when clicked', () => {
+    const onOpenRumbleSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenRumbleSafe={onOpenRumbleSafe} />);
+
+    const btn = screen.getByTestId('navbar-rumble-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenRumbleSafe).toHaveBeenCalledTimes(1);
+  });
 });
