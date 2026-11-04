@@ -146,6 +146,7 @@ const SectionSafeModal = React.lazy(() => import('./components/SectionSafeModal'
 const FastGateModal = React.lazy(() => import('./components/FastGateModal').then(m => ({ default: m.FastGateModal })));
 const CushionSafeModal = React.lazy(() => import('./components/CushionSafeModal').then(m => ({ default: m.CushionSafeModal })));
 const FaunaSafeModal = React.lazy(() => import('./components/FaunaSafeModal').then(m => ({ default: m.FaunaSafeModal })));
+const GlareSafeModal = React.lazy(() => import('./components/GlareSafeModal').then(m => ({ default: m.GlareSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -446,6 +447,7 @@ export function App() {
   const [isFastGateModalOpen, setIsFastGateModalOpen] = useState(false);
   const [isCushionSafeModalOpen, setIsCushionSafeModalOpen] = useState(false);
   const [isFaunaSafeModalOpen, setIsFaunaSafeModalOpen] = useState(false);
+  const [isGlareSafeModalOpen, setIsGlareSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -890,6 +892,9 @@ export function App() {
         }}
         onOpenFaunaSafe={() => {
           setIsFaunaSafeModalOpen(true);
+        }}
+        onOpenGlareSafe={() => {
+          setIsGlareSafeModalOpen(true);
         }}
       />
 
@@ -3069,6 +3074,14 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsFaunaSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA & BDYP Highway Anti-Glare Screens & Glare Defense (GLARE-SAFE-AZ-2026) Portal */}
+        <GlareSafeModal
+          isOpen={isGlareSafeModalOpen}
+          onClose={() => {
+            setIsGlareSafeModalOpen(false);
           }}
         />
 

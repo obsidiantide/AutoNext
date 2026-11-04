@@ -1158,4 +1158,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenFaunaSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA & BDYP Highway Anti-Glare Screens & Glare Defense button and calls onOpenGlareSafe when clicked', () => {
+    const onOpenGlareSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenGlareSafe={onOpenGlareSafe} />);
+
+    const btn = screen.getByTestId('navbar-glare-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenGlareSafe).toHaveBeenCalledTimes(1);
+  });
 });
