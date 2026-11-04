@@ -198,6 +198,7 @@ interface NavbarProps {
   onOpenSectionSafe?: () => void;
   onOpenFastGate?: () => void;
   onOpenCushionSafe?: () => void;
+  onOpenFaunaSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -320,6 +321,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSectionSafe,
   onOpenFastGate,
   onOpenCushionSafe,
+  onOpenFaunaSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1710,6 +1712,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <ShieldCheck className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Qəza Yastıqları</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, ETSN & BDYP Highway Wildlife Crossings & Eco-Ducts (FAUNA-SAFE-AZ-2026) Portal Button */}
+          {onOpenFaunaSafe && (
+            <button
+              onClick={onOpenFaunaSafe}
+              data-testid="navbar-fauna-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, ETSN & BDYP Magistral Vəhşi Heyvan Keçidləri və Eko-Dukt Portalı (FAUNA-SAFE-AZ-2026)"
+            >
+              <Trees className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <span className="hidden xl:inline">Eko-Dukt</span>
             </button>
           )}
 

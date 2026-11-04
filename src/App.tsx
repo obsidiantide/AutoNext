@@ -145,6 +145,7 @@ const RampSafeModal = React.lazy(() => import('./components/RampSafeModal').then
 const SectionSafeModal = React.lazy(() => import('./components/SectionSafeModal').then(m => ({ default: m.SectionSafeModal })));
 const FastGateModal = React.lazy(() => import('./components/FastGateModal').then(m => ({ default: m.FastGateModal })));
 const CushionSafeModal = React.lazy(() => import('./components/CushionSafeModal').then(m => ({ default: m.CushionSafeModal })));
+const FaunaSafeModal = React.lazy(() => import('./components/FaunaSafeModal').then(m => ({ default: m.FaunaSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -444,6 +445,7 @@ export function App() {
   const [isSectionSafeModalOpen, setIsSectionSafeModalOpen] = useState(false);
   const [isFastGateModalOpen, setIsFastGateModalOpen] = useState(false);
   const [isCushionSafeModalOpen, setIsCushionSafeModalOpen] = useState(false);
+  const [isFaunaSafeModalOpen, setIsFaunaSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -885,6 +887,9 @@ export function App() {
         }}
         onOpenCushionSafe={() => {
           setIsCushionSafeModalOpen(true);
+        }}
+        onOpenFaunaSafe={() => {
+          setIsFaunaSafeModalOpen(true);
         }}
       />
 
@@ -3055,6 +3060,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsCushionSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, ETSN & BDYP Highway Wildlife Crossings & Eco-Ducts (FAUNA-SAFE-AZ-2026) Portal */}
+        <FaunaSafeModal
+          isOpen={isFaunaSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsFaunaSafeModalOpen(false);
           }}
         />
 
