@@ -1118,4 +1118,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenRampSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway Section Control (SECTION-SAFE) button and calls onOpenSectionSafe when clicked', () => {
+    const onOpenSectionSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenSectionSafe={onOpenSectionSafe} />);
+
+    const btn = screen.getByTestId('navbar-section-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenSectionSafe).toHaveBeenCalledTimes(1);
+  });
 });

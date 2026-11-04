@@ -142,6 +142,7 @@ const AidSafeModal = React.lazy(() => import('./components/AidSafeModal').then(m
 const RestSafeModal = React.lazy(() => import('./components/RestSafeModal').then(m => ({ default: m.RestSafeModal })));
 const RwisSafeModal = React.lazy(() => import('./components/RwisSafeModal').then(m => ({ default: m.RwisSafeModal })));
 const RampSafeModal = React.lazy(() => import('./components/RampSafeModal').then(m => ({ default: m.RampSafeModal })));
+const SectionSafeModal = React.lazy(() => import('./components/SectionSafeModal').then(m => ({ default: m.SectionSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -438,6 +439,7 @@ export function App() {
   const [isRestSafeModalOpen, setIsRestSafeModalOpen] = useState(false);
   const [isRwisSafeModalOpen, setIsRwisSafeModalOpen] = useState(false);
   const [isRampSafeModalOpen, setIsRampSafeModalOpen] = useState(false);
+  const [isSectionSafeModalOpen, setIsSectionSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -870,6 +872,9 @@ export function App() {
         }}
         onOpenRampSafe={() => {
           setIsRampSafeModalOpen(true);
+        }}
+        onOpenSectionSafe={() => {
+          setIsSectionSafeModalOpen(true);
         }}
       />
 
@@ -3013,6 +3018,15 @@ export function App() {
           currency={currency}
           onClose={() => {
             setIsRampSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Section Control, Point-to-Point Average Speed & OIML R 91 (SECTION-SAFE-AZ-2026) Portal */}
+        <SectionSafeModal
+          isOpen={isSectionSafeModalOpen}
+          currency={currency}
+          onClose={() => {
+            setIsSectionSafeModalOpen(false);
           }}
         />
 

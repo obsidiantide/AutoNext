@@ -195,6 +195,7 @@ interface NavbarProps {
   onOpenRestSafe?: () => void;
   onOpenRwisSafe?: () => void;
   onOpenRampSafe?: () => void;
+  onOpenSectionSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -314,6 +315,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenRestSafe,
   onOpenRwisSafe,
   onOpenRampSafe,
+  onOpenSectionSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1665,6 +1667,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Zap className="w-4 h-4 text-emerald-400 animate-pulse" />
               <span className="hidden xl:inline">Ramp Nəzarət</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Section Control, Point-to-Point Average Speed & OIML R 91 (SECTION-SAFE-AZ-2026) Portal Button */}
+          {onOpenSectionSafe && (
+            <button
+              onClick={onOpenSectionSafe}
+              data-testid="navbar-section-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Ortalama Sürət Radarı və Section Control Portalı (SECTION-SAFE-AZ-2026)"
+            >
+              <ShieldCheck className="w-4 h-4 text-teal-400 animate-pulse" />
+              <span className="hidden xl:inline">Section Control</span>
             </button>
           )}
 
