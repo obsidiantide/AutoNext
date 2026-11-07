@@ -148,6 +148,8 @@ const CushionSafeModal = React.lazy(() => import('./components/CushionSafeModal'
 const FaunaSafeModal = React.lazy(() => import('./components/FaunaSafeModal').then(m => ({ default: m.FaunaSafeModal })));
 const GlareSafeModal = React.lazy(() => import('./components/GlareSafeModal').then(m => ({ default: m.GlareSafeModal })));
 const RumbleSafeModal = React.lazy(() => import('./components/RumbleSafeModal').then(m => ({ default: m.RumbleSafeModal })));
+const DelineatorSafeModal = React.lazy(() => import('./components/DelineatorSafeModal').then(m => ({ default: m.DelineatorSafeModal })));
+const TerminalSafeModal = React.lazy(() => import('./components/TerminalSafeModal').then(m => ({ default: m.TerminalSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -450,6 +452,8 @@ export function App() {
   const [isFaunaSafeModalOpen, setIsFaunaSafeModalOpen] = useState(false);
   const [isGlareSafeModalOpen, setIsGlareSafeModalOpen] = useState(false);
   const [isRumbleSafeModalOpen, setIsRumbleSafeModalOpen] = useState(false);
+  const [isDelineatorSafeModalOpen, setIsDelineatorSafeModalOpen] = useState(false);
+  const [isTerminalSafeModalOpen, setIsTerminalSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -900,6 +904,12 @@ export function App() {
         }}
         onOpenRumbleSafe={() => {
           setIsRumbleSafeModalOpen(true);
+        }}
+        onOpenDelineatorSafe={() => {
+          setIsDelineatorSafeModalOpen(true);
+        }}
+        onOpenTerminalSafe={() => {
+          setIsTerminalSafeModalOpen(true);
         }}
       />
 
@@ -3095,6 +3105,22 @@ export function App() {
           isOpen={isRumbleSafeModalOpen}
           onClose={() => {
             setIsRumbleSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Delineator Posts & Optical Guidance (DELINEATOR-SAFE-AZ-2026) Portal */}
+        <DelineatorSafeModal
+          isOpen={isDelineatorSafeModalOpen}
+          onClose={() => {
+            setIsDelineatorSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Guardrail End Terminals & Energy Absorption (TERMINAL-SAFE-AZ-2026) Portal */}
+        <TerminalSafeModal
+          isOpen={isTerminalSafeModalOpen}
+          onClose={() => {
+            setIsTerminalSafeModalOpen(false);
           }}
         />
 

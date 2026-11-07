@@ -1178,4 +1178,24 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenRumbleSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway Delineator Posts button and calls onOpenDelineatorSafe when clicked', () => {
+    const onOpenDelineatorSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenDelineatorSafe={onOpenDelineatorSafe} />);
+
+    const btn = screen.getByTestId('navbar-delineator-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenDelineatorSafe).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders AAYDA, AYNA & BDYP Highway Guardrail End Terminals button and calls onOpenTerminalSafe when clicked', () => {
+    const onOpenTerminalSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenTerminalSafe={onOpenTerminalSafe} />);
+
+    const btn = screen.getByTestId('navbar-terminal-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenTerminalSafe).toHaveBeenCalledTimes(1);
+  });
 });

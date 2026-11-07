@@ -201,6 +201,8 @@ interface NavbarProps {
   onOpenFaunaSafe?: () => void;
   onOpenGlareSafe?: () => void;
   onOpenRumbleSafe?: () => void;
+  onOpenDelineatorSafe?: () => void;
+  onOpenTerminalSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -326,6 +328,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenFaunaSafe,
   onOpenGlareSafe,
   onOpenRumbleSafe,
+  onOpenDelineatorSafe,
+  onOpenTerminalSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1755,6 +1759,32 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Waves className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Rumble-Safe</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Delineator Posts & Optical Guidance (DELINEATOR-SAFE-AZ-2026) Portal Button */}
+          {onOpenDelineatorSafe && (
+            <button
+              onClick={onOpenDelineatorSafe}
+              data-testid="navbar-delineator-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Bələdçi Sütunlar və Optik Bələdçilik Portalı (DELINEATOR-SAFE-AZ-2026)"
+            >
+              <Compass className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Delineator-Safe</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Guardrail End Terminals & Energy Absorption (TERMINAL-SAFE-AZ-2026) Portal Button */}
+          {onOpenTerminalSafe && (
+            <button
+              onClick={onOpenTerminalSafe}
+              data-testid="navbar-terminal-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Yol Çəpəri Ucluqları Portalı (TERMINAL-SAFE-AZ-2026)"
+            >
+              <Shield className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="hidden xl:inline">Terminal-Safe</span>
             </button>
           )}
 
