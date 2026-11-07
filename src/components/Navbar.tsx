@@ -76,6 +76,7 @@ import {
   Shield,
   Droplets,
   Coffee,
+  Footprints,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -203,6 +204,7 @@ interface NavbarProps {
   onOpenRumbleSafe?: () => void;
   onOpenDelineatorSafe?: () => void;
   onOpenTerminalSafe?: () => void;
+  onOpenFootbridgeSafe?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -330,6 +332,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenRumbleSafe,
   onOpenDelineatorSafe,
   onOpenTerminalSafe,
+  onOpenFootbridgeSafe,
 }) => {
   const t = TRANSLATIONS[lang];
 
@@ -1785,6 +1788,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Shield className="w-4 h-4 text-amber-400 animate-pulse" />
               <span className="hidden xl:inline">Terminal-Safe</span>
+            </button>
+          )}
+
+          {/* Official AAYDA, AYNA & BDYP Highway Pedestrian Overpasses & Smart Glass Footbridges (FOOTBRIDGE-SAFE-AZ-2026) Portal Button */}
+          {onOpenFootbridgeSafe && (
+            <button
+              onClick={onOpenFootbridgeSafe}
+              data-testid="navbar-footbridge-safe-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all cursor-pointer shadow-sm"
+              title="AAYDA, AYNA & BDYP Magistral Yerüstü Piyada Keçidləri Portalı (FOOTBRIDGE-SAFE-AZ-2026)"
+            >
+              <Footprints className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <span className="hidden xl:inline">Footbridge-Safe</span>
             </button>
           )}
 

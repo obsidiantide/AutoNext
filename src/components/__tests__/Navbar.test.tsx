@@ -1198,4 +1198,14 @@ describe('Navbar Component', () => {
     fireEvent.click(btn);
     expect(onOpenTerminalSafe).toHaveBeenCalledTimes(1);
   });
+
+  it('renders AAYDA, AYNA & BDYP Highway Pedestrian Overpasses button and calls onOpenFootbridgeSafe when clicked', () => {
+    const onOpenFootbridgeSafe = vi.fn();
+    render(<Navbar {...defaultProps} onOpenFootbridgeSafe={onOpenFootbridgeSafe} />);
+
+    const btn = screen.getByTestId('navbar-footbridge-safe-btn');
+    expect(btn).toBeInTheDocument();
+    fireEvent.click(btn);
+    expect(onOpenFootbridgeSafe).toHaveBeenCalledTimes(1);
+  });
 });

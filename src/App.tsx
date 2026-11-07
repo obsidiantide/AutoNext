@@ -150,6 +150,7 @@ const GlareSafeModal = React.lazy(() => import('./components/GlareSafeModal').th
 const RumbleSafeModal = React.lazy(() => import('./components/RumbleSafeModal').then(m => ({ default: m.RumbleSafeModal })));
 const DelineatorSafeModal = React.lazy(() => import('./components/DelineatorSafeModal').then(m => ({ default: m.DelineatorSafeModal })));
 const TerminalSafeModal = React.lazy(() => import('./components/TerminalSafeModal').then(m => ({ default: m.TerminalSafeModal })));
+const FootbridgeSafeModal = React.lazy(() => import('./components/FootbridgeSafeModal').then(m => ({ default: m.FootbridgeSafeModal })));
 import { 
   Sparkles, 
   Layers, 
@@ -454,6 +455,7 @@ export function App() {
   const [isRumbleSafeModalOpen, setIsRumbleSafeModalOpen] = useState(false);
   const [isDelineatorSafeModalOpen, setIsDelineatorSafeModalOpen] = useState(false);
   const [isTerminalSafeModalOpen, setIsTerminalSafeModalOpen] = useState(false);
+  const [isFootbridgeSafeModalOpen, setIsFootbridgeSafeModalOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState(false);
 
@@ -910,6 +912,9 @@ export function App() {
         }}
         onOpenTerminalSafe={() => {
           setIsTerminalSafeModalOpen(true);
+        }}
+        onOpenFootbridgeSafe={() => {
+          setIsFootbridgeSafeModalOpen(true);
         }}
       />
 
@@ -3121,6 +3126,14 @@ export function App() {
           isOpen={isTerminalSafeModalOpen}
           onClose={() => {
             setIsTerminalSafeModalOpen(false);
+          }}
+        />
+
+        {/* Official AAYDA, AYNA & BDYP Highway Pedestrian Overpasses & Smart Glass Footbridges (FOOTBRIDGE-SAFE-AZ-2026) Portal */}
+        <FootbridgeSafeModal
+          isOpen={isFootbridgeSafeModalOpen}
+          onClose={() => {
+            setIsFootbridgeSafeModalOpen(false);
           }}
         />
 
